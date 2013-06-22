@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<TITLE>Manage Item [|ITEMNAME|] </TITLE>
+<link href="/abra.css" rel="styleSheet" type="text/css">
+
+<script>
+
+function show_section(mname) {
+
+   melem = document.getElementById(mname);
+
+   melem.style.display = "block";
+
+}
+
+</script>
+<script type="text/javascript" src="/js/prototype.js"></script>
+<script src="/js/abra.js"></script>
+</HEAD>
+
+<BODY onload="ab_init_menus();" bgcolor="#ffffff">
+<!-- put this as an include if it works -->
+
+<!-- level 1 is down with the link itself -->
+
+<div class="menupop level1" id="menu_level_1" level=1></div>
+<div class="menupop level2" id="menu_level_2" level=2></div>
+<div class="menupop level3" id="menu_level_3" level=3></div>
+<div class="menupop level4" id="menu_level_4" level=4></div>
+<div class="menupop level5" id="menu_level_5" level=5></div>
+<div class="menupop level6" id="menu_level_6" level=6></div>
+<div class="menupop level7" id="menu_level_7" level=7></div>
+<div class="menupop level8" id="menu_level_8" level=8></div>
+<div class="menupop level9" id="menu_level_9" level=9></div>
+<div class="menupop level10" id="menu_level_10" level=10></div>
+
+<small><A HREF="[% browse %]">Browse</A> * Edit * Search * Preferences</small>
+<br>
+<form name=catform ACTION="[|THISCGI|]" method=POST>
+
+<input type=hidden name="ACTION" value="EditItem">
+<input type=hidden name="NEXTPAGE" value="Edit">
+<input type=hidden name="_ITEMID" value=[|ITEMID|]>
+<input type=hidden name="_CATID" value=[|CATID|]>
+
+Name: <input name="NAME" value="[|ITEMNAME|]" size=40>
+<p>
+URL: <input name="URL" value="[|URL|]" size=100>
+<p>
+Short content: <textarea name="SHORT_CONTENT" rows=10 cols=40 maxsize=255>[|SHORT_CONTENT|]"</textarea>
+<p>
+Effective Date: <input name="EFFECTIVE_DATE" VALUE="[|EFFECTIVE_DATE|]" size=15>
+<p>
+Category <SELECT name="cid"> 
+<OPTION value=[|CATID|] selected> [|CATPATH|] 
+~CATLIST~ <OPTION VALUE=[|ID|]> [|ID|]:[|SUBCATPATH|]
+</SELECT>
+<p>
+Optional: update category
+
+<select name=catcode>
+<option rel="a:belongsTo">
+
+</select>
+
+<!-- todo: move to AbMacros with variable start category -->
+
+<A href="javascript:ab_top_cascade(this,'23/19',document.catform.catcode.options[0]);" id="rootLink">Choose bTucson Category</A><span id=popright_2 catname="DMOZ" class=ab_menu_expandable_right onclick="ab_cascade(this,'23/19',document.catform.catcode.options[0])" onmouseover="ab_set_timer_cascade(this,event,'23/19',false,document.catform.catcode.options[0])">&nbsp;&#187;</span>&nbsp;
+
+<p>
+Phone: <input name="TYPE:ab_biz_org:phone"
+value = "[|TYPE:ab_biz_org:phone|]"
+size=30>
+<br>
+Address: <input name="TYPE:ab_biz_org:addr"
+value = "[|TYPE:ab_biz_org:addr|]"
+size=30>
+
+Zip: <input name="TYPE:ab_biz_org:zip"
+value="[|TYPE:ab_biz_org:zip|]"
+size=10>
+<br>
+Locally Owned and Operated? <input name="TYPE:ab_biz_org:local_ownop"
+	value="[|TYPE:ab_biz_org:local_ownop|]" size=1>
+<br>
+<input type=hidden name="_REPLY" value="http://btucson.com/[|ITEMID|]">
+
+<input type=submit value="save changes">
+</FORM>
+
+</BODY>
+</HTML>
+

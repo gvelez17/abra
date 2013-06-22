@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <title>Cascading Popup Menus: Syntax Notes</title>
+
+<style type="text/css">
+<!--
+
+
+body, p, ul { font: 10pt/14pt sans-serif; color: #333333 }
+h1 { font: 20pt Verdana, sans-serif; font-weight: bold; color: #009999; margin-top: 20pt;
+     margin-bottom: 20pt; text-align: center }
+h2 { font: 16pt Verdana, sans-serif; font-weight: bold; color: #009999; margin-top: 30pt;
+     text-align: center }
+h3 { font: 12pt Verdana, sans-serif; font-weight: bold; color: #003366; margin-top: 30pt }
+ul { padding-left: 8pt }
+li { margin-bottom: 3pt }
+
+a:link    { color: #3366CC; text-decoration: none }
+a:visited { color: #6633CC; text-decoration: none }
+a:hover   { background: #DDEEFF }
+a:active  { background: #3366CC; color: #FFFFFF }
+
+code { display: block; margin-left: 10pt; margin-right: 10pt; padding: 8pt 8pt 8pt 16pt;
+       font: 10pt Courier, monospace; background: #EEEEEE; border: 1px solid #CCCCCC }
+.var { color: #000099; font-weight: bold }
+.string { color: #FF0000; font-weight: bold }
+.number { color: #006666; font-weight: bold }
+.boolean { color: #CC9900; font-weight: bold }
+.file { color: #339933; font-weight: bold }
+.demo { font-weight: bold }
+
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Cascading Popup Menus v5.2</h1>
+
+
+<h2>Overview</h2>
+
+
+<p>This file explains how to go about creating and editing menus using the "Cascading Popup Menus"
+JavaScript menu system, and contains a reference for the syntax of each of the main commands.</p>
+
+<p><strong>Need extra help?</strong> If you're not familiar with JavaScript syntax (or can't get the
+effect you want), you may find the <a href="pop_assist.html">Syntax Helper</a> script useful, which
+can create the relevant commands listed here from selections in forms. And be sure to read the
+regular <a href="pop_help.html">Help!</a> document if you're stuck.</p>
+
+<p>Colour coding used in this document: <span class="var">Variable or Object Name</span>,
+<span class="string">'String value'</span>, <span class="number">Number value</span>,
+<span class="boolean">Boolean value (true or false)</span>, <span class="file">File Name</span>.</p>
+
+
+<div style="border: 2px solid red; background: #FFF0F0; padding: 0pt 10pt 0pt 10pt">
+<h4>Script License Agreement</h4>
+<p>You may use this script only if you agree that:</p>
+<ol>
+ <li>You must EITHER:
+  <ol style="list-style-type: lower-alpha">
+   <li><strong>Donating Users:</strong> This script is "donation-ware". If you can
+    <strong><a href="http://www.twinhelix.com/donate/">make a donation</a></strong> to support
+    this script, it may be used on a website without a crediting link.
+    Please consider making a donation! I have spent a lot of time developing, debugging and
+    documenting scripts, and any support is welcome.
+    <a href="http://www.twinhelix.com/donate/">More info...</a></li>
+   <li><strong>Free Users:</strong> All websites using this script for free must contain somewhere
+    a <strong>visible crediting link</strong> to TwinHelix Designs, e.g.
+    '<a href="http://www.twinhelix.com">DHTML / JavaScript Tree by TwinHelix Designs</a>'.</li>
+  </ol>
+ </li>
+ <li>You must leave the "Script Name/Author/URL" comment in the source of the script file.</li>
+ <li>This script is provided on an "AS-IS" basis, without any warranties, and you use it entirely
+  at your own risk.</li>
+ <li>This script may not be redistributed, sold, rented, leased or sublicensed to third parties
+  without my prior consent.</li>
+</ol>
+<p>If you have another use for the script (for example, within a web application) or wish to
+ arrange alternate licensing terms, please
+ <a href="http://www.twinhelix.com/contact/">contact me</a> for more information.</p>
+</div>
+
+
+<h3>Quickstart Guide</h3>
+
+<p>The main script is split over several files:</p>
+<ul>
+ <li><span class="file">pop_style.css</span>: The CSS information is used to control fonts, colours
+  and borders in the menus.
+  This must be included in the <span class="var">&lt;HEAD&gt;</span> of any pages containing menus.</li>
+ <li><span class="file">pop_core.js</span>: The core menu functions, you don't need to edit this.</li>
+ <li><span class="file">pop_data.js</span>: Contains your menu information and layout, <b>this is the
+  file you need to edit</b>. You can have several menu data files on one page if you want.</li>
+ <li><span class="file">pop_events.js</span> writes the menus to the current document.
+  This must be included right after the <span class="var">&lt;BODY&gt;</span> tag of <i>all documents
+  containing menus</i>, and ensure it is NOT placed inside tables/forms/divs/etc.</li>
+</ul>
+
+<p>To edit this script, open up either the <span class="file">pop_data.js</span> file (for the
+single-frame script) or the <span class="file">index.html</span> file in the /FRAMESET folder
+(for the cross frame script) in a plain text editor like Windows Notepad or SimpleText. Don't use
+a HTML editor like FrontPage.</p>
+
+<p>Then, read the rest of this file to understand the syntax needed to create your own menu
+arrangement. Frameset users should pay special attention to the <a href="#frameset">Frameset
+Readme</a> section of this file.</p>
+
+<p>Once you have the menu setup the way you want, you need to add it to your pages. For single-frame
+usage, every page that will contain menus must include the 4 files listed above in order, using
+<span class="var">&lt;SCRIPT&gt;</span> and <span class="var">&lt;LINK&gt;</span> tags like in the
+example menu demonstation file.
+For frameset usage, the CORE and DATA script must be in the frameset file itself, and the CSS and
+EVENTS files must be included in each page you load in the frameset (see the example pages provided).</p>
+
+<p>Other files included with this script are commented versions of the CORE and EVENTS script files,
+in case you need to edit them or are interested in how they work. They can be safely deleted as they're
+not required. Also, I have supplied a <span class="file">pop_extras.js</span> file that contains
+optional menu extensions, it too can be deleted if you don't require it.</p>
+
+
+<h3>POP_DATA.JS: File Structure</h3>
+
+<code>
+var <span class="var">ItemStyleName</span> = new ItemStyle(<span class="string">...parameters...</span>);
+<br />
+<br />
+var <span class="var">ObjectName</span> = new PopupMenu(<span class="string">'ObjectName'</span>);<br />
+with (<span class="var">ObjectName</span>)<br />
+{<br />
+&nbsp;startMenu(<span class="string">...parameters...</span>);<br />
+&nbsp;addItem(<span class="string">...parameters...</span>);<br />
+}<br />
+<br />
+
+An optional "Menu Effects" section, including:<br />
+<br />
+* Whole menu borders<br />
+* Menu dropshadows<br />
+* Menu animation settings<br />
+* Functions called by the above options
+</code>
+
+<p>First, you create <a href="#itemstyle">ItemStyles</a>, which are collections of sizes, colours,
+and CSS classnames (for fonts and borders) to be applied to menus and items.
+This allows you to give different menus a consistent look and feel.</p>
+
+<p>Then, you create one or more menu objects, giving each a unique name. The example script includes
+one named <span class="var">pMenu</span>. Each menu object must be passed its own name in quotes.</p>
+
+<p>To these menu objects, you add individual menus using the <a href="#startmenu">startMenu</a> and
+<a href="#additem">addItem</a> commands. Each menu object must have one or more menus that start
+with the letters <span class="string">'root'</span>, which means it's always visible.</p>
+
+<p>Finally, the Menu Effects section at the bottom of the file is optional, and can be removed
+entirely if you do not wish to use these extra effects.
+Otherwise, it contains comments and syntax notes itself, so read it if you're interested.</p>
+
+
+<h1>Script Syntax Reference</h1>
+
+<a name="itemstyle"></a>
+<h2>ItemStyle()</h2>
+
+<code>
+ var <span class="var">ItemStyleName</span> = new ItemStyle(
+ <span class="number">Length</span>,
+ <span class="number">Spacing</span>,
+ <span class="string">'Popout Indicator'</span>,
+ <span class="number">Indicator Position</span>,
+ <span class="number">Padding</span>,
+ <span class="string">'Out Background'</span>,
+ <span class="string">'Over Background'</span>,
+ <span class="string">'Out Font Class'</span>,
+ <span class="string">'Over Font Class'</span>,
+ <span class="string">'Out Border Class'</span>,
+ <span class="string">'Over Border Class'</span>,
+ <span class="number">Out Opacity</span>,
+ <span class="number">Over Opacity</span>,
+ <span class="string">'Link Cursor'</span>,
+ <span class="string">'Default Cursor'</span>);
+</code>
+
+<ul>
+ <li><span class="number">Length</span>: In pixels. For horizontal menus this is the width of items
+  using this ItemStyle, for vertical menus it's the height.</li>
+ <li><span class="number">Spacing</span>: Gap, in pixels, after items that use this ItemStyle.</li>
+ <li><span class="string">'Popout Indicator'</span>: The small arrow indicating a submenu.
+  Set it to <span class="demo">''</span> for no indicator, otherwise it can be an HTML string like
+  <span class="demo">'&amp;gt;'</span> or an <span class="demo">'&lt;IMG&gt;'</span> tag.
+  To swap on mouseover, set as <span class="demo">'SWAP:out text^over text'</span>.</li>
+ <li><span class="number">Indicator Position</span>: In pixels, measured from the left item edge
+  (if it's a positive number) or right edge (negative).</li>
+ <li><span class="number">Padding</span>: In pixels, the gap between the item edge and text.</li>
+ <li><span class="string">'Backgrounds'</span> (x2): You can use background colours or images; to use
+  background images, set a filename like <span class="demo">'/images/pic.gif'</span>, or for colours
+  use a colour name/value.
+  <b>Fading background colours:</b> You can use the form
+  <span class="demo">'10#112233'</span> where the number before the # is the fade speed in percent.
+  For transparent backgrounds use an empty string <span class="demo">''</span>.</li>
+ <li><span class="string">'Font/Border Classes'</span> (x2): These refer to class names in the
+  <span class="file">.CSS</span> file, which set the font/colour/size/alignment/etc of the text
+  and borders of items using this ItemStyle. See the <span class="file">.CSS</span> file to edit them.
+  If you don't want borders, set the border class to an empty string <span class="demo">''</span>.</li>
+ <li><span class="number">Opacities</span> (x2): Set these to null (without quotes) if you want solid
+  items, or use numbers between 0 and 100 for translucent items.</li>
+ <li><span class="string">'CSS Cursors'</span> (x2): The 'Link Cursor' applies to all items that link
+  to files or JavaScript commands, and the default cursor is used for empty or 'sm:' items.
+  Cursor values should be valid CSS cursor names like 'default', 'hand', 'crosshair' and so on
+  (note that 'hand' is automatically translated into 'pointer' where needed).</li>
+</ul>
+
+
+
+<a name="startmenu"></a>
+<h2>startMenu()</h2>
+
+<code>
+ startMenu(
+ <span class="string">'Menuname'</span>,
+ <span class="boolean">Orientation</span>,
+ <span class="number">Left Offset</span>,
+ <span class="number">Top Offset</span>,
+ <span class="number">Menu Breadth</span>,
+ <span class="var">Default ItemStyle</span>,
+ <span class="string">'Parent Frame'</span>,
+ <span class="boolean">Show onclick</span>);
+</code>
+
+<ul>
+ <li><span class="string">'Menuname'</span>: A string like <span class="demo">'root'</span> or
+  <span class="demo">'mFile'</span>, which you can use to refer to this menu and pop it out.
+  Any menuname starting with the letters <span class="demo">'root'</span> is special, shown initially
+  and never hidden.
+  Don't use spaces or special characters in menunames!</li>
+ <li><span class="boolean">Orientation</span>: Use <span class="demo">true</span> for a vertical menu,
+  or <span class="demo">false</span> for a horizontal menubar.</li>
+ <li><span class="number">Offsets</span>: Specify the point in the page over which the menus will hover.
+  If you set the Left or Top position as a NUMBER, e.g. <span class="demo">130</span> this menu will
+  be offset from the item that popped it out by that many pixels.
+  If you set them as a STRING <span class="demo">'in quotes'</span>, this menu will be offset from the
+  top-left corner of its frame/window in pixels.
+  Strings are evaluated as JavaScript expressions that can centre, right-align, scroll or otherwise
+  position the menu, see the <a href="#advpos">advanced positioning</a> section for more info.
+  Note: 'root' menus are always absolutely positioned from the page corner.</li>
+ <li><span class="number">Menu Breadth</span>: The breadth is the width of vertical menus, or the
+  height of horizontal menus, both in pixels.</li>
+ <li><span class="var">Default ItemStyle</span>: Used for item in this menu unless they specify one
+  of their own, to control appearance and item lengths.</li>
+ <li>OPTIONAL: <span class="string">'Parent Frame'</span>: If left out or set to an empty string
+  <span class="demo">''</span>, menus will display in the current window.
+  Otherwise, set to a frame reference like <span class="demo">'content'</span> to show the menu in a
+  frame by that name (only if you're using the frameset version of the script).</li>
+ <li>OPTIONAL: <span class="boolean">Show onclick</span>: Set to <span class="demo">true</span> to
+  show submenus onclick instead of the default onmouseover appearance, like Windows' menus.</li>
+</ul>
+
+
+
+<a name="additem"></a>
+<h2>addItem()</h2>
+
+<code>
+ addItem(
+ <span class="string">'Item HTML'</span>,
+ <span class="string">'URL / Menuname / Command'</span>,
+ <span class="string">'Item Type'</span>,
+ <span class="var">Custom ItemStyle</span>,
+ <span class="number">Length</span>,
+ <span class="number">Spacing</span>.....);
+</code>
+
+<ul>
+ <li><span class="string">'Item HTML'</span>: The text or HTML to display in the item.
+  It can change on hover, using the format: <span class="demo">'SWAP:Out text^Over text'</span>.
+  Try swapping two &lt;IMG&gt; tags for rollover image items perhaps.</li>
+ <li><span class="string">'URL / Menuname / Command'</span>: What to do with the item when the user
+  points at it or clicks it. Set to either a URL like <span class="demo">'/folder/file.html'</span>,
+  a menuname like <span class="demo">'mFile'</span>, or a JavaScript command like
+  <span class="demo">'alert("hello")'</span>.
+  Note that URLs are usually relative to the HTML page that contains the menu, so if you are
+  using folders or frames specify URLs absolutely, that is starting with a slash '/'.</li>
+ <li><span class="string">'Item Type'</span>: This tells the script what you want to do with this item.
+  Set it to an empty string <span class="demo">''</span> to load a URL in the current window.
+  If you want to load a file in another frame, set it to a frame reference like
+  <span class="demo">'top.content'</span> to load your file in a frame named 'content'.
+  If this item will pop out a submenu, set it to <span class="demo">'sm:'</span>.
+  If your item runs a JavaScript command, set it to <span class="demo">'js:'</span>.</li>
+ <li>OPTIONAL: <span class="var">Custom ItemStyle</span>: If you want, pass an ItemStyle to this item
+  to override the menu default (e.g. for 'header' items in menus).
+  Set it to <span class="demo">null</span> or leave out entirely to use the default menu ItemStyle.</li>
+ <li>OPTIONAL: <span class="number">Length</span>, <span class="number">Spacing</span>.....: You can
+  override the ItemStyle parameters individually, in the same order as ItemStyles, if you want to give
+  this item a unique size, colour, indicator etc. See examples in the demo script for this.</li>
+</ul>
+
+<p>If you wish to add extra actions to items, like navigating to a file as well as popping out a
+submenu, please see the <a href="#extending">Extending</a> section of this document.</p>
+
+
+
+
+<a name="advpos"></a>
+<h2>Advanced Positioning (Centering menus etc.)</h2>
+
+<p>As mentioned above, the Left and Top positions for each menu can be strings containing JavaScript.
+I've provided several functions in this script using the <span class="var">page</span> object,
+to detect window dimensions or the position of a named anchor, and use that to position menus.
+They are:</p>
+<ul>
+ <li><span class="string">'page.winW()'</span> and <span class="string">'page.winH()'</span>:
+  These return the width and height of the window area.</li>
+ <li><span class="string">'page.scrollX()'</span> and <span class="string">'page.scrollY()'</span>:
+  These return the current scroll position of the page.</li>
+ <li><span class="string">'page.elmPos("name").x'</span> and
+  <span class="string">'page.elmPos("name").y'</span>: Return the X/Y positions of an anchor tag.
+  This function resides in the "Menu Effects" section of the script and is optional.</li>
+</ul>
+
+<p>The values from these expressions are then set as the distance (in pixels) from the upper-left
+corner of the entire window/frame document, to the upper-left corner of the menu in question.
+You can write your own expressions if you want (and call your own functions perhaps), otherwise
+here are some cut-and-paste replacements for the standard root menu in the single-frame example:</p>
+
+<p>Centre the menu by setting its "Left" position as half the window width minus half the menu
+width, so it straddles the page centreline:<p>
+<code>
+startMenu('root', false, <span class="string">'window.page.winW()/2 - menuW/2'</span>,
+ 0, 17, hBar);
+</code>
+
+
+<p>Scroll the menu with the page by setting its "Top" position to the window scroll position:</p>
+<code>
+startMenu('root', false, 10, <span class="string">'window.page.scrollY() + 10'</span>, 17, hBar);
+</code>
+
+<p>Position the menu relative to an anchor &lt;a id="home" name="home"&gt; in the page,
+positioned 20px below it. There are two steps to doing this. First, move the
+<span class="file">POP_EVENTS.JS</span> script tag immediately before the closing
+<span class="object">&lt;/BODY&gt;</span> tag of your documents, after your document content.
+Then, use this as your menu position:</p>
+<code>
+startMenu('root', false, <span class="string">'window.page.elmPos("home").x'</span>,
+ <span class="string">'window.page.elmPos("home").y + 20'</span>, 17, hBar);<br />
+</code>
+
+<p><b>Are you using cross-frame menus?</b> If so, include the name of the relevant frame in the
+expression like: <span class="string">'content.page.scrollY()'</span> for a frame named "content".</p>
+
+<p>The script will attempt to reposition menus the fall outside the visible window/frame area.
+It will only do this to menus that are positioned relative to their parent menus, so if you wish
+to disable this behaviour, simply specify your menu position as a string 'in quotes'.</p>
+
+<p>In the <span class="file">pop_extras.js</span> there is a menu extension that can scroll menus
+larger than the current window size, you can add it to your menu if you want that behaviour.</p>
+
+
+
+<a name="frameset"></a>
+<h2>Frameset Readme</h2>
+
+<p>This script supports displaying menus in different frames with a few tweaks -- see the
+<a href="frameset/">demo frameset</a>.
+To do this, you must include the <span class="file">pop_core.js</span> and any
+<span class="file">pop_data.js</span> files in the frameset, and include the
+<span class="file">.CSS</span> and <span class="file">pop_events.js</span> files in ALL documents
+loaded in the frames.
+Then, all you have to do is make sure you include a 'parent frame' value with each of your startMenu()
+commands, so menus will display in the correct frame.
+There are several restrictions however:</p>
+
+<ul>
+ <li>Menu cannot overlap frame borders -- they're HTML elements and must remain wholly in ONE
+  frame only.</li>
+ <li>All files loaded must be from the same domain as the frameset. This means you can't load in
+  a page of Google search results (or similar) and pop menus out over it.</li>
+ <li>You must load HTML documents in the frames, of course -- you can't pop menus out over PDFs,
+  Word documents, text files, and so on.</li>
+ <li>If you are going to load framesets within framesets, read the
+  <a href="pop_help.html">FAQ</a> which explains how to get it working.</li>
+</ul>
+
+<p>I also recommend you specify item filenames absolutely, e.g.
+<span class="string">'/folder/file.html'</span>, as relative navigation around framesets can get tricky.
+Item targets are measured relative to the frameset file, so addItem('a', 'b',
+<span class="string">''</span>) will load 'b' in the whole frameset.
+Of course, you can set the frame target normally to load files in subframes, like addItem('a', 'b',
+<span class="string">'content'</span>);</p>
+
+<p>The example setup allows the menus in sub-frames scroll with their windows. All you have to do is
+use the 'page' object in that frame in a formula to get the current scrolling position of that
+frame, and then add or subtract pixels to position the menus from the scroll position, e.g. for a
+menu in a frame named 'xyz', we would set it to appear in that frame and appear near the top and
+100px from the left:</p>
+
+<code>
+startMenu('menuName', false, <span class="string">'xyz.page.scrollX()+100'</span>,
+ <span class="string">'xyz.page.scrollY()+10'</span>, 17, hBar, <span class="string">'xyz'</span>);
+</code>
+
+<p>Relative positioning works too (that is, numbers as positions), but only really makes sense if the
+menus are in the same frame or the frames are aligned with each other in the frameset.</p>
+
+
+
+
+<a name="extending"></a>
+<h2>Extending The Script</h2>
+
+<p>Please load up the <span class="file">pop_extras.js</span> file in a text editor if you're
+interested in making major script extensions -- it contains a list of all major extra functions
+bundled with the script, for effects like status messages, menu scrolling and more.</p>
+
+<p>The addItem() and startMenu() commands return references to the objects they create.
+One practical use for this is to add an onclick action to an 'sm:' type menu item, which will allow
+them to navigate to a file when clicked. Events are set as evaluable strings, and you can add
+onmouseover, onmouseout, and onclick handlers to items. You can also put "return false" in them
+to disable any action that would normally occur on that event (e.g. stop menus hiding).
+Suggested syntax for navigating to files is:</p>
+
+<code>with(addItem('Text', 'menuName', 'sm:')) onclick='window.location.href="file.html"';</code>
+
+<p>In the frameset script of course, use <span class="demo">frameName.location.href</span>
+instead of <span class="demo">window.location.href</span>.</p>
+
+<p>Another means of directing one item to point at both a menu and a file/script command is this:</p>
+
+<code>with(addItem('Text', 'file.html', '')) sm='menuNameHere';</code>
+
+<p><em>Good luck - Angus.</em></p>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+ <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+ <title>Cascading Popup Menus Frameset Demonstration</title>
+
+
+<!-- CASCADING POPUP MENUS v5.2 by Angus Turnbull http://www.twinhelix.com -->
+<script type="text/javascript" language="JavaScript1.2" src="../pop_core.js"></script>
+<script type="text/javascript" language="JavaScript1.2"><!--
+
+
+// Cross-Frame Menu example script.
+
+
+// If you haven't already, try reading the single-frame example script; this is just a cut-down
+// example with little tutorial information or suggestions.
+//
+// Remember, the POP_CORE and menu data must be in this frameset file. I'm including the data
+// inline here. You'll see the only real changes from the single frame script are that menus
+// now have a parent frame value, and some menus have 'top' positioning expressions set, so they'll
+// scroll with the 'content' frame.
+//
+// The POP_EVENTS and .CSS stylesheet files must be included in ALL pages loaded in this frameset,
+// see the "Frameset Readme" of the syntax helpfile for more info.
+//
+// If you're upgrading from v5.1, you can paste your existing menu data in, and if you're
+// upgrading from v5.0 you need to add 'cursor' settings to your ItemStyles.
+//
+// And before going ANY further, please make sure you have READ and AGREE TO the script license!
+// It can be found in the syntax helpfile.
+
+
+var hBar = new ItemStyle(40, 10, '', 0, 0, '10#336699', '10#6699CC', 'highText', 'highText',
+ '', '', null, null, 'hand', 'default');
+
+var subM = new ItemStyle(22, 0, '&gt;', -15, 3, '#CCCCDD', '#6699CC', 'lowText', 'highText',
+ 'itemBorder', 'itemBorder', null, null, 'hand', 'default');
+
+var subBlank = new ItemStyle(22, 1, '&gt;', -15, 3, '#CCCCDD', '#6699CC', 'lowText', 'highText',
+ 'itemBorderBlank', 'itemBorder', null, null, 'hand', 'default');
+
+var button = new ItemStyle(22, 1, '&gt;', -15, 2, '10#006633', '10#CC6600', 'buttonText', 'buttonHover',
+ 'buttonBorder', 'buttonBorderOver', 80, 95, 'crosshair', 'default');
+
+
+var pMenu = new PopupMenu('pMenu');
+with (pMenu)
+{
+
+startMenu('root', false, 10, 0, 17, hBar, 'navmenu', false);
+addItem('&nbsp; File', 'mFile', 'sm:');
+addItem('&nbsp; Edit', 'mEdit', 'sm:');
+addItem('&nbsp; Help', 'mHelp', 'sm:');
+addItem('&nbsp; Visit My Site', 'window.open("http://www.twinhelix.com")', 'js:', hBar, 80);
+
+startMenu('mFile', true, 0, 'content.page.scrollY()+5', 80, subM, 'content', false);
+// *** Opens a file in the frame named 'content' in this current frameset.
+addItem('Open', 'content.html', 'content');
+// *** Opens a file that replaces the whole frameset, pass '' as the third parameter.
+addItem('Save', 'content.html', '');
+addItem('Reopen', 'mReopen', 'sm:');
+addItem('SWAP:Check for<br />Update...^Visit<br /><b>TwinHelix</b>',
+ 'http://www.twinhelix.com', '', subM, 38);
+
+startMenu('mEdit', true, 0, 'content.page.scrollY()+5', 80, subM, 'content', false);
+addItem('Cut', '#', '');
+addItem('Copy', '#', '');
+addItem('Paste', '#', '');
+addItem('Convert', 'mConvert', 'sm:');
+
+startMenu('mHelp', true, -10, 'content.page.scrollY()+5', 80, subM, 'content', false);
+addItem('&nbsp; &nbsp; Contents', '#', '');
+addItem('&nbsp; &nbsp; Index', '#', '');
+addItem('&nbsp; &nbsp; About', 'mAbout', 'sm:', subM, 22, 0, '&lt;', 3);
+
+startMenu('mReopen', true, 85, 0, 120, button, 'content', false);
+addItem('Recent Doc 1:<br>Schedule', '#', '', button, 35);
+addItem('Recent Doc 2:<br>Cunning Plan', '#', '', button, 35, 5);
+addItem('Etc. etc...', '#', '', subM);
+
+startMenu('mConvert', true, 85, 0, 80, subBlank, 'content', false);
+addItem('Windows', '#', '');
+addItem('Unix', '#', '');
+addItem('Macintosh', '#', '');
+
+startMenu('mAbout', true, -85, -18, 80, subM, 'content', false);
+addItem('Leftwards!<br>And up!', '#', '', subM, 40);
+
+}
+
+
+
+addMenuBorder(pMenu, window.subBlank,
+ null, '#666666', 1, '#CCCCDD', 2);
+
+addDropShadow(pMenu, window.subM,
+ [40,"#333333",6,6,-4,-4], [40,"#666666",4,4,0,0]);
+addDropShadow(pMenu, window.subBlank,
+ [40,"#333333",6,6,-4,-4], [40,"#666666",4,4,0,0]);
+
+
+if (navigator.userAgent.indexOf('rv:0.')==-1 && !(isOp&&!document.documentElement))
+{
+ pMenu.showMenu = new Function('mN','menuAnim(this, mN, 10)');
+ pMenu.hideMenu = new Function('mN','menuAnim(this, mN, -10)');
+}
+
+page.elmPos=function(e,p)
+{
+ var x=0,y=0,w=p?p:this.win;
+ e=e?(e.substr?(isNS4?w.document.anchors[e]:getRef(e,w)):e):p;
+ if(isNS4){if(e&&(e!=p)){x=e.x;y=e.y};if(p){x+=p.pageX;y+=p.pageY}}
+ else if (e && e.focus && e.href && this.MS && /Mac/.test(navigator.platform))
+ {
+  e.onfocus = new Function('with(event){self.tmpX=clientX-offsetX;' +
+   'self.tmpY=clientY-offsetY}');
+  e.focus();x=tmpX;y=tmpY;e.blur()
+ }
+ else while(e){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent}
+ return{x:x,y:y};
+};
+
+function menuAnim(menuObj, menuName, dir)
+{
+ var mD = menuObj.menu[menuName][0];
+ if (!mD.timer) mD.timer = 0;
+ if (!mD.counter) mD.counter = 0;
+ with (mD)
+ {
+  clearTimeout(timer);
+  if (!lyr || !lyr.ref) return;
+  if (!visNow && dir>0) dir = 0-dir;
+  if (dir>0) lyr.vis('visible');
+  lyr.sty.zIndex = dir>0 ? mD.zIndex + 1 : 1001;
+
+  lyr.clip(0, 0, menuW+2, (menuH+2)*Math.pow(Math.sin(Math.PI*counter/200),0.75) );
+
+  //lyr.clip(0, (menuH+2)-(menuH+2)*Math.pow(Math.sin(Math.PI*counter/200),0.75), menuW+2, menuH+2);
+
+  //if (!counter) mD.origY = lyr.y();
+  //var newY = (menuH+2)-(menuH+2)*Math.pow(Math.sin(Math.PI*counter/200),0.75);
+  //lyr.clip(0, newY, menuW+2, menuH+2);
+  //lyr.y(mD.origY - newY);
+
+  counter += dir;
+  if (counter>100) { counter = 100; lyr.sty.zIndex = mD.zIndex }
+  else if (counter<0) { counter = 0; lyr.vis('hidden') }
+  else timer = setTimeout('menuAnim('+menuObj.myName+',"'+menuName+'",'+dir+')', 40);
+ }
+};
+
+function addMenuBorder(mObj, iS, alpha, bordCol, bordW, backCol, backW)
+{
+ for (var mN in mObj.menu)
+ {
+  var mR=mObj.menu[mN], dS='<div style="position:absolute; background:';
+  if (mR[0].itemSty != iS) continue;
+  for (var mI=1; mI<mR.length; mI++)
+  {
+   mR[mI].iX += bordW+backW;
+   mR[mI].iY += bordW+backW;
+  }
+  mW = mR[0].menuW += 2*(bordW+backW);
+  mH = mR[0].menuH += 2*(bordW+backW);
+
+  if (isNS4) mR[0].extraHTML += '<layer bgcolor="'+bordCol+'" left="0" top="0" width="'+mW+
+   '" height="'+mH+'" z-index="980"><layer bgcolor="'+backCol+'" left="'+bordW+'" top="'+
+   bordW+'" width="'+(mW-2*bordW)+'" height="'+(mH-2*bordW)+'" z-index="990"></layer></layer>';
+  else mR[0].extraHTML += dS+bordCol+'; left:0px; top:0px; width:'+mW+'px; height:'+mH+
+   'px; z-index:980; '+(alpha!=null?'filter:alpha(opacity='+alpha+'); -moz-opacity:'+(alpha/100):'')+
+   '">'+dS+backCol+'; left:'+bordW+'px; top:'+bordW+'px; width:'+(mW-2*bordW)+'px; height:'+
+   (mH-2*bordW)+'px; z-index:990"></div></div>';
+ }
+};
+
+function addDropShadow(mObj, iS)
+{
+ for (var mN in mObj.menu)
+ {
+  var a=arguments, mD=mObj.menu[mN][0], addW=addH=0;
+  if (mD.itemSty != iS) continue;
+  for (var shad=2; shad<a.length; shad++)
+  {
+   var s = a[shad];
+   var alpha = (s[0]!=null && navigator.userAgent.indexOf('AppleWebKit') == -1);
+   if (isNS4) mD.extraHTML += '<layer bgcolor="'+s[1]+'" left="'+s[2]+'" top="'+s[3]+'" width="'+
+    (mD.menuW+s[4])+'" height="'+(mD.menuH+s[5])+'" z-index="'+(arguments.length-shad)+'"></layer>';
+   else mD.extraHTML += '<div style="position:absolute; background:'+s[1]+'; left:'+s[2]+
+    'px; top:'+s[3]+'px; width:'+(mD.menuW+s[4])+'px; height:'+(mD.menuH+s[5])+'px; z-index:'+
+    (a.length-shad)+'; '+
+    (alpha?'filter:alpha(opacity='+s[0]+'); -moz-opacity:'+s[0]+'%; opacity:'+(s[0]/100):'')+
+    '"></div>';
+   addW=Math.max(addW, s[2]+s[4]);
+   addH=Math.max(addH, s[3]+s[5]);
+  }
+  mD.menuW+=addW; mD.menuH+=addH;
+ }
+};
+
+//--></script>
+
+</head>
+
+
+<!-- The frameset itself. Add other frames in here if you want. -->
+
+<frameset rows="20, *" border="0" frameborder="0">
+ <frame name="navmenu" src="navmenu.html"></frame>
+ <frame name="content" src="content.html"></frame>
+</frameset>
+
+</html>

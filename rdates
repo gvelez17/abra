@@ -1,0 +1,156 @@
+-- MySQL dump 9.09
+--
+-- Host: localhost    Database: rcats_backup
+-- ------------------------------------------------------
+-- Server version	4.0.16-log
+
+--
+-- Table structure for table `rcatdb_itemsbackup`
+--
+
+CREATE TABLE rcatdb_itemsbackup (
+  ID bigint(15) unsigned NOT NULL auto_increment,
+  CID bigint(15) unsigned NOT NULL default '0',
+  NAME varchar(255) NOT NULL default '',
+  VALUE varchar(255) binary NOT NULL default '',
+  QUALIFIER varchar(100) binary default NULL,
+  itemcode varchar(16) binary default NULL,
+  owner bigint(15) default NULL,
+  acl varchar(4) default NULL,
+  ENTERED timestamp(12) NOT NULL,
+  effective_date date default NULL,
+  PRIMARY KEY  (ID),
+  KEY index_1 (CID),
+  KEY index_2 (NAME(4)),
+  KEY index_3 (VALUE(3)),
+  KEY itemcode (itemcode)
+) TYPE=MyISAM;
+
+--
+-- Dumping data for table `rcatdb_itemsbackup`
+--
+-- WHERE:  effective_date <> '0000-00-00'
+
+INSERT INTO rcatdb_itemsbackup VALUES (1053,54,'5/5/03 in baba\'s pool','\"Mayybe I\'ll sit on this step a little bit\"',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223656','2003-05-05');
+INSERT INTO rcatdb_itemsbackup VALUES (1057,54,'5/9/03 said to kid in park','\"I am a baby, I can not talk\"',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223556','2003-05-09');
+INSERT INTO rcatdb_itemsbackup VALUES (1201,90,'Tucson Citizen Story 09/06/03','http://www.tucsoncitizen.com/index.php?page=local&story_id=090603b1_edwards',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223027','2009-06-03');
+INSERT INTO rcatdb_itemsbackup VALUES (1198,90,'The Arizona Daily Star blurb 09/06/03','http://www.azstarnet.com/vote/30906EDWARDS.html',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223027','2009-06-03');
+INSERT INTO rcatdb_itemsbackup VALUES (1341,103,'11/02/03 and again...','http://qs.abra.info/php/display.php?table=content&id=1341',NULL,'\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223503','2003-11-02');
+INSERT INTO rcatdb_itemsbackup VALUES (1332,54,'11/03 came up with','(if pig owies are boo-boos), what are bear owies?  answer: \'grass\'',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223914','2003-11-00');
+INSERT INTO rcatdb_itemsbackup VALUES (1362,54,'11/?','\"Thank you outside, for the forest\"',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223926','2003-11-00');
+INSERT INTO rcatdb_itemsbackup VALUES (1363,54,'11/11/03 at the park, watching basketball','\"but, the ball doesn\'t go IN the basket\"',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223450','2003-11-11');
+INSERT INTO rcatdb_itemsbackup VALUES (1364,54,'sometime around 9/03','\'I want a pacifier without the paci\' (a fire)',NULL,'\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223934','2003-09-00');
+INSERT INTO rcatdb_itemsbackup VALUES (1340,103,'11/01/03 Eaton Canyon, open house','http://qs.abra.info/php/display.php?table=content&id=1340',NULL,'\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223524','2003-11-01');
+INSERT INTO rcatdb_itemsbackup VALUES (6693,127,'AntiSpam RBLs','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930001134','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6757,225,'Marie\'s email','chiflis13@yahoo.com','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023222135','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6741,125,'flex-fuel locations','http://www.pagnet.org/cleancities/AFVSites.htm','','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051014013803','2005-10-14');
+INSERT INTO rcatdb_itemsbackup VALUES (6482,103,'Re: abra update','waiting for Ruby, playing tag outside by the gibbon playground','','\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920224141','2005-01-24');
+INSERT INTO rcatdb_itemsbackup VALUES (6539,104,'Sunday Mar 13 05','http://abra.info/php/display.php?table=content&id=6539','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922041859','2005-03-13');
+INSERT INTO rcatdb_itemsbackup VALUES (6533,103,'Mon Jan 24','made clay stethoscope - Cup (the Gecko) is listening to the worm\'s heart - meanwhile Mom has contractions...','','\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920224021','2005-01-24');
+INSERT INTO rcatdb_itemsbackup VALUES (6528,203,'Sun Jan 23','3 days past time...got milk...played tag with AC, ate right, now just waiting...','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922041932','2005-01-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6743,125,'Closest Ethenol station','E85 1015 S. Cherry (just N of 22nd)','','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051015195648','2005-10-15');
+INSERT INTO rcatdb_itemsbackup VALUES (6742,203,'putting things in & out','','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051015013635','2005-10-15');
+INSERT INTO rcatdb_itemsbackup VALUES (6740,63,'Built-in types list','','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051013234748','2005-10-13');
+INSERT INTO rcatdb_itemsbackup VALUES (6670,211,'Search Tips for the End User','http://webglimpse.net/docs/tips.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230218','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6712,124,'Smarty PHP Template engine','http://smarty.php.net/','TYPE:content,metadata','\r\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051006205314','2005-10-06');
+INSERT INTO rcatdb_itemsbackup VALUES (6626,203,'Thurs Aug 18','Ruby is crawling, smiles at Amber, Daddy.  Took movies today.','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920224204','2005-08-18');
+INSERT INTO rcatdb_itemsbackup VALUES (6628,203,'Wed Sept 7','really tries to play catch with koosh ball.  Was \'playing\' catch with Amber & Leo 2 days ago','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920224217','2005-09-07');
+INSERT INTO rcatdb_itemsbackup VALUES (6629,203,'Sept 7','has been noticing birds flying for a week or so','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920224226','2005-09-07');
+INSERT INTO rcatdb_itemsbackup VALUES (6631,203,'Sept 12','A few days ago started noticing ants, crawling after a bug on the cement.  All day today wanted to go pet Brinda.  Also tried to crawl after pigeons in the park.','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920224238','2005-09-12');
+INSERT INTO rcatdb_itemsbackup VALUES (6632,105,'Learning Games for Toddlers','Class for parks & rec...also booklet produced by TCS...','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922045003','2005-09-01');
+INSERT INTO rcatdb_itemsbackup VALUES (6633,105,'Zoo animal histories','with photos, produced by an elementary/jr high class as a fundraising book','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922045005','2005-09-01');
+INSERT INTO rcatdb_itemsbackup VALUES (6635,105,'Voice Notes 2 Email','Can be done now over cell phone with error correction on non-real time transmission','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922044953','2005-09-01');
+INSERT INTO rcatdb_itemsbackup VALUES (6636,203,'Sun Sep 11','In morning, G asked Ruby - \'want to go outside?\' Ruby answered, uh-huh-huh-huh and reached up.  Communication!','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922041950','2005-09-11');
+INSERT INTO rcatdb_itemsbackup VALUES (6637,54,'9/14/05','Played Robin Hood with kids in her class','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920224000','2005-09-14');
+INSERT INTO rcatdb_itemsbackup VALUES (6638,32,'9/14/05','Got puppies!','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223834','2005-09-14');
+INSERT INTO rcatdb_itemsbackup VALUES (6640,127,'Programming books','may want to get - The first is Abelson and Sussman\"s \"Structure and Interpretation of Computer Programs\"; the second, Bird and Wadler\"s \"Introduction to Functional Programming\".','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922045114','2005-09-19');
+INSERT INTO rcatdb_itemsbackup VALUES (6739,30,'Use some features for Webglimpse Directory','needs: ability to add comments and rankings by keyword.  Also needs WG to pull out lexically significant keywords','','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051013222612','2005-10-13');
+INSERT INTO rcatdb_itemsbackup VALUES (6642,127,'Pro Perl Parsing','http://www.amazon.com/exec/obidos/tg/detail/-/1590595041/ref=pd_sbs_1/102-3786433-5168958?%5Fencoding=UTF8&v=glance','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922045119','2005-09-19');
+INSERT INTO rcatdb_itemsbackup VALUES (6645,32,'Mt Lemmon Holiday','Sat Sept 17 - Sun Sept 18','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223756','2005-09-17');
+INSERT INTO rcatdb_itemsbackup VALUES (6646,32,'Mon Sept 19','T Rex museum, nice day','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223806','2005-09-19');
+INSERT INTO rcatdb_itemsbackup VALUES (6649,127,'Plone - community software','http://plone.org','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922045123','2005-09-19');
+INSERT INTO rcatdb_itemsbackup VALUES (6650,32,'Tues Sept 20','Puppy ran off & Van door broke, but ok...','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050920223816','2005-09-20');
+INSERT INTO rcatdb_itemsbackup VALUES (6759,32,'Redeemed pups from pound','','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051025002431','2005-10-25');
+INSERT INTO rcatdb_itemsbackup VALUES (6758,207,'Flovent inhaler','http://www.drugs.com/PDR/Flovent_HFA_220_mcg_Inhalation_Aerosol.html','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023224130','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6756,30,'CPAN module PHP::Session','http://search.cpan.org/~miyagawa/PHP-Session-0.26/lib/PHP/Session.pm','TYPE:metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023221747','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6755,54,'Started Asthma med','2 puffs daily Flovent HFA 44mcg.  Started this evening.','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023221245','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6754,32,'Visited Babba\'s & Zeida\'s','','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023221210','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6753,127,'Apache 2.0 Docs','http://httpd.apache.org/docs/2.0/','','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023011326','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6752,54,'Rock chess at Manzanita park','was it Thursday?  Or Wed?  Anyway we played real game with rocks & pebbles...also generally had fun on slides & stuff at park.  Ruby likes climbing & sliding, still into grabbing rocks, sticks & sand, not eating too much.','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023010010','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6751,203,'\'Talking\' a lot today','Da-da-ja-ya I think for Dada, also Cch again when prompted, generally lots of verbalizing this morning.  Sniffs I think for dogs or outside.  Uses special grunt for \'yes\', I think.','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023005833','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6750,32,'Mario & Fidelia & kids visited today','','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023005701','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6749,17,'Imagine LOGO by Logotron','http://www.logo.com/cat/view/imagine-primary.html','','\n\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051023003805','2005-10-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6748,223,'HP6210 printer','','TYPE:content','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051018120656','2005-10-18');
+INSERT INTO rcatdb_itemsbackup VALUES (6747,218,'Just Grants website','http://www.azgrants.com','TYPE:content','$\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051018103505','2005-10-18');
+INSERT INTO rcatdb_itemsbackup VALUES (6729,217,'Early History','(should cut & paste content here from TCS parents guide)','','$\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009023101','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6745,30,'Login PHP module','http://www.finalwebsites.com/snippets.php?id=10','','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051017175514','2005-10-17');
+INSERT INTO rcatdb_itemsbackup VALUES (6746,204,'For multiple file upload','http://www.finalwebsites.com/snippets.php?id=7','','!\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051017175650','2005-10-17');
+INSERT INTO rcatdb_itemsbackup VALUES (6735,222,'Ryan M.',' 917-684-2940','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051011114120','2005-10-11');
+INSERT INTO rcatdb_itemsbackup VALUES (6744,203,'Saying \'Cc-h\' for cat','at Babba & Zeida\'s house Sun 10/16 - Babba was doing with her several times, very consistently...','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051017175440','2005-10-17');
+INSERT INTO rcatdb_itemsbackup VALUES (6734,203,'cold','snuffly nose in the middle of the night, didn\'t sleep well.  Still cheerful, but tired next day.   Tried to wave goodbye this morning at Amber & daddy','','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051011114000','2005-10-11');
+INSERT INTO rcatdb_itemsbackup VALUES (6738,30,'Use for Edwards Grassroots','needs: access control at DBI.pm level, user registration (or automatically provide to students4edwards)','','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051013222526','2005-10-13');
+INSERT INTO rcatdb_itemsbackup VALUES (6731,217,'Current Practices','Principles and Procedures','TYPE:content','$\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009023315','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6733,220,'Hannah Zaitlin','','','\0\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009024817','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6724,127,'Drupal cms','http://drupal.org','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009022306','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6723,216,'Sticky Tags (getting rid of)','Yikes - how the hell to get rid of sticky tag thru cvs - its in CVS/Entries for future ref\r\n- just delete  \"T\" !!','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009022001','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6722,54,'\"everything is fair for 1\"','talking about splitting up things fairly, she made spontaneous observation (context: 12 is fair for 3, also for 2, 4 and 6)','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009020534','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6721,30,'Going public','Goal - have this site (own cats) public by 10/20/05.  Next add other users (family, friends, TCS).','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009020344','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6720,54,'Made charts for mom & dad...','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009020100','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6719,203,'Using mouse','Got into JumpStart Toddler game with dog, feeding dog items.  Really trying to use mouse (not eating it ;-)','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009015605','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6717,85,'Looked at Drupal','Has some good features but doesn\'t do what I want abra to do','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009015406','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6718,203,'excited crawling, throwing, powing','especially likes to pow on Daddy.  Throws pretty far!  Favorite place to crawl is under Amber\'s bed.','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051009015514','2005-10-09');
+INSERT INTO rcatdb_itemsbackup VALUES (6711,30,'','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051005110157','2005-10-05');
+INSERT INTO rcatdb_itemsbackup VALUES (6710,125,'','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051005105804','2005-10-05');
+INSERT INTO rcatdb_itemsbackup VALUES (6709,63,'Add related text, files In Add/Edit Item','Allow user to upload file, store in safe area; have area for Abra files','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051005105502','2005-10-05');
+INSERT INTO rcatdb_itemsbackup VALUES (6708,169,'Article for LinuxJournal','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051005105217','2005-10-05');
+INSERT INTO rcatdb_itemsbackup VALUES (6707,54,'First chess lesson w/Ken','on Mon 10/3, jumping up & down \'checkmate!\' - Ken: \'had to earn it\' - anyway had fun','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051004112009','2005-10-04');
+INSERT INTO rcatdb_itemsbackup VALUES (6706,215,'designed gliding ottoman','around 2003-3004 while working at patio connection','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051003161505','2005-10-03');
+INSERT INTO rcatdb_itemsbackup VALUES (6705,63,'pointers into existing long documents','we don\'t have access to add tags, so use urltodoc&lookfor=\"sentence of fairly unique text\"','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051003161412','2005-10-03');
+INSERT INTO rcatdb_itemsbackup VALUES (6704,31,'Wusage Report','http://webglimpse.net/manage/reports/','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051002235629','2005-10-02');
+INSERT INTO rcatdb_itemsbackup VALUES (6703,32,'Mario fixed floor','where was buckled in livingroom','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051002235343','2005-10-02');
+INSERT INTO rcatdb_itemsbackup VALUES (6701,85,'fixed related /note link',' standard is ID for = rcatdb_itemsbackup.id, UID otherwise.  Need to standardize our table names.','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930020550','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6700,30,'How to do Related Notes','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930010042','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6699,208,'practices & styles can be realization of underlying values','','TYPE:content,metadata','\"\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930005623','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6696,208,'people can understand each others feelings a lot easier than thoughts','','TYPE:content,metadata','\"\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930005103','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6697,208,'any proposal that says \'my people are better than your people\' should be examined closely for logical fallacies...','its not that I don\'t like my own people, I jus t suspect this kind of statement!','TYPE:content,metadata','\"\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930005207','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6698,208,'','','TYPE:content,metadata','\"\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930005340','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6694,104,'Thursdays are my favorite','Amber is off school and we have all day to do stuff...','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050930004015','2005-09-30');
+INSERT INTO rcatdb_itemsbackup VALUES (6692,105,'Teaching Reading Program','Use voice recognition to have computer create story that child dictates.  Although pronunciation might be a problem, limited vocabulary & likelihood of repetition should make training possible','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050929192528','2005-09-29');
+INSERT INTO rcatdb_itemsbackup VALUES (6691,54,'teachers played \'Robin Hood Game\'','at end of day Wed 9/29/05 ; but \'best thing\' was climbing up on high climber outside','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050929160550','2005-09-29');
+INSERT INTO rcatdb_itemsbackup VALUES (6702,203,'Stood balancing for 3-4 seconds','and on Friday had done it for about 1 second...looks very pleased with herself','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'051002235255','2005-10-02');
+INSERT INTO rcatdb_itemsbackup VALUES (6689,125,'fridgidare','Finally got in right dept. They are supposed to decide about replacement by Tues.   Damn thing stopped working back in March... See details for claim #, etc','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050929160118','2005-09-29');
+INSERT INTO rcatdb_itemsbackup VALUES (6688,127,'Got \'Perl Best Practices\'','finally, the equiv of Strunk & White for perl programmers.  I like this book.  I think there shoudl be something similar for everything that matters ... family, baby handling - not to standardize, but how to do things is worth thinking about','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050929155850','2005-09-29');
+INSERT INTO rcatdb_itemsbackup VALUES (6687,32,'plymouth grand voyager','finally brought home new minivan...whew...no more climbing in and out the drivers side with a baby...','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050929155733','2005-09-29');
+INSERT INTO rcatdb_itemsbackup VALUES (6686,203,'balancing on knees','and standing up holding lightly with one hand, to mom or object','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050929155558','2005-09-29');
+INSERT INTO rcatdb_itemsbackup VALUES (6685,30,'to modify all items in given category','update rcatdb_itemsbackup, rcatdb_categories set ... where LEFT(rcatdb_itemsbackup.catcode, $lvl) = LEFT(rcatdb_categories.catcode,$lvl) and rcatdb_categories.id = $cid','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050928110147','2005-09-28');
+INSERT INTO rcatdb_itemsbackup VALUES (6684,30,'for blog application','support items with content but without name/value','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927232137','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6683,32,'','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927232046','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6682,211,'Prefilter files for greater Speed','http://webglimpse.net/docs/howto_prefilter.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230838','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6681,211,'Field-based searching','http://webglimpse.net/docs/howto_fieldsearches.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230933','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6680,211,'Convert HTML codes to upper-ASCII characters','http://webglimpse.net/docs/howto_charsets.txt','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230946','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6679,211,'Index upper-ASCII International Characters','http://webglimpse.net/docs/howto_charsets.txt','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927231002','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6678,211,'Index PDF documents using Ghostscript','http://webglimpse.net/docs/howto_pdf.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230913','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6677,211,'Index PDF documents using Xpdf','http://webglimpse.net/docs/howto_xpdf.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230901','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6676,211,'Index MS Word and Excel Documents','http://webglimpse.net/docs/howto_word.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230826','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6675,211,'Index files with spaces in the names','http://webglimpse.net/docs/howto_spacesinfilenames.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230635','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6674,211,'Search by directory','http://webglimpse.net/docs/howto_directorysearch.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230607','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6673,211,'Include/Exclude Files','http://webglimpse.net/docs/wgfilter-index.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230532','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6672,211,'Customize Results Output','http://webglimpse.net/docs/howto_customizeoutput.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230351','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6671,211,'Configuring an Archive','http://webglimpse.net/docs/configuring.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927230255','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6669,58,'Simple URLs parse for category','also allow use of handles & search terms in URL','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927224849','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6668,58,'Use for Webglimpse docs','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927224512','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6667,58,'Make nice instance of blog and take it public','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927224503','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6666,58,'Decide on method of template handling, output macros','Currently using CommandWeb.pm for templates, AbMacros.pm','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927224444','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6665,58,'Add \'importance\' and way to edit',' also consider newness, number of times viewed','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927224355','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6664,32,'Pups to vet','Ruby & mom managed to get 2 pups + Brinda in for checkups and shots...actually they were all very good (this was Mon 9/26).  Amber stayed with dad (playing more with Dad these days)','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927215703','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6663,203,'throwing/chasing everything','Found out she can throw things - likes to try throwing everything, especially large rubber dice - but tries every new object','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927115207','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6662,169,'Added Glimpse/LXR license','https://iwhome.com/webglimpse/glxr.html','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050927115104','2005-09-27');
+INSERT INTO rcatdb_itemsbackup VALUES (6661,63,'type spec for display','content usually assumed to be plain text (check for tags?)','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050925165800','2005-09-25');
+INSERT INTO rcatdb_itemsbackup VALUES (6660,63,'access control','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050925165350','2005-09-25');
+INSERT INTO rcatdb_itemsbackup VALUES (6659,63,'related text','should only use our RELATIONS for external to item - just use standard tables for internal, or maybe XML...?','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050923082723','2005-09-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6658,203,'chasing toy train car','really cute - hitting at, tossing and chasing (crawling fast) all over house','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050923080323','2005-09-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6656,85,'date display','installed Date::Manip and fixed date display in blog view.  Next need to make macros for display.','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922044601','2005-09-22');
+INSERT INTO rcatdb_itemsbackup VALUES (6657,203,'clicking/smacking noise',' \'talking\' back and forth with mom','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050923080238','2005-09-23');
+INSERT INTO rcatdb_itemsbackup VALUES (6655,32,'getting along..','','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922043954','2005-09-21');
+INSERT INTO rcatdb_itemsbackup VALUES (6654,104,'Ugh - year later, still trying to finish up Natlaw!','wanted to work on this stuff (abra) but had to put in unpaid hrs supervising Natlaw upgrade mechanism...','TYPE:content,metadata','\0\0\0\0\0\0\0\0\0\0\0\0\0',NULL,NULL,'050922041457','2005-09-22');
+

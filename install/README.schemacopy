@@ -1,0 +1,8 @@
+$ mysqldump -uuser -ppassword --no-data salesLeadsBrittany >salesLeadsTemplate.sql
+
+
+Then, at the mysql> prompt:
+
+mysql> CREATE DATABASE salesLeadsNormandy;
+mysql> USE salesLeadsNormandy;
+mysql> SOURCE /path/to/salesLeadsTemplate.sql;

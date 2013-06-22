@@ -1,0 +1,16 @@
+       # TODO: move to abFeature.pm
+        # retrieve a feature, if any
+        my $fq = "select id, name, short_content, cid, itemcode from rcatdb_items, ab_features where rcatdb_items.id = ab_features.item_id order by item_id desc limit 1";
+
+
+        my ($f_id, $f_name, $f_content, $f_cid, $f_itemcode) = $dbh->selectrow_array($fq);
+
+print "<!-- got feature $f_id by query $fq -->";
+
+        # TODO: move to AbMacros.pm
+        $f_content = substr($f_content,0,150);  # TODO trim by word
+        my $feature = "<div class=leader><small>Feature:</small><A HREF='/$f_id'>$f_name</A>".
+                "<p>$f_content<A HREF='/$f_id'>...</A></div>";
+
+	$feature =~ s/\'/\"/g;
+	$feature =~ s/[\r\a\n]+/<br>/g;

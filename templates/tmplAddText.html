@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>Browse category [|CATNAME|] </TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<small>Browse All Categories * Browse My Categories * Advanced search * Edit Preferences * Split Screen Maintenance </small>
+<br>
+<form action="[|THISCGI|]" method=post>
+<input type=hidden name="_CATID" value="[|CATID|]">
+<input type=hidden name="_ITEMID" value="[|ITEMID|]">
+<input type=hidden name="_USERPREF" value="[|USERPREF|]">
+<p>
+Current category: <b>[|CATPATH|]</b> 
+<p>
+Current item: <b>[|ITEMNAME|]</b> [|ITEMVALUE|] : [|ITEMQUALIFIER|]
+<br>
+Add related text to this item.  Relation:
+<SELECT name="RELATION">
+<OPTION value="DETAILS">More details
+<OPTION value="COMMENT">Comment or Note
+<OPTION value="WHY_BELONGS">Why item is here
+<OPTION value="HOW">How item got here
+<OPTION value="EXAMPLE">Example of use
+</SELECT>
+<br>
+Text:<br>
+<textarea name="text" rows=10 cols=60></textarea>
+<INPUT TYPE=HIDDEN NAME=ACTION VALUE='AddText'>
+<INPUT TYPE=HIDDEN NAME=NEXTPAGE VALUE='Browse'>
+<br>
+<input type="submit">
+</FORM>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Simple Browse</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<small><A HREF="[|THISCGI|]?_CATID=[|CATID|]&NEXTPAGE=Browse">Browse</A> 
+* <A HREF="[|THISCGI|]?_CATID=[|CATID|]&NEXTPAGE=Edit">Edit</A> 
+* Search 
+* Preferences</small>
+<br>
+<form action="[|THISCGI|]" method=get>
+<input type=hidden name="_CATID" value="[|CATID|]">
+<input type=hidden name="_USERPREF" value="[|USERPREF|]">
+
+Find <INPUT name=query size=15> in 
+<SELECT name=searchcat>
+<OPTION value=[|CATID|]> This Category ([|CATNAME|])
+<OPTION VALUE=0> All categories
+<!-- TODO: later, add Userpref-searchcats here -->
+</Select> <input type=submit value="Go">
+
+<p>
+Current category: <b>[|CATPATH|]</b>
+<br>
+Subcategories:
+<TABLE border=1 width="100%">
+~SUBCATS~ [|FMT_BEGIN|]<A HREF="[|THISCGI|]?_CATID=[|ID|]&_USERPREF=|USERPREF|&NEXTPAGE=Browse">[|NAME|]</A>:[|VALUE|][|FMT_END|]
+</TABLE>
+<table>
+~CATRELATIONS~ [|FMT_BEGIN|][|RELATION|]:<A HREF="[|LINK|]">[|NAME|]</A>[|FMT_END|]
+</table>
+
+<div align=right valign=top>
+~HANDLES~ [|HANDLE|] : [|NAME|]  [|?CATEGORY?"in"|] [|CATEGORY|]<br>
+</div>
+
+<hr>
+
+
+?ITEMNAME? Current item: <b>[|ITEMNAME|]</b> [|ITEMVALUE|] 
+<br>
+~ITEMRELATIONS~ [|FMT_BEGIN|][|RELATION|]:<A HREF="[|LINK|]">[|NAME|]</A>[|FMT_END|]
+<p>
+Items in this category:<br>
+~CATITEMS~ [|?LINK?:"<A HREF='"|][|LINK|][|?LINK?:"'>"|]<b>[|NAME|]</b>[|?LINK?:"</A>"|][|?SHORT_CONTENT?:" : "|][|SHORT_CONTENT|] - [|META_DESCRIPTION|]<small>[|RELATED_LINKS|] <i><A HREF='[|THISLINK|]&_ITEMID=[|ID|]&NEXTPAGE="AddText"'>Add Note</A></i></small><br>
+
+<INPUT TYPE=HIDDEN NAME=ACTION VALUE=''>
+<INPUT TYPE=HIDDEN NAME=NEXTPAGE VALUE='Browse'>
+<input type="submit">
+</FORM>
+
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+sub faulthandler {
+  my ($soap, $res) = @_;
+
+  print "<HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY> Sorry, an error has occurred when we submitted your information to Google.  If you need help, you can <A HREF='http://webglimpse.net/contact.php'>contact us here</A>.<p>\n";
+   if ($res->faultdetail->{"code"} eq '303') {
+	print "You may already have an Adsense account under your registered email address.  If that is the case, please use <A HREF='http://btucson.com/adassoc.php'>this page: http://btucson.com/adassoc.php</A> to associate your existing Adsense account with bTucson.com<p> Raw error message follows:<hr>\n";
+   } else {
+	print "<hr>\n";
+   }
+  my $errorMessage =
+    "SOAP Fault: " . "Error Code " . $res->faultdetail->{"code"} . ". " .
+    $res->faultdetail->{"message"};
+  if (defined $res->faultdetail->{"trigger"}) {
+    $errorMessage .= " \"" . $res->faultdetail->{"trigger"} . "\" ";
+  }
+  if (defined $res->faultdetail->{"triggerDetails"}) {
+    $errorMessage .= $res->faultdetail->{"triggerDetails"};
+  }
+  print $errorMessage;
+
+
+  print '<p><hr><A HREF="http://bTucson.com/">back to bTucson.com</A> &nbsp;&nbsp; <A HREF="/adsignup.php">back to the RevenueShare Signup page</A>';
+
+  print "</BODY></HTML>\n";
+  exit;
+#  die($errorMessage);
+}
+

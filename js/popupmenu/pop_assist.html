@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+ <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+ <title>Cascading Popup Menus: Syntax Assistant</title>
+
+<style type="text/css">
+<!--
+
+BODY { font: 12px Tahoma, Verdana, Arial, Helvetica; color: windowtext; background: appworkspace;
+  margin: 15px; cursor: default }
+
+INPUT { font: 12px Tahoma, Verdana, Arial, Helvetica }
+SELECT { font: 12px Tahoma, Verdana, Arial, Helvetica }
+
+.topTabLink { position: relative; z-index: 1; padding: 5px 30px 5px 30px; top: 2px;
+  cursor: pointer; cursor: hand; background-color: buttonface; border: 2px solid;
+  border-color: buttonhighlight buttonshadow menu buttonhighlight;
+  -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px }
+
+.topTabLink-sel { font-weight: bold; position: relative; z-index: 3; padding: 5px 30px 5px 30px;
+  cursor: pointer; cursor: hand; background-color: buttonface; border: 2px solid;
+  border-color: buttonhighlight buttonshadow buttonface buttonhighlight;
+  -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px }
+
+.topTabPage { position: relative; z-index: 2; top: 4px; display: none; padding: 10px; margin: 0px;
+  background-color: buttonface; padding: 10px; border: 2px solid;
+  border-color: buttonhighlight buttonshadow buttonshadow buttonhighlight }
+
+.syntax { font: 12px Courier, monospace; margin: 20px 0px 20px 0px; padding: 5px; border: 1px solid;
+  border-color: buttonshadow buttonhighlight buttonhighlight buttonshadow }
+
+.secTitle { position: relative; left: 20px; top: 8px; z-index: 5; padding: 3px;
+  background-color: buttonface }
+
+.secDiv { position: relative; z-index: 4; padding: 15px; border: 2px groove buttonhighlight }
+
+.halfway { position: absolute; left: 45%; top: 15px }
+
+.disabled { color: graytext }
+.disabled INPUT { color: graytext }
+.disabled SELECT { color: graytext }
+
+.help { border-bottom: 1px dashed graytext }
+
+-->
+</style>
+
+<script type="text/javascript" language="JavaScript1.2"><!--
+
+function getRef(id)
+{
+ return document.getElementById(id);
+}
+
+function getSty(id)
+{
+ return getRef(id).style;
+}
+
+if (!document.documentElement) alert('Sorry, this page requires a DOM-compatible browser ' +
+ 'like IE5+ or NS6+.\n\nPlease update your browser accordingly.');
+
+function showTab(tabClass, name)
+{
+ if (window[tabClass]) getSty(window[tabClass]).display = 'none';
+ getSty(name).display = 'block';
+ window[tabClass] = name;
+}
+
+function setTopTab(name)
+{
+ if (window.topLink) getRef(window.topLink).className = 'topTabLink';
+ getRef(name+'-link').className = 'topTabLink-sel';
+ showTab('topTab', name+'-form');
+ window.topLink = name+'-link';
+ if (name != 'WL') eval(name + '_process()');
+}
+
+window.onload = function()
+{
+ setTopTab('WL');
+}
+
+
+
+
+
+
+function checkVal(value, type)
+{
+ switch (type)
+ {
+  case 'name':
+  {
+   value = value.replace(/[^A-Za-z0-9_]/g, '');
+   break;
+  }
+  case 'int':
+  {
+   value = parseInt(value);
+   if (isNaN(value)) value = 0;
+   break;
+  }
+  case 'html':
+  {
+   value = value.replace(/'/g,'\\\'').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/&/g,'&amp;');
+   break;
+  }
+ }
+ return value;
+}
+
+function isEnabled(id)
+{
+ var en = getRef(id+'-Box').checked;
+ getRef(id+'-Div').className = (en ? '' : 'disabled');
+ return en;
+}
+
+
+
+function IS_process()
+{
+ var syn = 'var ';
+ syn += checkVal(getRef('IS-name').value, 'name');
+ syn += ' = new ItemStyle(';
+
+ syn += checkVal(getRef('IS-len').value, 'int') + ', ';
+ syn += checkVal(getRef('IS-spacing').value, 'int') + ', ';
+
+ if (isEnabled('IS-PI'))
+ {
+  if (isEnabled('IS-overInd')) syn += '\'SWAP:' + checkVal(getRef('IS-popInd').value, 'html') +
+   '^' + checkVal(getRef('IS-overInd').value, 'html') + '\', ';
+  else syn += '\'' + checkVal(getRef('IS-popInd').value, 'html') + '\', ';
+  syn += ((getRef('IS-popPosSel').value == 'r') ? '-' : '');
+  syn += checkVal(getRef('IS-popPos').value, 'int') + ', ';
+ }
+ else syn += '\'\', 0, ';
+
+ syn += checkVal(getRef('IS-pad').value, 'int') + ', ';
+ 
+ var BGType = getRef('IS-BG-Col-Box').checked ? 'Col' : 'Img';
+ var outCol = checkVal(getRef('IS-out'+BGType).value, 'html');
+ var overCol = checkVal(getRef('IS-over'+BGType).value, 'html');
+ 
+ var bgfRE = new RegExp('^#[0-9A-F]{6}$', 'ig');
+ if (isEnabled('IS-BGFade') && outCol.match(bgfRE) && overCol.match(bgfRE))
+ {
+  outCol = checkVal(getRef('IS-fadeOut').value, 'int') + outCol;
+  overCol = checkVal(getRef('IS-fadeIn').value, 'int') + overCol;
+ }
+
+ syn += '\'' + outCol + '\', \'' + overCol + '\', ';
+
+ syn += '\'' + checkVal(getRef('IS-outClass').value, 'name') + '\', ';
+ syn += '\'' + checkVal(getRef('IS-overClass').value, 'name') + '\', ';
+ syn += '\'' + checkVal(getRef('IS-outBorder').value, 'name') + '\', ';
+ syn += '\'' + checkVal(getRef('IS-overBorder').value, 'name') + '\', ';
+
+ if (isEnabled('IS-Alpha'))
+ {
+  syn += checkVal(getRef('IS-outAlpha').value, 'int') + ', ';
+  syn += checkVal(getRef('IS-overAlpha').value, 'int') + ', ';
+ }
+ else syn += 'null, null, ';
+
+ syn += '\'' + checkVal(getRef('IS-normCursor').value, 'name') + '\', ';
+ syn += '\'' + checkVal(getRef('IS-nullCursor').value, 'name') + '\'';
+
+ syn += ');';
+ getRef('IS-syntax').innerHTML = syn;
+}
+
+
+
+function SM_process()
+{
+ var syn = 'startMenu(\'';
+ syn += checkVal(getRef('SM-name').value, 'name') + '\', ';
+ syn += getRef('SM-isVert').value + ', ';
+ 
+ if (getRef('SM-XP-Number-Box').checked) syn += checkVal(getRef('SM-XP-Number-Val').value, 'int') + ', ';
+ else syn += '\'' + checkVal(getRef('SM-XP-Formula-Val').value, 'html') + '\', ';
+
+ if (getRef('SM-YP-Number-Box').checked) syn += checkVal(getRef('SM-YP-Number-Val').value, 'int') + ', ';
+ else syn += '\'' + checkVal(getRef('SM-YP-Formula-Val').value, 'html') + '\', ';
+
+ syn += checkVal(getRef('SM-breadth').value, 'int') + ', ';
+ syn += checkVal(getRef('SM-itemSty').value, 'name');
+
+ var par = getRef('SM-par').value, subsOC = getRef('SM-subsOnClick').checked;
+ if (par || subsOC) syn += ', \'' + checkVal(par, 'html') + '\'';
+ if (subsOC) syn += ', true';
+
+ syn += ');';
+ getRef('SM-syntax').innerHTML = syn;
+}
+
+
+
+function AI_process()
+{
+ var syn = 'addItem(\'';
+
+ if (isEnabled('AI-overText')) syn += 'SWAP:' + checkVal(getRef('AI-text').value, 'html') + '^' +
+  checkVal(getRef('AI-overText').value, 'html');
+ else syn += checkVal(getRef('AI-text').value, 'html');
+
+ syn += '\', \'';
+
+ if (getRef('AI-IT-File-Box').checked) syn += checkVal(getRef('AI-href').value, 'html') +
+  '\', \'' + checkVal(getRef('AI-par').value, 'html');
+ if (getRef('AI-IT-Submenu-Box').checked) syn += checkVal(getRef('AI-sm').value, 'name') +
+  '\', \'sm:';
+ if (getRef('AI-IT-JavaScript-Box').checked) syn += checkVal(getRef('AI-js').value, 'html') +
+  '\', \'js:';
+
+ syn += '\'';
+
+
+ var iS = checkVal(getRef('AI-itemSty').value, 'name');
+ if (iS) syn += ', ' + iS;
+
+ var len = checkVal(getRef('AI-len').value, 'int');
+ if (len) syn += (iS ? '' : ', null') + ', ' + len;
+
+ syn += ');';
+ getRef('AI-syntax').innerHTML = syn;
+}
+
+//--></script>
+
+</head>
+<body>
+
+
+
+
+<div style="text-align: center">
+ <span id="WL-link" class="topTabLink" onclick="setTopTab('WL')">Welcome</span>
+ <span id="IS-link" class="topTabLink" onclick="setTopTab('IS')">ItemStyle()</span>
+ <span id="SM-link" class="topTabLink" onclick="setTopTab('SM')">startMenu()</span>
+ <span id="AI-link" class="topTabLink" onclick="setTopTab('AI')">addItem()</span>
+</div>
+
+
+
+
+<div id="WL-form" class="topTabPage">
+ <p><b>What is this?</b></p>
+ <p>This is a script designed to ease the creation of DHTML popup menus via my
+ "<a href="http://www.twinhelix.com">Cascading Popup Menus v5.2</a>" JavaScript engine.
+ It is not required to create menus, but can assist with the somewhat complicated syntax
+ if you are not overly familiar with JavaScript. You still need to read the comments and
+ especially the "Conditions of Use" in the menu script, so you know where the various commands
+ go.</p>
+ 
+ <p><b>How does it work?</b></p>
+ <p>Simply click on the appropriate tab above to create the syntax for a JavaScript command.
+ Paste the result into the menu script once you are happy with the options you've set.
+ You can point at any <span class="help" title="Just like that :)">underlined text</span> for
+ a popup tooltip if you want to find out what an option means.</p>
+
+ <p><b>Donation-Ware:</b></p>
+ <p>If you find this useful, that's great. I make all my code freely downloadable, rather than
+ force people to purchase it. However, if you want to give something back in return, please
+ consider making a donation via my <a href="http://www.twinhelix.com">homepage</a> to support
+ the development of this and other scripts.</p>
+ <p><i>Good luck - Angus.</i></p>
+</div>
+
+
+
+
+<form id="IS-form" class="topTabPage" action="javascript:void(0)"
+ onkeyup="IS_process()" onclick="IS_process()">
+ <div id="IS-syntax" class="syntax"></div>
+
+ Name of ItemStyle: <input id="IS-name" type="text" value="subM" style="width: 100px" />
+ <br /><br />
+ 
+ <span class="secTitle">
+  Dimensions
+ </span>
+ <div class="secDiv">
+  <span class="help" title="For vertical menus it's the height of items using this style, horizontal menus = width.">
+  Item Length</span>:
+   <input id="IS-len" type="text" value="22" style="width: 30px" /> px
+  <span style="width: 50px">&nbsp;</span>
+  <span class="help" title="Specify a positive number for gaps between items, or negative to overlap them.">
+  Spacing After</span>:
+   <input id="IS-spacing" type="text" value="0" style="width: 30px" /> px.
+  <span style="width: 50px">&nbsp;</span>
+  <span class="help" title="The distance between the edge of the item and the HTML within it.">
+   Item Padding</span>:
+   <input id="IS-pad" type="text" value="3" style="width: 30px" /> px.
+ </div>
+
+ <span class="secTitle">
+  <input id="IS-PI-Box" type="checkbox" checked="checked" />
+  <span class="help" title="The small arrow shown to indicate this item pops out a submenu.">
+   Popout Indicator</span>
+ </span>
+ <div class="secDiv">
+ <div id="IS-PI-Div">
+  Content HTML: <input id="IS-popInd" type="text" value="&amp;gt;" style="width: 200px" />
+  positioned <input id="IS-popPos" type="text" value="15" style="width: 30px" /> px from the
+  <select id="IS-popPosSel" onchange="IS_process()">
+   <option value="r">Right</option>
+   <option value="l">Left</option>
+  </select> edge.
+  <br /><br />
+  <input id="IS-overInd-Box" type="checkbox" />
+  Change on mouseover to:
+  <span id="IS-overInd-Div">
+   <input id="IS-overInd" type="text" value="&amp;gt;" style="width: 200px" />
+  </span>
+ </div>
+ </div>
+
+ <span class="secTitle">
+  Background:
+  <script type="text/javascript"><!--
+   window.IS_BG = 'IS-BG-Col';
+  //--></script>
+  <input type="radio" name="IS-BG-Type" id="IS-BG-Col-Box" checked="checked"
+   onclick="showTab('IS_BG', 'IS-BG-Col')" />
+  <span class="help" title="Specify either a colour name like red, or a hex colour like #RRGGBB.">
+   Colour</span>
+  <input type="radio" name="IS-BG-Type" id="IS-BG-Img-Box"
+   onclick="showTab('IS_BG', 'IS-BG-Img')" />
+  <span class="help" title="Specify an image filename like images/file.gif without quotes, to have a background tile.">
+   Image</span>
+ </span>
+ <div class="secDiv">
+  <div id="IS-BG-Col">
+   Dim Colour: <input id="IS-outCol" type="text" value="#CCCCDD" style="width: 100px" />
+   <div class="halfway">
+    Hover Colour: <input id="IS-overCol" type="text" value="#6699CC" style="width: 100px" />
+   </div>
+   <br /><br />
+   <input id="IS-BGFade-Box" type="checkbox" />
+   <span class="help" title="Blends between background colours -- only for hex colours in the form #RRGGBB.">
+    Fade Between Colours</span>:
+   <span id="IS-BGFade-Div">
+    <input id="IS-fadeIn" type="text" value="10" style="width: 30px" /> % lightup speed,
+    <input id="IS-fadeOut" type="text" value="10" style="width: 30px" /> % dimming speed.
+   </span> 
+  </div>
+
+  <div id="IS-BG-Img" style="display: none">
+   Dim Image: <input id="IS-outImg" type="text" value="images/file.gif" style="width: 200px" />
+   <br /><br /><input type="text" style="visibility: hidden" />
+   <div class="halfway">
+    Hover Image: <input id="IS-overImg" type="text" value="images/file.gif" style="width: 200px" />
+   </div>
+  </div>
+ </div>
+
+ <span class="secTitle">
+  <span class="help" title="These are names from the menu stylesheet, used to control item formatting.">
+   CSS Classes</span>
+ </span>
+ <div class="secDiv">
+  Dim Text: <input id="IS-outClass" type="text" value="lowText" style="width: 100px" />
+  <br /><br />
+  Dim Border: <input id="IS-outBorder" type="text" value="itemBorder" style="width: 100px" />
+  <br /><br />
+  <span class="help" title="Mouse cursor used for items that link to a file or JavaScript command.">
+   Normal Cursor</span>: <input id="IS-normCursor" type="text" value="hand" style="width: 100px" />
+  <div class="halfway">
+   Hover Text: <input id="IS-overClass" type="text" value="highText" style="width: 100px" />
+   <br /><br />
+   Hover Border: <input id="IS-overBorder" type="text" value="itemBorder" style="width: 100px" />
+   <br /><br />
+   <span class="help" title="Mouse cursor used for 'sm:' items, and items that don't link to anything.">
+    Null Cursor</span>: <input id="IS-nullCursor" type="text" value="default" style="width: 100px" />
+  </div>
+ </div>
+
+ <span class="secTitle">
+  <input id="IS-Alpha-Box" type="checkbox" />
+  <span class="help" title="Make items translucent, only on IE/Win and NS6+ or Mozilla.">
+   Alpha Filtering</span>
+ </span>
+ <div class="secDiv">
+ <div id="IS-Alpha-Div">
+  Dim Opacity: <input id="IS-outAlpha" type="text" value="80" style="width: 30px" /> %
+  <div class="halfway">
+   Hover Opacity: <input id="IS-overAlpha" type="text" value="90" style="width: 30px" /> %
+  </div>
+ </div>
+ </div>
+
+</form>
+
+
+
+
+<form id="SM-form" class="topTabPage" action="javascript:void(0)"
+ onkeyup="SM_process()" onclick="SM_process()">
+ <div id="SM-syntax" class="syntax"></div>
+
+ <span class="help" title="Used to identify this menu and pop it out from another item.
+ Any menus that have names starting with 'root' without quotes are always visible.">Name of Menu:</span>
+  <input id="SM-name" type="text" value="root" style="width: 100px" />
+
+ &nbsp; &nbsp; &nbsp;
+ <span class="help" title="The ItemStyle used for items in this menu if they don't specify their own">
+  Default ItemStyle name</span>
+ <input id="SM-itemSty" type="text" value="subM" style="width: 100px" />
+
+ <br /><br />
+ 
+ <span class="secTitle">Orientation</span>
+ <div class="secDiv">
+  This is a
+  <select id="SM-isVert"
+   onchange="getRef('SM-orientation').innerHTML = (this.value=='true' ? 'wide' : 'high')">
+   <option value="true">Vertical</option>
+   <option value="false">Horizontal</option>
+  </select>
+  menu in which items are
+  <input id="SM-breadth" type="text" value="80" style="width: 30px" /> px
+  <span id="SM-orientation">wide</span>.
+ </div>
+
+ <span class="secTitle">
+  X Position
+  <script type="text/javascript"><!--
+   window.SM_XP = 'SM-XP-Number';
+  //--></script>
+  <input type="radio" name="SM-XP-Type" id="SM-XP-Number-Box" checked="checked"
+   onclick="showTab('SM_XP', 'SM-XP-Number')" />
+  <span class="help" title="Menu is positioned this many pixels across from its parent item.">
+   Offset</span>
+  <input type="radio" name="SM-XP-Type" id="SM-XP-Formula-Box"
+   onclick="showTab('SM_XP', 'SM-XP-Formula')" />
+  <span class="help" title="Menu is absolutely positioned (in pixels) from the left edge of the document according to the result of the formula.">
+   Formula</span>
+ </span>
+
+ <div class="secDiv">
+  <div id="SM-XP-Number">
+   Offset: <input id="SM-XP-Number-Val" type="text" value="85" style="width: 30px" /> px
+  </div>
+  <div id="SM-XP-Formula" style="display: none">
+   Expression: <input id="SM-XP-Formula-Val" type="text" value="" style="width: 300px" />
+   &nbsp; &nbsp; &nbsp; Preset examples:
+   <select onchange="getRef('SM-XP-Formula-Val').value = this.value">
+    <option value="">--- Select ---</option>
+    <option value="page.winW()/2 - menu.root[0].menuW/2">Centre in window</option>
+    <option value="page.scrollX() + 200">Scroll right with page</option>
+    <option value="page.elmPos(&quot;link-name&quot;).x + 20">Relative to &lt;A NAME&gt; tag</option>
+   </select>    
+  </div>
+ </div>
+
+ <span class="secTitle">
+  Y Position
+  <script type="text/javascript"><!--
+   window.SM_YP = 'SM-YP-Number';
+  //--></script>
+  <input type="radio" name="SM-YP-Type" id="SM-YP-Number-Box" checked="checked"
+   onclick="showTab('SM_YP', 'SM-YP-Number')" />
+  <span class="help" title="Menu is positioned this many pixels down from its parent item.">
+   Offset</span>
+  <input type="radio" name="SM-YP-Type" id="SM-YP-Formula-Box"
+   onclick="showTab('SM_YP', 'SM-YP-Formula')" />
+  <span class="help" title="Menu is absolutely positioned (in pixels) from the top edge of the document according to the result of the formula.">
+   Formula</span>
+ </span>
+ <div class="secDiv">
+  <div id="SM-YP-Number">
+   Offset: <input id="SM-YP-Number-Val" type="text" value="0" style="width: 30px" /> px
+  </div>
+  <div id="SM-YP-Formula" style="display: none">
+   Expression: <input id="SM-YP-Formula-Val" type="text" value="" style="width: 300px" />
+   &nbsp; &nbsp; &nbsp; Preset examples:
+   <select onchange="getRef('SM-YP-Formula-Val').value = this.value">
+    <option value="">--- Select ---</option>
+    <option value="page.scrollY() + 200">Scroll down with page</option>
+    <option value="page.elmPos(&quot;link-name&quot;).y + 20">Relative to &lt;A NAME&gt; tag</option>
+   </select>    
+  </div>
+ </div>
+
+ <span class="secTitle">Optional Settings</span>
+ <div class="secDiv">
+  <span class="help" title="This needs to be a frame name or reference like 'botFr' or 'parent.content' without quotes, relative to the script frameset, in which this menu will be created.">
+  Frame path</span>:
+  <input id="SM-par" type="text" value="" style="width: 300px" />
+  <br /><br />
+  <input type="checkbox" id="SM-subsOnClick" /> Display menu on click.
+ </div>
+
+</form>
+
+
+
+
+<form id="AI-form" class="topTabPage" action="javascript:void(0)"
+ onkeyup="AI_process()" onclick="AI_process()">
+ <div id="AI-syntax" class="syntax"></div>
+
+ <span class="secTitle">Content</span>
+ <div class="secDiv">
+  Text/HTML: <input id="AI-text" type="text" value="Text" style="width: 300px" />
+  <br /><br />
+  <input id="AI-overText-Box" type="checkbox" />
+  Change on mouseover to:
+  <span id="AI-overText-Div">
+   <input id="AI-overText" type="text" value="" style="width: 300px" />
+  </span>
+ </div>
+
+ <span class="secTitle">
+  Item Type:
+  <script type="text/javascript"><!--
+   window.AI_IT = 'AI-IT-File';
+  //--></script>
+  <input type="radio" name="AI-IT-Type" id="AI-IT-File-Box" checked="checked"
+   onclick="showTab('AI_IT', 'AI-IT-File')" /> File
+  <input type="radio" name="AI-IT-Type" id="AI-IT-Submenu-Box"
+   onclick="showTab('AI_IT', 'AI-IT-Submenu')" /> Submenu
+  <input type="radio" name="AI-IT-Type" id="AI-IT-JavaScript-Box"
+   onclick="showTab('AI_IT', 'AI-IT-JavaScript')" /> JavaScript
+ </span>
+
+ <div class="secDiv">
+  <div id="AI-IT-File">
+   <span class="help" title="Enter the path of the file to load when this item is clicked, if your site uses folders or frames I recommend an absolute path like /folder/file.html">URL</span>:
+   <input id="AI-href" type="text" value="file.html" style="width: 300px" />
+   <br /><br />
+   <span class="help" title="Specify a frame reference like 'parent.content' to target a frame named 'content' in the parent frameset of the script, or 'botFr' to display in a frame in the script frameset. Leave it empty to load the file in the whole window.">Target frame</span>:
+   <input id="AI-par" type="text" value="" style="width: 300px" />
+  </div>
+
+  <div id="AI-IT-Submenu" style="display: none">
+   <span class="help" title="When you point at this item, the corresponding menu name will be shown. This item will also have a 'popout indicator' arrow image displayed in it.">Menu name to show</span>:
+   <input id="AI-sm" type="text" value="mFile" style="width: 300px" />
+  </div>
+
+  <div id="AI-IT-JavaScript" style="display: none">
+   <span class="help" title="A JavaScript expression, evaluated on item click.">JS Command</span>:
+   <input id="AI-js" type="text" value="alert()" style="width: 300px" />
+   &nbsp; &nbsp; &nbsp; Preset examples:
+   <select onchange="getRef('AI-js').value = this.value">
+    <option value="">--- Select ---</option>
+    <option value="window.open(&quot;file.html&quot;)">Open new window</option>
+    <option value="frame1.location.href=&quot;file1.html&quot;; frame2.location.href=&quot;file2.html&quot;">Navigate 2 frames</option>
+   </select>    
+  </div>
+ </div>
+
+ <span class="secTitle">Optional Settings</span>
+ <div class="secDiv">
+  <span class="help" title="You can specify the name of a unique ItemStyle used for this item, overriding the menu default.">
+  ItemStyle</span>:
+  <input id="AI-itemSty" type="text" value="" style="width: 100px" />
+  &nbsp; &nbsp; &nbsp;
+  <span class="help" title="A custom width or height (depending on menu orientation) for this item if the text within it is longer than the menu default.">Item length</span>:
+  <input id="AI-len" type="text" value="" style="width: 30px" /> px
+  <br /><br />
+  You can set more options in the script, refer to the ItemStyle Section comments.
+ </div>
+
+</form>
+
+
+
+
+
+<div style="text-align: center">
+ <p>&nbsp;</p>
+ <b>Cascading Popup Menus v5.2: Syntax Assistant</b> &copy;
+ 2002-2004 <a href="http://www.twinhelix.com">Angus Turnbull</a>, All Rights Reserved.
+ <br />
+ Updated: 22 January 2004.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1834 @@
+mysql> select * from ab_school where from_grade = 0 and grades NOT LIKE 'K%';
++--------+-------------+--------------------------------------------+------------+----------+--------------------------------------------+--------+---------+
+| id     | school_type | district                                   | from_grade | to_grade | administrator                              | grades | degrees |
++--------+-------------+--------------------------------------------+------------+----------+--------------------------------------------+--------+---------+
+| 124197 | C           | Charter                                    |          0 |        0 | Al Rumsey                                  | 9      |         |
+| 104225 | C           | Charter                                    |          0 |        0 | http://www.pimavocationalhighschool.com    | "9-12  |         |
+| 110875 | C           | Charter                                    |          0 |        0 | http://www.ppep.org                        | Tucson |         |
+| 124202 | C           | Charter                                    |          0 |        0 | http://www.ppep.org                        | Tucson |         |
+| 118367 | C           | Charter                                    |          0 |        0 | Jody Sullivan                              | US     |         |
+| 117675 | D           | Amphitheater Unified School District       |          0 |        0 |                                            | "UE    |         |
+| 109579 | D           | Catalina Foothills Unified School District |          0 |        0 | Michele Leeder                             | PreK   |         |
+| 124241 | D           | Flowing Wells Unified School District      |          0 |        0 | Susan Olson-Shinn                          | PreK-K |         |
+| 124251 | D           | Marana Unified School District             |          0 |        0 | http://www.maranausd.org/ACE               | Marana |         |
+| 124254 | D           | Marana Unified School District             |          0 |        0 | http://www.maranausd.org/ee                | Marana |         |
+| 124255 | D           | Marana Unified School District             |          0 |        0 | http://www.maranausd.org/mcat              | Marana |         |
+| 124256 | D           | Marana Unified School District             |          0 |        0 | http://www.maranausd.org/MMS               | Marana |         |
+| 124277 | D           | Tucson Unified School District             |          0 |        0 | http://edweb.tusd.k12.az.us/Alternative_Ed | "9-12  |         |
+| 124278 | D           | Tucson Unified School District             |          0 |        0 | http://edweb.tusd.k12.az.us/Alternative_Ed | "9-12  |         |
+| 109734 | D           | Tucson Unified School District             |          0 |        0 | http://edweb.tusd.k12.az.us/Alternative_Ed | "6-8   |         |
+| 124294 | D           | Tucson Unified School District             |          0 |        0 | http://edweb.tusd.k12.az.us/Alternative_Ed | "9-12  |         |
+| 124296 | D           | Tucson Unified School District             |          0 |        0 | http://edweb.tusd.k12.az.us/Alternative_Ed | "6-8   |         |
+| 114645 | D           | Tucson Unified School District             |          0 |        0 | Robert Mackay                              | US     |         |
+| 102300 | D           | Tucson Unified School District             |          0 |        0 | http://edweb.tusd.k12.az.us/Alternative_Ed | "9-12  |         |
+| 124362 | P           | Private                                    |          0 |        0 | Arline Schlossberg                         | PreS-5 |         |
+| 124365 | P           | Private                                    |          0 |        0 | Margery Bates   Kimberlyn McGreal          | PreK-K |         |
+| 124366 | P           | Private                                    |          0 |        0 | Royce Nelsestuen                           | PreS-6 |         |
+| 104382 | P           | Private                                    |          0 |        8 | Pamela Barr                                |  K-8   |         |
+| 124372 | P           | Private                                    |          0 |       12 | Denise Garcia                              |  K-12  |         |
+| 124374 | P           | Private                                    |          0 |        0 | Br. Nick Gonzalez                          | 9      |         |
+| 124375 | P           | Private                                    |          0 |        8 | Sr. Jackie Koenig                          |  K-8   |         |
+| 124376 | P           | Private                                    |          0 |        8 | Sr. Ann Patrick Adams                      |  K-8   |         |
+| 124379 | P           | Private                                    |          0 |        8 | Ann Zeches                                 |  K-8   |         |
+| 124383 | P           | Private                                    |          0 |        8 | Ellen Kwader-Murphy                        |  K-8   |         |
+| 124384 | P           | Private                                    |          0 |        8 | Patrick Brown                              |  K-8   |         |
+| 124385 | P           | Private                                    |          0 |        0 | Teresa Bier                                | PreK-K |         |
+| 124386 | P           | Private                                    |          0 |       12 | Amber Morris                               |  K-12  |         |
++--------+-------------+--------------------------------------------+------------+----------+--------------------------------------------+--------+---------+
+
+
+Can't parse FROM grade from 9
+Can't parse FROM grade from K
+Can't parse FROM grade from "9-12
+Can't parse FROM grade from "9-12
+Can't parse FROM grade from "9-12
+Can't parse FROM grade from Tucson
+Can't parse FROM grade from Tucson
+Can't parse FROM grade from US
+Can't parse FROM grade from "UE
+Can't parse FROM grade from PreK
+Can't parse FROM grade from PreK-K
+Can't parse FROM grade from Marana
+Can't parse FROM grade from Marana
+Can't parse FROM grade from Marana
+Can't parse FROM grade from Marana
+Can't parse FROM grade from "9-12
+Can't parse FROM grade from "9-12
+Can't parse FROM grade from "6-8
+Can't parse FROM grade from "9-12
+Can't parse FROM grade from "6-8
+Can't parse FROM grade from US
+Can't parse FROM grade from "9-12
+Can't parse FROM grade from PreS-5
+Can't parse FROM grade from PreK-K
+Can't parse FROM grade from PreS-6
+Can't parse FROM grade from 9
+Can't parse FROM grade from PreS-1
+Can't parse FROM grade from PreK-K
+Can't parse FROM grade from K-Age 22
+
+
+Got Academic and Personal Excellence Charter High School (APEX) for grades 9-12 in dist Charter run by Jim Parks
+Primary category is 32206
+Academic and Personal Excellence Charter High School (APEX) is already in the database, not adding
+ID is 124169
+
+Got Academy Adventures Primary School for grades K-3 in dist Charter run by MaryAnn Penczar
+Primary category is 32206
+Academy Adventures Primary School is already in the database, not adding
+ID is 124170
+
+Got Academy of Math and Science for grades 1-11 in dist Charter run by Tatyana Chayka
+Primary category is 32206
+Academy of Math and Science is already in the database, not adding
+ID is 112505
+
+We had address 1557 West Prince Road would set it to 1557 W. Prince
+Got Academy of Tucson Elementary School for grades K-5 in dist Charter run by Caroline Martin
+Primary category is 32206
+Academy of Tucson Elementary School is already in the database, not adding
+ID is 124171
+
+Got Academy of Tucson High School for grades 9-12 in dist Charter run by Sue Pearson
+Primary category is 32206
+Academy of Tucson High School is already in the database, not adding
+ID is 124172
+
+Got Academy of Tucson Middle School for grades 6-8 in dist Charter run by Holly Leman
+Primary category is 32206
+Academy of Tucson Middle School is already in the database, not adding
+ID is 124173
+
+Got Accelerated Learning Laboratory Elementary School for grades K-5 in dist Charter run by "David Jones
+Primary category is 32206
+Accelerated Learning Laboratory Elementary School is already in the database, not adding
+ID is 124174
+
+Got Accelerated Learning Laboratory High School for grades 9-10 in dist Charter run by "David Jones
+Primary category is 32206
+Accelerated Learning Laboratory High School is already in the database, not adding
+ID is 124176
+
+Got Accelerated Learning Laboratory Middle School for grades 6-8 in dist Charter run by "David Jones
+Primary category is 32206
+Accelerated Learning Laboratory Middle School is already in the database, not adding
+ID is 124177
+
+Got Adalberto M. Guerrero Middle School for grades 6-8 in dist Charter run by Carmen Campuzano
+Primary category is 32206
+Adalberto M. Guerrero Middle School is already in the database, not adding
+ID is 124178
+
+Got Allsport Academy for grades 5-9 in dist Charter run by Elizabeth Shaw
+Primary category is 32206
+ID is 124179
+
+Got Alta Vista Charter High School for grades 9-12 in dist Charter run by Alicia Alvarez
+Primary category is 32206
+ID is 124180
+
+Got Alternative Computerized Education High School (ACE) for grades 9-12 in dist Charter run by Cochelle Dubbs
+Primary category is 32206
+ID is 124181
+
+Got AmeriSchools Academy for grades K-8 in dist Charter run by Greg Gaines
+Primary category is 32206
+ID is 124182
+
+Got AmeriSchools College Preparatory Academy for grades 9-12 in dist Charter run by Charlene Mendoza
+Primary category is 32206
+ID is 124183
+
+Got Aztlan Academy for grades 9-12 in dist Charter run by Judith Bisignano
+Primary category is 32206
+Aztlan Academy is already in the database, not adding
+ID is 106732
+
+We had address 4700 South Park Avenue would set it to 3376 S. 6th Ave.
+Got BASIS School for grades 5-12 in dist Charter run by Carolyn McGarvey
+Primary category is 32206
+BASIS School is already in the database, not adding
+ID is 108805
+
+We had address 3825 East 2nd Street would set it to 3825 E. 2nd St.
+Got Calli Ollin Academy for grades 9-12 in dist Charter run by Shannon Dineley
+Primary category is 32206
+Calli Ollin Academy is already in the database, not adding
+ID is 108531
+
+We had address 200 North Stone Avenue would set it to 200 N. Stone
+Got Canyon Rose Academy for grades 9-12 in dist Charter run by Clay Connor
+Primary category is 32206
+Canyon Rose Academy is already in the database, not adding
+ID is 119246
+
+We had address 2401 South Wilmot Road would set it to 2401 S. Wilmot
+Got Carden of Tucson for grades K-8 in dist Charter run by Bette Jeppson
+Primary category is 32206
+Carden of Tucson is already in the database, not adding
+ID is 123175
+
+We had address  would set it to 5260 N. Royal Palm Dr.
+Got Cesar Chavez Middle School for grades 6-8 in dist Charter run by Judith Bisignano
+Primary category is 32206
+ID is 124184
+
+Got Children Reaching for the Sky Preparatory for grades K-6 in dist Charter run by Lee Griffin
+Primary category is 32206
+ID is 124185
+
+Got Children's Success Academy for grades K-5 in dist Charter run by Nanci Aiken
+Primary category is 32206
+ID is 124186
+
+Got City High School for grades 9-10 in dist Charter run by Carrie Brennan
+Primary category is 32206
+City High School is already in the database, not adding
+ID is 116881
+
+We had address 48 East Pennington Street would set it to 48 E. Pennington St.
+Got Compass High School for grades 9-12 in dist Charter run by Debbie Ferguson
+Primary category is 32206
+ID is 124187
+
+Got Davis Education Center for grades K-8 in dist Charter run by Gwen Nesbitt
+Primary category is 32206
+ID is 124188
+
+Got Desert Mosaic School for grades K-12 in dist Charter run by 
+Primary category is 32206
+ID is 124189
+
+Got Desert Rose Academy for grades 9-12 in dist Charter run by Eileen Geraghty
+Primary category is 32206
+Desert Rose Academy is already in the database, not adding
+ID is 101662
+
+We had address 40 West Fort Lowell Road would set it to 20 W. Fort Lowell
+Got Desert Springs Academy for grades K-6 in dist Charter run by Lydia Capara
+Primary category is 32206
+Desert Springs Academy is already in the database, not adding
+ID is 113065
+
+We had address 3833 East 2nd Street would set it to 3833 E. 2nd St.
+Got Desert Springs Academy for grades K-8 in dist Charter run by Lydia Capara
+Primary category is 32206
+Desert Springs Academy is already in the database, not adding
+ID is 113065
+
+We had address 3833 East 2nd Street would set it to 10355 E. 29th St.
+Got Eastpointe High School for grades 9-12 in dist Charter run by Bahiyyih Hiatt
+Primary category is 32206
+Eastpointe High School is already in the database, not adding
+ID is 113840
+
+We had address 8495 East Broadway Boulevard would set it to 8495 E. Broadway
+Got Edge Charter School for grades 9-12 in dist Charter run by Reese Millen
+Primary category is 32206
+ID is 124190
+
+Got Edge Charter School for grades 9-12 in dist Charter run by Reese Millen
+Primary category is 32206
+Edge Charter School is already in the database, not adding
+ID is 124190
+
+We had address 231 W. Giaconda Way #113 would set it to 2555 E. 1st St.
+Got Edge Charter School for grades 9-12 in dist Charter run by Reese Millen
+Primary category is 32206
+Edge Charter School is already in the database, not adding
+ID is 124190
+
+We had address 231 W. Giaconda Way #113 would set it to 2800 E. Broadway
+Got Edge Charter School for grades 9-12 in dist Charter run by Reese Millen
+Primary category is 32206
+Edge Charter School is already in the database, not adding
+ID is 124190
+
+We had address 231 W. Giaconda Way #113 would set it to 4747 W. Calle Vicam
+Got Edge Charter School for grades 9-12 in dist Charter run by Reese Millen
+Primary category is 32206
+Edge Charter School is already in the database, not adding
+ID is 124190
+
+We had address 231 W. Giaconda Way #113 would set it to 15500 S. Sahuarita Park Rd.
+Got Great Expectations Academy for grades K-8 in dist Charter run by Beth Phillips
+Primary category is 32206
+ID is 124191
+
+Got Ha:San Preparatory and Leadership School for grades 9-12 in dist Charter run by Delbert Ortiz
+Primary category is 32206
+ID is 124192
+
+Got Hermosa Montessori Charter School for grades K-8 in dist Charter run by Sheila Stolov
+Primary category is 32206
+ID is 124193
+
+Got Highland Free School for grades K-6 in dist Charter run by Nick Sofka
+Primary category is 32206
+Highland Free School is already in the database, not adding
+ID is 113296
+
+We had address 510 South Highland Avenue would set it to 510 S. Highland Ave.
+Got Itzcalli Academy for grades 9-12 in dist Charter run by Nestor Davala
+Primary category is 32206
+ID is 124194
+
+Got Khalsa Montessori School for grades K-8 in dist Charter run by Nirvair Khalsa
+Primary category is 32206
+ID is 124195
+
+Got Khalsa Montessori School for grades K-4 in dist Charter run by Nirvair Khalsa
+Primary category is 32206
+Khalsa Montessori School is already in the database, not adding
+ID is 124195
+
+We had address 3701 E. River Rd. would set it to 3244 E. Camden
+Got La Paloma Academy for grades K-6 in dist Charter run by Jackie Trujillo
+Primary category is 32206
+La Paloma Academy is already in the database, not adding
+ID is 101671
+
+We had address 225 North Country Club Road would set it to 225 N. Country Club
+Got La Paloma Academy for grades K-8 in dist Charter run by Jackie Trujillo
+Primary category is 32206
+La Paloma Academy is already in the database, not adding
+ID is 101671
+
+We had address 225 North Country Club Road would set it to 6188 E. Pima
+Got La Paloma Academy for grades K-8 in dist Charter run by Randy Musgrove
+Primary category is 32206
+La Paloma Academy is already in the database, not adding
+ID is 101671
+
+We had address 225 North Country Club Road would set it to 8140 E. Golf Links
+Got Lifelong Learning Academy for grades K-6 in dist Charter run by Marylou Klem
+Primary category is 32206
+Lifelong Learning Academy is already in the database, not adding
+ID is 110132
+
+We had address 3295 West Orange Grove Road would set it to 3295 W. Orange Grove Rd.
+Got Luz Academy for grades 9-12 in dist Charter run by Robert Granado
+Primary category is 32206
+ID is 124196
+
+Got Meta Academy High School for grades 9 in dist Charter run by Al Rumsey
+Primary category is 32206
+ID is 124197
+
+Got Montessori Schoolhouse for grades K in dist Charter run by Regine Ebner
+Primary category is 32206
+ID is 124198
+
+Got Montessori Schoolhouse for grades 1-6 in dist Charter run by Regine Ebner
+Primary category is 32206
+Montessori Schoolhouse is already in the database, not adding
+ID is 124198
+
+We had address 1127 N. 6th Ave. would set it to 1301 E. Fort Lowell
+Got Mountain Rose Academy for grades 9-12 in dist Charter run by Catherine Kinghorn
+Primary category is 32206
+Mountain Rose Academy is already in the database, not adding
+ID is 116369
+
+We had address 3686 West Orange Grove Road Suite 180 would set it to 3686 W. Orange Grove Rd. #180
+Got Nosotros Academy for grades 6-12 in dist Charter run by Paul Felix
+Primary category is 32206
+ID is 124199
+
+Got Old Pueblo Children's Academy for grades K-8 in dist Charter run by Rhonda McCarthy
+Primary category is 32206
+Old Pueblo Children's Academy is already in the database, not adding
+ID is 110156
+
+We had address 450 North Pantano Road would set it to 450 N. Pantano
+Got Pima Partnership School for grades 9-12 in dist Charter run by "John Powers
+Primary category is 32206
+ID is 124200
+
+Got Pima Vocational High School for grades "9-12 in dist Charter run by http://www.pimavocationalhighschool.com
+Primary category is 32206
+Pima Vocational High School is already in the database, not adding
+ID is 104225
+
+We had address 97 East Congress Street would set it to 2805 E. Ajo Way
+Got Pima Vocational High School for grades "9-12 in dist Charter run by http://www.pimavocationalhighschool.com
+Primary category is 32206
+Pima Vocational High School is already in the database, not adding
+ID is 104225
+
+We had address 97 East Congress Street would set it to 97 E. Congress
+Got Pima Vocational High School for grades "9-12 in dist Charter run by http://www.pimavocationalhighschool.com
+Primary category is 32206
+Pima Vocational High School is already in the database, not adding
+ID is 104225
+
+We had address 97 East Congress Street would set it to 2600 W. Sweetwater
+Got PPEP TEC-Celestino Fernandez Learning Center for grades 9-12 in dist Charter run by 
+Primary category is 32206
+ID is 124201
+
+Got PPEP TEC-John David Arnold Learning Center for grades Tucson in dist Charter run by http://www.ppep.org
+Primary category is 32206
+PPEP TEC-John David Arnold Learning Center is already in the database, not adding
+ID is 110875
+
+We had address 4140 West Ina Road Suite 118 would set it to "4140 W. Ina
+Got PPEP TEC-Victor Soltero Learning Center for grades Tucson in dist Charter run by http://www.ppep.org
+Primary category is 32206
+ID is 124202
+
+Got Presidio Schools for grades 5-12 in dist Charter run by Terry Garza  Tom Drexel
+Primary category is 32206
+ID is 124203
+
+Got Satori School for grades 2-6 in dist Charter run by Sherry Mulholland
+Primary category is 32206
+ID is 124204
+
+Got School for Integrated Academics and Technologies for grades 9-12 in dist Charter run by Dave Gerber
+Primary category is 32206
+ID is 124205
+
+Got Sonoran Science Academy for grades K-11 in dist Charter run by Adem Oksuz
+Primary category is 32206
+ID is 124206
+
+Got Southern Arizona Community Academy for grades 9-12 in dist Charter run by "Abelardo Cubillas
+Primary category is 32206
+Southern Arizona Community Academy is already in the database, not adding
+ID is 122259
+
+We had address 2470 North Tucson Boulevard would set it to 2470 N. Tucson
+Got Southgate Academy for grades K-12 in dist Charter run by Steve Henneberg
+Primary category is 32206
+Southgate Academy is already in the database, not adding
+ID is 115497
+
+We had address 850 West Valencia Road would set it to 850 W. Valencia Rd.
+Got Southside Community School for grades K-8 in dist Charter run by Caroline F. Johnson
+Primary category is 32206
+Southside Community School is already in the database, not adding
+ID is 114402
+
+We had address 2701 South Campbell Avenue would set it to 2701 S. Campbell
+Got TAG Elementary for grades K-7 in dist Charter run by Ron Hom
+Primary category is 32206
+ID is 124207
+
+Got Test for grades K-12 in dist Charter run by Mr. Test
+Primary category is 32206
+Test is already in the database, not adding
+ID is 1004
+
+Got Toltecali Academy for grades 9-12 in dist Charter run by Shannon Dineley
+Primary category is 32206
+ID is 124208
+
+Got Transformational Learning Centers for grades K-12 in dist Charter run by Tina Giberti
+Primary category is 32206
+ID is 124209
+
+Got Tucson Academy of Leadership and Arts for grades K-8 in dist Charter run by Theresa DiPietro
+Primary category is 32206
+ID is 124210
+
+Got Tucson Accelerated High School for grades 9-12 in dist Charter run by Shannon Hughes
+Primary category is 32206
+ID is 124211
+
+Got Tucson Country Day School for grades K-7 in dist Charter run by Charlena Cutaia
+Primary category is 32206
+ID is 124212
+
+Got Tucson International Academy for grades K-8 in dist Charter run by Jennifer Herrera
+Primary category is 32206
+Tucson International Academy is already in the database, not adding
+ID is 104366
+
+We had address 1625 West Valencia Road Suite 109 would set it to 1230 E. Broadway
+Got Tucson International Academy for grades 1-8 in dist Charter run by Jennifer Herrera
+Primary category is 32206
+Tucson International Academy is already in the database, not adding
+ID is 104366
+
+We had address 1625 West Valencia Road Suite 109 would set it to 1625 W. Valencia #109
+Got Tucson Preparatory School for grades US in dist Charter run by Jody Sullivan
+Primary category is 32206
+Tucson Preparatory School is already in the database, not adding
+ID is 118367
+
+We had address 1525 North Oracle Road would set it to 1525 N. Oracle Rd.
+Got Tucson Urban League Academy for grades 6-12 in dist Charter run by Lourie O'Campo
+Primary category is 32206
+ID is 124213
+
+Got Vision Charter School for grades 9-12 in dist Charter run by Wilma Soroosh
+Primary category is 32206
+ID is 124214
+
+Got Civano Community School for grades K-6 in dist Vail Unified School District run by Connie Erickson
+Primary category is 32206
+ID is 124215
+
+Got Vail High School for grades 9-12 in dist Vail Unified School District run by John Strizich
+Primary category is 32206
+ID is 124216
+
+Got Ajo School for grades PreK-12 in dist Ajo Unified School District run by Lina Miller
+Primary category is 32202
+ID is 124217
+
+Got Altar Valley Middle School for grades 5-8 in dist Altar Valley Elementary School District run by John Holt
+Primary category is 32202
+Altar Valley Middle School is already in the database, not adding
+ID is 117093
+
+We had address 16350 West Ajo Highway would set it to 16350 W. Ajo Way
+Got Robles Elementary School for grades PreK-4 in dist Altar Valley Elementary School District run by Theresa Leal-Holmes
+Primary category is 32202
+Robles Elementary School is already in the database, not adding
+ID is 110558
+
+We had address 9875 South Sasabe would set it to 9875 S. Sasabe Rd.
+Got Amphitheater High School for grades 9-12 in dist Amphitheater Unified School District run by Patricia Harris
+Primary category is 32204
+Amphitheater High School is already in the database, not adding
+ID is 116253
+
+We had address 125 West Yavapai Road would set it to 125 W. Yavapai Rd.
+Got Amphitheater Middle School for grades 6-8 in dist Amphitheater Unified School District run by Charles Bermudez
+Primary category is 32203
+ID is 124218
+
+Got Canyon Del Oro High School for grades 9-12 in dist Amphitheater Unified School District run by Michael Gemma
+Primary category is 32204
+Canyon Del Oro High School is already in the database, not adding
+ID is 115235
+
+We had address 25 West Calle Concordia would set it to 25 W. Calle Concordia
+Got Copper Creek Elementary School for grades K-5 in dist Amphitheater Unified School District run by Diana Walker
+Primary category is 32202
+ID is 124219
+
+Got Coronado K-8 School for grades K-8 in dist Amphitheater Unified School District run by Monica Nelson
+Primary category is 32202
+ID is 124220
+
+Got Cross Middle School for grades 6-8 in dist Amphitheater Unified School District run by Robert Vinyard
+Primary category is 32203
+ID is 124221
+
+Got Donaldson Elementary School for grades K-5 in dist Amphitheater Unified School District run by Anita Howard
+Primary category is 32202
+ID is 124222
+
+Got Harelson Elementary School for grades K-6 in dist Amphitheater Unified School District run by Andrew Heinermann
+Primary category is 32202
+ID is 124223
+
+Got Holaway Elementary School for grades K-5 in dist Amphitheater Unified School District run by Ernest Galaz
+Primary category is 32202
+ID is 124224
+
+Got Ironwood Ridge High School for grades 9-12 in dist Amphitheater Unified School District run by Sam McClung
+Primary category is 32204
+ID is 124225
+
+Got Keeling Elementary School for grades K-5 in dist Amphitheater Unified School District run by Susan Haas
+Primary category is 32202
+ID is 124226
+
+Got La Cima Middle School for grades 6-8 in dist Amphitheater Unified School District run by Gail Gault
+Primary category is 32203
+ID is 124227
+
+Got Mesa Verde Elementary School for grades K-5 in dist Amphitheater Unified School District run by Foster Hepler
+Primary category is 32202
+Mesa Verde Elementary School is already in the database, not adding
+ID is 109294
+
+We had address 1661 West Sage Street would set it to 1661 W. Sage St.
+Got Nash Elementary School for grades K-5 in dist Amphitheater Unified School District run by Alice Farley
+Primary category is 32202
+ID is 124228
+
+Got Painted Sky Elementary School for grades K-5 in dist Amphitheater Unified School District run by Bruce Weigold
+Primary category is 32202
+ID is 124229
+
+Got Prince Elementary School for grades K-5 in dist Amphitheater Unified School District run by Dondi Luce
+Primary category is 32202
+ID is 124230
+
+Got Rillito Center for grades "UE in dist Amphitheater Unified School District run by 
+Primary category is 32202
+Rillito Center is already in the database, not adding
+ID is 117675
+
+We had address 266 East Pastime Road would set it to 266 E. Pastime Rd.
+Got Rio Vista Elementary School for grades K-6 in dist Amphitheater Unified School District run by Dianna Kuhn
+Primary category is 32202
+Rio Vista Elementary School is already in the database, not adding
+ID is 112551
+
+We had address 1351 East Limberlost Drive would set it to 1351 E. Limberlost
+Got Walker Elementary School for grades K-5 in dist Amphitheater Unified School District run by Roseanne Lopez
+Primary category is 32202
+ID is 124231
+
+Got Wilson K-8 School for grades K-8 in dist Amphitheater Unified School District run by Adrian Hannah
+Primary category is 32202
+ID is 124232
+
+Got Canyon View Elementary School for grades K-5 in dist Catalina Foothills Unified School District run by Chris Ahearn
+Primary category is 32202
+ID is 124233
+
+Got Catalina Foothills High School for grades 9-12 in dist Catalina Foothills Unified School District run by Wagner Van Vlack
+Primary category is 32204
+Catalina Foothills High School is already in the database, not adding
+ID is 104705
+
+We had address 4300 East Sunrise Drive would set it to 4300 E. Sunrise
+Got Esperero Canyon Middle School for grades 6-8 in dist Catalina Foothills Unified School District run by Brian Lorimer
+Primary category is 32203
+ID is 124234
+
+Got Manzanita Elementary School for grades K-5 in dist Catalina Foothills Unified School District run by Colleen Nichols
+Primary category is 32202
+ID is 124235
+
+Got Orange Grove Middle School for grades 6-8 in dist Catalina Foothills Unified School District run by Phil Woodall
+Primary category is 32203
+ID is 124236
+
+Got Sunrise Drive Elementary School for grades K-5 in dist Catalina Foothills Unified School District run by Julie Sherrill
+Primary category is 32202
+ID is 124237
+
+Got Valley View Preschool for grades PreK in dist Catalina Foothills Unified School District run by Michele Leeder
+Primary category is 32202
+Valley View Preschool is already in the database, not adding
+ID is 109579
+
+We had address 5281 North Valley View Road would set it to 5281 W. Valley View Rd.
+Got Ventana Vista Elementary School for grades K-5 in dist Catalina Foothills Unified School District run by Mary Jo Conery
+Primary category is 32202
+ID is 124238
+
+Got Catalina Foothills Alternative School for grades 9-12 in dist Catalina Unified School District run by Peggy Holt
+Primary category is 32204
+ID is 124239
+
+Got Continental Elementary School for grades K-8 in dist Continental Elementary School District run by Kenneth Brown
+Primary category is 32202
+ID is 124240
+
+Got Centennial Elementary School for grades K-6 in dist Flowing Wells Unified School District run by Lynette Patton
+Primary category is 32202
+Centennial Elementary School is already in the database, not adding
+ID is 106026
+
+We had address 2200 West Wetmore Road would set it to 2200 W. Wetmore
+Got Flowing Wells Early Childhood Center for grades PreK-K in dist Flowing Wells Unified School District run by Susan Olson-Shinn
+Primary category is 32202
+ID is 124241
+
+Got Flowing Wells High School for grades 9-12 in dist Flowing Wells Unified School District run by Karyn Blair
+Primary category is 32204
+ID is 124242
+
+Got Flowing Wells Junior High School for grades 7-8 in dist Flowing Wells Unified School District run by John Black
+Primary category is 32203
+Flowing Wells Junior High School is already in the database, not adding
+ID is 107339
+
+We had address 4545 North La Cholla Boulevard would set it to 4545 N. La Cholla Blvd.
+Got Hendricks Elementary School for grades K-6 in dist Flowing Wells Unified School District run by Deborah Schreiner
+Primary category is 32202
+Hendricks Elementary School is already in the database, not adding
+ID is 109401
+
+We had address 3400 West Orange Grove Road would set it to 3400 W. Orange Grove
+Got Homer Davis Elementary School for grades K-6 in dist Flowing Wells Unified School District run by Brett Bonner
+Primary category is 32202
+Homer Davis Elementary School is already in the database, not adding
+ID is 116157
+
+We had address 4250 North Romero Road would set it to 4250 N. Romero Rd.
+Got Inscape Alternative School for grades 9-12 in dist Flowing Wells Unified School District run by Wes Birch
+Primary category is 32204
+Inscape Alternative School is already in the database, not adding
+ID is 106161
+
+We had address 1949 West Gardner Lane would set it to 1949 W. Gardner
+Got Laguna Elementary School for grades K-6 in dist Flowing Wells Unified School District run by Cathy Carey
+Primary category is 32202
+ID is 124243
+
+Got Richardson Elementary School for grades K-6 in dist Flowing Wells Unified School District run by Lyle Dunbar
+Primary category is 32202
+Richardson Elementary School is already in the database, not adding
+ID is 109950
+
+We had address 6901 North Camino De La Tierra would set it to 6901 N. Camino de la Tierra
+Got Sentinel Peak High School for grades 9-12 in dist Flowing Wells Unified School District run by Brenda Friedman
+Primary category is 32204
+ID is 124244
+
+Got Walter Douglas Elementary School for grades K-6 in dist Flowing Wells Unified School District run by Manuel Valenzuela
+Primary category is 32202
+ID is 124245
+
+Got Baboquivari High School for grades 9-12 in dist Indian Oasis-Baboquivari Unified School District run by Leon Oosahwe
+Primary category is 32204
+ID is 124246
+
+Got Baboquivari Middle School for grades 7-8 in dist Indian Oasis-Baboquivari Unified School District run by Leon Oosahwe
+Primary category is 32203
+ID is 124247
+
+Got Indian Oasis Intermediate School for grades 4-8 in dist Indian Oasis-Baboquivari Unified School District run by Michael Bauschka
+Primary category is 32202
+ID is 124248
+
+Got Indian Oasis Primary School for grades K-3 in dist Indian Oasis-Baboquivari Unified School District run by Janine Prewitt
+Primary category is 32202
+ID is 124249
+
+Got Topawa Intermediate School for grades 7-8 in dist Indian Oasis-Baboquivari Unified School District run by Michael Buschka
+Primary category is 32203
+ID is 124250
+
+Got A.C.E. for grades Marana in dist Marana Unified School District run by http://www.maranausd.org/ACE
+Primary category is 32202
+ID is 124251
+
+Got Butterfield Elementary School for grades K-6 in dist Marana Unified School District run by Gayle Schmidt
+Primary category is 32202
+ID is 124252
+
+Got Coyote Trail Elementary School for grades K-6 in dist Marana Unified School District run by Dan Johnson
+Primary category is 32202
+ID is 124253
+
+Got DeGrazia Elementary School for grades K-6 in dist Marana Unified School District run by Julia Barwell
+Primary category is 32202
+DeGrazia Elementary School is already in the database, not adding
+ID is 114599
+
+We had address 5051 West Overton Road would set it to 5051 W. Overton Rd.
+Got Desert Winds Elementary School for grades K-3 in dist Marana Unified School District run by Denise Linsalata
+Primary category is 32202
+Desert Winds Elementary School is already in the database, not adding
+ID is 109979
+
+We had address 12675 West Rudasill Road would set it to 12675 W. Rudasill Rd.
+Got Estes Elementary School for grades Marana in dist Marana Unified School District run by http://www.maranausd.org/ee
+Primary category is 32202
+ID is 124254
+
+Got Ironwood Elementary School for grades K-6 in dist Marana Unified School District run by Jennifer Vemich
+Primary category is 32202
+Ironwood Elementary School is already in the database, not adding
+ID is 110220
+
+We had address 3300 West Freer Drive would set it to 3300 W. Freer Dr.
+Got Marana Career and Technical High School for grades Marana in dist Marana Unified School District run by http://www.maranausd.org/mcat
+Primary category is 32202
+ID is 124255
+
+Got Marana High School for grades 9-12 in dist Marana Unified School District run by Jan Truitt
+Primary category is 32204
+Marana High School is already in the database, not adding
+ID is 112324
+
+We had address 12000 West Emigh Road would set it to 12000 W. Emigh Rd.
+Got Marana Middle School for grades Marana in dist Marana Unified School District run by http://www.maranausd.org/MMS
+Primary category is 32202
+ID is 124256
+
+Got Mountain View High School for grades 9-12 in dist Marana Unified School District run by Richard Faidley
+Primary category is 32204
+ID is 124257
+
+Got Picture Rocks Intermediate School for grades 4-6 in dist Marana Unified School District run by Patricia Cadigan
+Primary category is 32202
+Picture Rocks Intermediate School is already in the database, not adding
+ID is 109859
+
+We had address 5875 North Sanders Road would set it to 5875 N. Sanders Rd.
+Got Quail Run Elementary School for grades K-6 in dist Marana Unified School District run by Pennie Harcus
+Primary category is 32202
+Quail Run Elementary School is already in the database, not adding
+ID is 108155
+
+We had address 4600 West Cortaro Farms Road would set it to 4600 W. Cortaro Farms Rd.
+Got Roadrunner Elementary School for grades K-6 in dist Marana Unified School District run by Myke Hitchcock
+Primary category is 32202
+ID is 124258
+
+Got Thornydale Elementary School for grades K-6 in dist Marana Unified School District run by Lynnette Brunderman
+Primary category is 32202
+ID is 124259
+
+Got Tortolita Middle School for grades 7-8 in dist Marana Unified School District run by Jane D'Amore
+Primary category is 32203
+Tortolita Middle School is already in the database, not adding
+ID is 114099
+
+We had address 4101 West Hardy Road would set it to 4101 W. Hardy Rd.
+Got Twin Peaks Elementary School for grades K-6 in dist Marana Unified School District run by Jane Ballesteros
+Primary category is 32202
+Twin Peaks Elementary School is already in the database, not adding
+ID is 110664
+
+We had address 7995 West Twin Peaks Road would set it to 7995 W. Twin Peaks Rd.
+Got CAPE School - Adult for grades 8-12 in dist Pima Accommodation School District run by Mark Jones
+Primary category is 32204
+ID is 124260
+
+Got CAPE School - Juvenile for grades 3-12 in dist Pima Accommodation School District run by Mark Jones
+Primary category is 32202
+ID is 124261
+
+Got Sahuarita High School for grades 9-12 in dist Sahuarita Unified School District run by Larry McKee
+Primary category is 32204
+ID is 124262
+
+Got Sahuarita Intermediate School for grades 3-5 in dist Sahuarita Unified School District run by Wayne Ross
+Primary category is 32202
+ID is 124263
+
+Got Sahuarita Middle School for grades 6-8 in dist Sahuarita Unified School District run by Katherin Shiba
+Primary category is 32203
+ID is 124264
+
+Got Sahuarita Primary School for grades PreK-2 in dist Sahuarita Unified School District run by Barbara Smith
+Primary category is 32202
+ID is 124265
+
+Got Sopori Elementary School for grades K-5 in dist Sahuarita Unified School District run by Charles Oldham
+Primary category is 32202
+ID is 124266
+
+Got San Fernando Elementary School for grades K-8 in dist San Fernando Elementary District run by Corinne Embry
+Primary category is 32202
+ID is 124267
+
+Got Apollo Middle School for grades 6-8 in dist Sunnyside Unified School District run by Wendy Conger
+Primary category is 32203
+Apollo Middle School is already in the database, not adding
+ID is 103253
+
+We had address 265 West Nebraska Street would set it to 265 W. Nebraska
+Got Challenger Middle School for grades 6-8 in dist Sunnyside Unified School District run by Jud Jones
+Primary category is 32203
+Challenger Middle School is already in the database, not adding
+ID is 115990
+
+We had address 100 East Elvira Road would set it to 100 E. Elvira Rd.
+Got Chaparral Middle School for grades 6-8 in dist Sunnyside Unified School District run by Norma Garcia
+Primary category is 32203
+Chaparral Middle School is already in the database, not adding
+ID is 102304
+
+We had address 3700 East Alvord Road would set it to 3700 E. Alvord Rd.
+Got Craycroft Elementary School for grades K-5 in dist Sunnyside Unified School District run by Hans Schot
+Primary category is 32202
+Craycroft Elementary School is already in the database, not adding
+ID is 112670
+
+We had address 5455 East Littletown Road would set it to 5455 E. Littletown Rd.
+Got Desert View High School for grades 9-12 in dist Sunnyside Unified School District run by Jonathan Hanson
+Primary category is 32204
+ID is 124268
+
+Got Drexel Elementary School for grades K-5 in dist Sunnyside Unified School District run by Lorena Escarcega
+Primary category is 32202
+Drexel Elementary School is already in the database, not adding
+ID is 114046
+
+We had address 801 East Drexel Road would set it to 801 E. Drexel Rd.
+Got Elvira Elementary School for grades K-5 in dist Sunnyside Unified School District run by Mary Jane Santos
+Primary category is 32202
+Elvira Elementary School is already in the database, not adding
+ID is 116208
+
+We had address 250 West Elvira Road would set it to 250 W. Elvira Rd.
+Got Esperanza Elementary School for grades K-5 in dist Sunnyside Unified School District run by Emma Carrillo
+Primary category is 32202
+Esperanza Elementary School is already in the database, not adding
+ID is 102177
+
+We had address 2353 East Bantam Road would set it to 2353 E. Bantam Rd.
+Got Gallego Basic Elementary School for grades K-5 in dist Sunnyside Unified School District run by Debra Bergman
+Primary category is 32202
+Gallego Basic Elementary School is already in the database, not adding
+ID is 106586
+
+We had address 5102 South Cherry Avenue would set it to 5102 S. Cherry Ave.
+Got Liberty Elementary School for grades K-5 in dist Sunnyside Unified School District run by Bernie Cohn
+Primary category is 32202
+Liberty Elementary School is already in the database, not adding
+ID is 117373
+
+We had address 5495 South Liberty Avenue would set it to 5495 S. Liberty Ave.
+Got Los Amigos Elementary School for grades K-5 in dist Sunnyside Unified School District run by Pam Betten
+Primary category is 32202
+Los Amigos Elementary School is already in the database, not adding
+ID is 105228
+
+We had address 2200 East Drexel Road would set it to 2200 E. Drexel Rd.
+Got Los Ninos Elementary School for grades K-5 in dist Sunnyside Unified School District run by Sally Lewis
+Primary category is 32202
+Los Ninos Elementary School is already in the database, not adding
+ID is 107338
+
+We had address 5445 South Alvernon Way would set it to 5445 S. Alvernon Way
+Got Los Ranchitos Elementary School for grades K-5 in dist Sunnyside Unified School District run by Kathleen Bethel
+Primary category is 32202
+ID is 124269
+
+Got Mission Manor Elementary School for grades K-5 in dist Sunnyside Unified School District run by Herb Springs
+Primary category is 32202
+Mission Manor Elementary School is already in the database, not adding
+ID is 110312
+
+We had address 600 West Santa Rosa Street would set it to 600 W. Santa Rosa St.
+Got Ocotillo Elementary School for grades K-5 in dist Sunnyside Unified School District run by Steve Price
+Primary category is 32202
+Ocotillo Elementary School is already in the database, not adding
+ID is 107440
+
+We had address 5702 South Campbell Avenue would set it to 5702 S. Campbell
+Got S.T.A.R. Academic Center for grades 6-12 in dist Sunnyside Unified School District run by Pamela Cornell
+Primary category is 32204
+ID is 124270
+
+Got Santa Clara Elementary School for grades K-5 in dist Sunnyside Unified School District run by Raul Ochoa
+Primary category is 32202
+Santa Clara Elementary School is already in the database, not adding
+ID is 108481
+
+We had address 6910 South Santa Clara Avenue would set it to 6910 S. Santa Clara Ave.
+Got Sierra Middle School for grades 6-8 in dist Sunnyside Unified School District run by Robert Miranda
+Primary category is 32203
+Sierra Middle School is already in the database, not adding
+ID is 114249
+
+We had address 58012 South Del Moral would set it to 5801 S. Del Moral Blvd.
+Got Summit View Elementary School for grades K-5 in dist Sunnyside Unified School District run by Roxana Sanders
+Primary category is 32202
+Summit View Elementary School is already in the database, not adding
+ID is 109849
+
+We had address 1900 East Summit Street would set it to 1900 E. Summit St.
+Got Sunnyside High School for grades 9-12 in dist Sunnyside Unified School District run by Raul Nido
+Primary category is 32204
+ID is 124271
+
+Got Agua Caliente School for grades K-6 in dist Tanque Verde Unified School District run by Diane Lemley
+Primary category is 32202
+ID is 124272
+
+Got Emily Gray Junior High School for grades 7-9 in dist Tanque Verde Unified School District run by Bob Lombardi
+Primary category is 32204
+ID is 124273
+
+Got Tanque Verde Elementary School for grades K-6 in dist Tanque Verde Unified School District run by Susan Centers
+Primary category is 32202
+Tanque Verde Elementary School is already in the database, not adding
+ID is 107482
+
+We had address 2600 North Fennimore Avenue would set it to 2600 N. Fennimore
+Got Tanque Verde High School for grades 9-12 in dist Tanque Verde Unified School District run by Robert Lombardi
+Primary category is 32204
+ID is 124274
+
+Got ArtWORKS! Academy for grades 9-12 in dist Tucson Unified School District run by Robert Mackay
+Primary category is 32204
+ID is 124275
+
+Got Aztec Middle College (East) for grades 9-12 in dist Tucson Unified School District run by Robert Mackay
+Primary category is 32204
+ID is 124276
+
+Got Aztec Middle College (NW) for grades "9-12 in dist Tucson Unified School District run by http://edweb.tusd.k12.az.us/Alternative_Ed
+Primary category is 32202
+ID is 124277
+
+Got Aztec Middle College (West) for grades "9-12 in dist Tucson Unified School District run by http://edweb.tusd.k12.az.us/Alternative_Ed
+Primary category is 32202
+ID is 124278
+
+Got Banks Elementary School for grades K-5 in dist Tucson Unified School District run by Velma Castaneda-Titone
+Primary category is 32202
+ID is 124279
+
+Got Blenman Elementary School for grades K-5 in dist Tucson Unified School District run by Bobbe Woods
+Primary category is 32202
+ID is 124280
+
+Got Bloom Elementary School for grades K-5 in dist Tucson Unified School District run by Diane Quevedo
+Primary category is 32202
+Bloom Elementary School is already in the database, not adding
+ID is 111933
+
+We had address 8310 East Pima Street would set it to 8310 E. Pima St.
+Got Bonillas Magnet Elementary School for grades K-5 in dist Tucson Unified School District run by Richard Romero
+Primary category is 32202
+ID is 124281
+
+Got Booth-Fickett Magnet Elementary School for grades K-5 in dist Tucson Unified School District run by Rosanne Neal
+Primary category is 32202
+ID is 124282
+
+Got Booth-Fickett Math/Science Magnet School for grades 6-8 in dist Tucson Unified School District run by Rosanne Neal
+Primary category is 32203
+ID is 124283
+
+Got Borman Elementary School for grades K-5 in dist Tucson Unified School District run by Chad Knippen
+Primary category is 32202
+ID is 124284
+
+Got Borton Primary Magnet School for grades K-2 in dist Tucson Unified School District run by Teresa Melendez
+Primary category is 32202
+ID is 124285
+
+Got Brichta Elementary School for grades K-6 in dist Tucson Unified School District run by Sabrina Cruz
+Primary category is 32202
+Brichta Elementary School is already in the database, not adding
+ID is 115565
+
+We had address 2110 West Brichta Drive would set it to 2110 W. Brichta Dr.
+Got Broadway Alternative Middle School for grades "6-8 in dist Tucson Unified School District run by http://edweb.tusd.k12.az.us/Alternative_Ed
+Primary category is 32202
+Broadway Alternative Middle School is already in the database, not adding
+ID is 109734
+
+We had address 2120 East Broadway Boulevard would set it to 2102 E. Broadway Blvd.
+Got Carrillo Intermediate Magnet School for grades 3-5 in dist Tucson Unified School District run by Maria Marin
+Primary category is 32202
+ID is 124286
+
+Got Carson Middle School for grades 6-8 in dist Tucson Unified School District run by Mary Quinnan
+Primary category is 32203
+Carson Middle School is already in the database, not adding
+ID is 111934
+
+We had address 7777 East Stella Road would set it to 7777 E. Stella Rd.
+Got Catalina Magnet High School for grades 9-12 in dist Tucson Unified School District run by W. Daniel Bailey
+Primary category is 32204
+ID is 124287
+
+Got Cavett Elementary School for grades K-5 in dist Tucson Unified School District run by Jeanne Herron
+Primary category is 32202
+ID is 124288
+
+Got Cholla Magnet High School for grades 9-12 in dist Tucson Unified School District run by Sam Giangardella
+Primary category is 32204
+ID is 124289
+
+Got Collier Elementary School for grades K-5 in dist Tucson Unified School District run by Joyce Geranis
+Primary category is 32202
+Collier Elementary School is already in the database, not adding
+ID is 107342
+
+We had address 3900 North Bear Canyon Road would set it to 3900 N. Bear Canyon Rd.
+Got Corbett Elementary School for grades K-5 in dist Tucson Unified School District run by Joyce Dillon
+Primary category is 32202
+Corbett Elementary School is already in the database, not adding
+ID is 121039
+
+We had address 5949 East 29th Street would set it to 5949 E. 29th St.
+Got Cragin Elementary School for grades K-5 in dist Tucson Unified School District run by Pearl Miller
+Primary category is 32202
+ID is 124290
+
+Got Davidson Elementary School for grades K-5 in dist Tucson Unified School District run by Arthur DeFilippo
+Primary category is 32202
+Davidson Elementary School is already in the database, not adding
+ID is 113835
+
+We had address 3915 East Fort Lowell Road would set it to 3915 E. Fort Lowell
+Got Davis Magnet Elementary School for grades K-5 in dist Tucson Unified School District run by Christopher Loya
+Primary category is 32202
+ID is 124291
+
+Got Dietz Elementary School for grades K-5 in dist Tucson Unified School District run by Lisa McCorkle
+Primary category is 32202
+Dietz Elementary School is already in the database, not adding
+ID is 104346
+
+We had address 7575 East Palma Street would set it to 7575 E. Palma
+Got Direct Link for grades K-12 in dist Tucson Unified School District run by Kathryn Martin
+Primary category is 32202
+ID is 124292
+
+Got Dodge Magnet Middle School for grades 6-8 in dist Tucson Unified School District run by Catherine Comstock
+Primary category is 32203
+ID is 124293
+
+Got Doolen Middle School for grades 6-8 in dist Tucson Unified School District run by E. Faye West
+Primary category is 32203
+Doolen Middle School is already in the database, not adding
+ID is 117455
+
+We had address 2400 North Country Club Road would set it to 2400 N. Country Club.
+Got Downtown Alternative High School for grades "9-12 in dist Tucson Unified School District run by http://edweb.tusd.k12.az.us/Alternative_Ed
+Primary category is 32202
+ID is 124294
+
+Got Drachman Primary Magnet School for grades K-2 in dist Tucson Unified School District run by Gloria Barnett
+Primary category is 32202
+ID is 124295
+
+Got Drake Alternative Middle School for grades "6-8 in dist Tucson Unified School District run by http://edweb.tusd.k12.az.us/Alternative_Ed
+Primary category is 32202
+ID is 124296
+
+Got Duffy Elementary School for grades K-5 in dist Tucson Unified School District run by Richard Foster
+Primary category is 32202
+ID is 124297
+
+Got Dunham Elementary School for grades K-5 in dist Tucson Unified School District run by John Bellisario
+Primary category is 32202
+ID is 124298
+
+Got Erickson Elementary School for grades K-5 in dist Tucson Unified School District run by David Overstreet
+Primary category is 32202
+ID is 124299
+
+Got Ford Elementary School for grades K-5 in dist Tucson Unified School District run by Ana Gallegos
+Primary category is 32202
+ID is 124300
+
+Got Fort Lowell Elementary School for grades K-6 in dist Tucson Unified School District run by Andrew Kent
+Primary category is 32202
+Fort Lowell Elementary School is already in the database, not adding
+ID is 114110
+
+We had address 5151 East Pima Street would set it to 5151 E. Pima St.
+Got Fruchthendler Elementary School for grades K-5 in dist Tucson Unified School District run by John Heidel (interim)
+Primary category is 32202
+Fruchthendler Elementary School is already in the database, not adding
+ID is 101701
+
+We had address 7470 East Cloud Road would set it to 7470 E. Cloud Rd.
+Got Gale Elementary School for grades K-5 in dist Tucson Unified School District run by Paula Godfrey
+Primary category is 32202
+Gale Elementary School is already in the database, not adding
+ID is 112892
+
+We had address 678 South Gollob Road would set it to 678 S. Gollob Rd.
+Got Gridley Middle School for grades 6-8 in dist Tucson Unified School District run by Kathleen Scheppe
+Primary category is 32203
+ID is 124301
+
+Got Grijalva Elementary School for grades K-5 in dist Tucson Unified School District run by Anna Rivera
+Primary category is 32202
+ID is 124302
+
+Got Henry Elementary School for grades K-5 in dist Tucson Unified School District run by Mary Ann Jackson
+Primary category is 32202
+ID is 124303
+
+Got Hohokam Middle School for grades 6-8 in dist Tucson Unified School District run by John Michel
+Primary category is 32203
+Hohokam Middle School is already in the database, not adding
+ID is 108840
+
+We had address 7400 South Settler Avenue would set it to 7400 S. Settler Rd.
+Got Holladay Intermediate Magnet School for grades 3-5 in dist Tucson Unified School District run by Elizabeth Redondo
+Primary category is 32202
+ID is 124304
+
+Got Hollinger Elementary School for grades K-5 in dist Tucson Unified School District run by Kathy Bolles
+Primary category is 32202
+Hollinger Elementary School is already in the database, not adding
+ID is 116726
+
+We had address 150 West Ajo Way would set it to 150 W. Ajo Way
+Got Howell Elementary School for grades K-5 in dist Tucson Unified School District run by Joan Gilbert
+Primary category is 32202
+ID is 124305
+
+Got Howenstine Magnet High School for grades 9-12 in dist Tucson Unified School District run by Jimmy Hart
+Primary category is 32204
+ID is 124306
+
+Got Hudlow Elementary School for grades K-5 in dist Tucson Unified School District run by Cheri LaRochelle
+Primary category is 32202
+ID is 124307
+
+Got Hughes Elementary School for grades K-5 in dist Tucson Unified School District run by Roseanne DeCesari
+Primary category is 32202
+ID is 124308
+
+Got Jefferson Park Elementary School for grades K-5 in dist Tucson Unified School District run by Chipper Henning (interim)
+Primary category is 32202
+Jefferson Park Elementary School is already in the database, not adding
+ID is 112538
+
+We had address 1701 East Seneca Street would set it to 1701 E. Seneca
+Got Johnson Primary School for grades K-2 in dist Tucson Unified School District run by Dan Weisz
+Primary category is 32202
+ID is 124309
+
+Got Kellond Elementary School for grades K-6 in dist Tucson Unified School District run by Pamela Clarridge
+Primary category is 32202
+ID is 124310
+
+Got Lawrence Intermediate School for grades 3-5 in dist Tucson Unified School District run by Jon Ben-Asher
+Primary category is 32202
+ID is 124311
+
+Got Lineweaver Elementary School for grades K-5 in dist Tucson Unified School District run by Jane Klipp (interim)
+Primary category is 32202
+ID is 124312
+
+Got Lynn/Urquides Elementary School for grades K-5 in dist Tucson Unified School District run by Patricia Flores
+Primary category is 32202
+ID is 124313
+
+Got Lyons Elementary School for grades K-5 in dist Tucson Unified School District run by Sheila Govern
+Primary category is 32202
+ID is 124314
+
+Got Magee Middle School for grades 6-8 in dist Tucson Unified School District run by Jonathan Becker
+Primary category is 32203
+Magee Middle School is already in the database, not adding
+ID is 104403
+
+We had address 8300 East Speedway Boulevard would set it to 8300 E. Speedway Blvd.
+Got Maldonado Elementary School for grades K-5 in dist Tucson Unified School District run by Yolanda Saldate
+Primary category is 32202
+ID is 124315
+
+Got Mansfeld Middle School for grades 6-8 in dist Tucson Unified School District run by David Berry
+Primary category is 32203
+Mansfeld Middle School is already in the database, not adding
+ID is 107030
+
+We had address 1300 East 6th Street would set it to 1300 E. 6th St.
+Got Manzo Elementary School for grades K-5 in dist Tucson Unified School District run by Jerry Gallegos
+Primary category is 32202
+Manzo Elementary School is already in the database, not adding
+ID is 101206
+
+We had address 855 North Melrose Avenue would set it to 855 N. Melrose
+Got Marshall Elementary School for grades K-5 in dist Tucson Unified School District run by Timothy Boyd
+Primary category is 32202
+Marshall Elementary School is already in the database, not adding
+ID is 113948
+
+We had address 9066 East 29th Street would set it to 9066 E. 29th St.
+Got Mary Meredith K-12 School for grades K-12 in dist Tucson Unified School District run by Sabrina Hallman
+Primary category is 32202
+ID is 124316
+
+Got Maxwell Middle School for grades 6-8 in dist Tucson Unified School District run by Francisco Fuentes
+Primary category is 32203
+Maxwell Middle School is already in the database, not adding
+ID is 110269
+
+We had address 2802 West Anklam Road would set it to 2802 W. Anklam Rd.
+Got Menlo Park Elementary School for grades K-5 in dist Tucson Unified School District run by Patricia McElroy
+Primary category is 32202
+ID is 124317
+
+Got Miles Exploratory Learning Center Elementary School for grades K-5 in dist Tucson Unified School District run by Carolyn Eldridge
+Primary category is 32202
+ID is 124318
+
+Got Miles Exploratory Learning Center Middle School for grades 6-8 in dist Tucson Unified School District run by Carolyn Eldridge
+Primary category is 32203
+ID is 124319
+
+Got Miller Elementary School for grades K-6 in dist Tucson Unified School District run by Cathryn DeSalvo
+Primary category is 32202
+ID is 124320
+
+Got Mission View Elementary School for grades K-5 in dist Tucson Unified School District run by Patricia Mentz
+Primary category is 32202
+ID is 124321
+
+Got Myers/Ganoung Elementary School for grades K-5 in dist Tucson Unified School District run by Barbara Gonzales
+Primary category is 32202
+ID is 124322
+
+Got Naylor Middle School for grades 6-8 in dist Tucson Unified School District run by Alice McBride
+Primary category is 32203
+Naylor Middle School is already in the database, not adding
+ID is 115756
+
+We had address 1701 South Columbus Boulevard would set it to 1701 S. Columbus Blvd.
+Got Ochoa Elementary School for grades K-5 in dist Tucson Unified School District run by Heidi Aranda
+Primary category is 32202
+Ochoa Elementary School is already in the database, not adding
+ID is 108907
+
+We had address 101 West 25th Street would set it to 101 W. 25th St.
+Got Oyama Elementary School for grades K-5 in dist Tucson Unified School District run by Jeanette Morales
+Primary category is 32202
+ID is 124323
+
+Got PACE Alternative High School for grades US in dist Tucson Unified School District run by Robert Mackay
+Primary category is 32202
+PACE Alternative High School is already in the database, not adding
+ID is 114645
+
+We had address 594 South Campbell Avenue would set it to 594 S. Campbell Ave.
+Got Palo Verde Magnet High School for grades 9-12 in dist Tucson Unified School District run by Richard Gastellum (interim)
+Primary category is 32204
+ID is 124324
+
+Got PASS Alternative High School for grades "9-12 in dist Tucson Unified School District run by http://edweb.tusd.k12.az.us/Alternative_Ed
+Primary category is 32202
+PASS Alternative High School is already in the database, not adding
+ID is 102300
+
+We had address 440 South Park Avenue would set it to 2102 E. Broadway Blvd.
+Got Pistor Middle School for grades 6-8 in dist Tucson Unified School District run by Kathryn Manley-Crockett
+Primary category is 32203
+Pistor Middle School is already in the database, not adding
+ID is 116074
+
+We had address 5455 South Cardinal Avenue would set it to 5455 S. Cardinal Ave.
+Got Project MORE High School for grades 9-12 in dist Tucson Unified School District run by Robert Mackay
+Primary category is 32204
+ID is 124325
+
+Got Pueblo Gardens Elementary School for grades K-5 in dist Tucson Unified School District run by Marco Ramirez
+Primary category is 32202
+Pueblo Gardens Elementary School is already in the database, not adding
+ID is 115441
+
+We had address 2210 East 33rd Street would set it to 2210 E. 33rd St.
+Got Pueblo Magnet High School for grades 9-12 in dist Tucson Unified School District run by Patricia Dienz
+Primary category is 32204
+ID is 124326
+
+Got Reynolds Elementary School for grades K-5 in dist Tucson Unified School District run by Janet Jordan
+Primary category is 32202
+ID is 124327
+
+Got Richey Elementary School for grades K-8 in dist Tucson Unified School District run by Helen Grijalva
+Primary category is 32202
+Richey Elementary School is already in the database, not adding
+ID is 105604
+
+We had address 2209 North 15th Avenue would set it to 2209 N. 15th Ave.
+Got Rincon High School for grades 9-12 in dist Tucson Unified School District run by Angela Julien
+Primary category is 32204
+Rincon High School is already in the database, not adding
+ID is 112965
+
+We had address 422 North Arcadia Avenue would set it to 421 N. Arcadia Blvd.
+Got Roberts Elementary School for grades K-5 in dist Tucson Unified School District run by Marcos Quijada
+Primary category is 32202
+Roberts Elementary School is already in the database, not adding
+ID is 108311
+
+We had address 4355 East Calle Aurora would set it to 4355 E. Calle Aurora
+Got Robins Elementary School for grades K-5 in dist Tucson Unified School District run by Maggie Shafer
+Primary category is 32202
+Robins Elementary School is already in the database, not adding
+ID is 115869
+
+We had address 3939 North Magnetite Lane would set it to 3939 N. Magnetite
+Got Robison Elementary School for grades K-5 in dist Tucson Unified School District run by Robert Pitts
+Primary category is 32202
+Robison Elementary School is already in the database, not adding
+ID is 103229
+
+We had address 2745 East 18th Street would set it to 2745 E. 18th St.
+Got Rogers Elementary School for grades K-6 in dist Tucson Unified School District run by "Annabel Crites
+Primary category is 32202
+Rogers Elementary School is already in the database, not adding
+ID is 102544
+
+We had address 6000 East 15th Street would set it to 6000 E. 15th St.
+Got Rose Elementary School for grades K-5 in dist Tucson Unified School District run by Stephen Trejo
+Primary category is 32202
+ID is 124328
+
+Got Roskruge Elementary Magnet School for grades K-5 in dist Tucson Unified School District run by Theresa Roybal
+Primary category is 32202
+ID is 124329
+
+Got Roskruge Magnet Middle School for grades 6-8 in dist Tucson Unified School District run by Theresa Roybal
+Primary category is 32203
+ID is 124330
+
+Got Sabino High School for grades 9-12 in dist Tucson Unified School District run by Valerie Payne
+Primary category is 32204
+Sabino High School is already in the database, not adding
+ID is 109089
+
+We had address 5000 North Bowes Road would set it to 5000 N. Bowes Rd.
+Got Safford Elementary School for grades K-5 in dist Tucson Unified School District run by Theresa Ross
+Primary category is 32202
+ID is 124331
+
+Got Safford Engineering/Technology Magnet Middle School for grades 6-8 in dist Tucson Unified School District run by Theresa Ross
+Primary category is 32203
+ID is 124332
+
+Got Sahuaro High School for grades 9-12 in dist Tucson Unified School District run by Mary Metzger
+Primary category is 32204
+Sahuaro High School is already in the database, not adding
+ID is 110647
+
+We had address 545 North Camino Seco would set it to 545 N. Camino Seco
+Got Santa Rita High School for grades 9-12 in dist Tucson Unified School District run by Mark Kershner
+Primary category is 32204
+Santa Rita High School is already in the database, not adding
+ID is 102793
+
+We had address 3951 South Pantano Road would set it to 3951 S. Pantano Rd.
+Got Schumaker Elementary School for grades K-5 in dist Tucson Unified School District run by Julie Laird
+Primary category is 32202
+Schumaker Elementary School is already in the database, not adding
+ID is 101508
+
+We had address 501 North Maguire Avenue would set it to 501 N. Maguire
+Got Secrist Middle School for grades 6-8 in dist Tucson Unified School District run by Jim Christ
+Primary category is 32203
+Secrist Middle School is already in the database, not adding
+ID is 113209
+
+We had address 3400 South Houghton Road would set it to 3400 S. Houghton Rd.
+Got Sewell Elementary School for grades K-5 in dist Tucson Unified School District run by Rosalina Armijo
+Primary category is 32202
+ID is 124333
+
+Got Smith Elementary School for grades K-5 in dist Tucson Unified School District run by Albert Siqueiros
+Primary category is 32202
+ID is 124334
+
+Got Soleng Tom Elementary School for grades K-5 in dist Tucson Unified School District run by Theresa Sonnleitner
+Primary category is 32202
+Soleng Tom Elementary School is already in the database, not adding
+ID is 108850
+
+We had address 10520 East Camino Quince would set it to 10520 E. Camino Quince
+Got Southwest Alternative Middle School for grades 6-8 in dist Tucson Unified School District run by Linda Schloss
+Primary category is 32203
+ID is 124335
+
+Got Steele Elementary School for grades K-6 in dist Tucson Unified School District run by Daniel Erickson
+Primary category is 32202
+ID is 124336
+
+Got Teenage Parent Program (TAPP) for grades 6-12 in dist Tucson Unified School District run by Linda Schloss
+Primary category is 32204
+ID is 124337
+
+Got Tolson Elementary School for grades K-5 in dist Tucson Unified School District run by Maria Figueroa
+Primary category is 32202
+Tolson Elementary School is already in the database, not adding
+ID is 114757
+
+We had address 1000 South Greasewood Road would set it to 1000 S. Greasewood
+Got Townsend Middle School for grades 6-8 in dist Tucson Unified School District run by Ed Soto
+Primary category is 32203
+ID is 124338
+
+Got Tucson Magnet High School for grades 9-12 in dist Tucson Unified School District run by Abel Morado
+Primary category is 32204
+ID is 124339
+
+Got Tully Elementary Accelerated Magnet School for grades K-6 in dist Tucson Unified School District run by Judith Carlsten
+Primary category is 32202
+Tully Elementary Accelerated Magnet School is already in the database, not adding
+ID is 113670
+
+We had address 1701 West El Rio Drive would set it to 1701 W. El Rio Dr.
+Got University High School for grades 9-12 in dist Tucson Unified School District run by Stuart Baker
+Primary category is 32204
+University High School is already in the database, not adding
+ID is 114786
+
+We had address 422 North Arcadia Avenue would set it to 421 N. Arcadia Blvd.
+Got Utterback Magnet Middle School for grades 6-8 in dist Tucson Unified School District run by Debbie Summers
+Primary category is 32203
+ID is 124340
+
+Got Vail Middle School for grades 6-8 in dist Tucson Unified School District run by David Ross
+Primary category is 32203
+ID is 124341
+
+Got Valencia Middle School for grades 6-8 in dist Tucson Unified School District run by Violet Bingham
+Primary category is 32203
+ID is 124342
+
+Got Van Buskirk Elementary School for grades K-5 in dist Tucson Unified School District run by Chandra Thomas
+Primary category is 32202
+Van Buskirk Elementary School is already in the database, not adding
+ID is 113021
+
+We had address 725 East Fair Street would set it to 725 E. Fair
+Got Van Horne Elementary School for grades K-5 in dist Tucson Unified School District run by Cheryl Alston-Bing
+Primary category is 32202
+Van Horne Elementary School is already in the database, not adding
+ID is 115842
+
+We had address 7550 East Pima Street would set it to 7550 E. Pima St.
+Got Vesey Elementary School for grades K-5 in dist Tucson Unified School District run by Edidtsa Michel
+Primary category is 32202
+ID is 124343
+
+Got Wakefield Middle School for grades 6-8 in dist Tucson Unified School District run by Carmen Kemery
+Primary category is 32203
+Wakefield Middle School is already in the database, not adding
+ID is 117551
+
+We had address 101 West 44th Street would set it to 101 W. 44th St.
+Got Warren Elementary School for grades K-5 in dist Tucson Unified School District run by Marianne Hernandez
+Primary category is 32202
+ID is 124344
+
+Got Wheeler Elementary School for grades K-5 in dist Tucson Unified School District run by Stacia Emert
+Primary category is 32202
+Wheeler Elementary School is already in the database, not adding
+ID is 101751
+
+We had address 1818 South Avenida Del Sol would set it to 1818 Avenida del Sol
+Got White Elementary School for grades K-5 in dist Tucson Unified School District run by David Dodge
+Primary category is 32202
+ID is 124345
+
+Got Whitmore Elementary School for grades K-5 in dist Tucson Unified School District run by Kristine Hansen
+Primary category is 32202
+ID is 124346
+
+Got Wright Elementary School for grades K-5 in dist Tucson Unified School District run by Lisa Langford
+Primary category is 32202
+ID is 124347
+
+Got Wrightstown Elementary School for grades K-5 in dist Tucson Unified School District run by Carolyn Patterson
+Primary category is 32202
+Wrightstown Elementary School is already in the database, not adding
+ID is 118523
+
+We had address 8950 East Wrightstown Road would set it to 8950 E. Wrightstown Rd.
+Got Acacia Elementary School for grades K-5 in dist Vail Unified School District run by Laurie Enery
+Primary category is 32202
+ID is 124348
+
+Got Cienega High School for grades 9-12 in dist Vail Unified School District run by Tricia Pena
+Primary category is 32204
+ID is 124349
+
+Got Cottonwood Elementary School for grades K-5 in dist Vail Unified School District run by Carol Golembiewski
+Primary category is 32202
+ID is 124350
+
+Got Desert Sky Middle School for grades 6-8 in dist Vail Unified School District run by Kevin Carney
+Primary category is 32203
+ID is 124351
+
+Got Desert Willow Elementary School for grades K-5 in dist Vail Unified School District run by Deborah Frazelle
+Primary category is 32202
+ID is 124352
+
+Got Mesquite Elementary School for grades K-8 in dist Vail Unified School District run by Connie Erickson
+Primary category is 32202
+ID is 124353
+
+Got Old Vail Middle School for grades 6-8 in dist Vail Unified School District run by Margaret Steuer
+Primary category is 32203
+ID is 124354
+
+Got Pantano High School for grades 9-12 in dist Vail Unified School District run by Heather Pletnick
+Primary category is 32204
+ID is 124355
+
+Got Sycamore Elementary School for grades K-5 in dist Vail Unified School District run by Ken Graff
+Primary category is 32202
+ID is 124356
+
+Got A Child's View School for grades K-6 in dist Private run by Morrie Shaw
+Primary category is 32205
+ID is 124357
+
+Got Ajo Calvary Christian Academy for grades K-6 in dist Private run by 
+Primary category is 32205
+ID is 124358
+
+Got Al-Huda Islamic School for grades K-4 in dist Private run by 
+Primary category is 32205
+ID is 124359
+
+Got Carden Christian Academy Central for grades PreK-8 in dist Private run by Diana Marquez
+Primary category is 32205
+ID is 124360
+
+Got Casa Ninos School of Montessori for grades PreK-3 in dist Private run by Jessica Zarling
+Primary category is 32205
+ID is 124361
+
+Got Casa Ninos School of Montessori for grades PreK-5 in dist Private run by Terri Zarling  Jenny Ruth
+Primary category is 32205
+Casa Ninos School of Montessori is already in the database, not adding
+ID is 124361
+
+We had address 1 W. Orange Grove Rd. would set it to 8655 E. Broadway
+Got Casas Christian School for grades K-8 in dist Private run by Eric Dowdle
+Primary category is 32205
+Casas Christian School is already in the database, not adding
+ID is 109207
+
+We had address 10801 North La Cholla Boulevard would set it to 10801 N. La Cholla Blvd.
+Got Castlehill Country Day School for grades PreS-5 in dist Private run by Arline Schlossberg
+Primary category is 32205
+ID is 124362
+
+Got Cornerstone Christian Academy for grades K-6 in dist Private run by Thomas Askew
+Primary category is 32205
+Cornerstone Christian Academy is already in the database, not adding
+ID is 106197
+
+We had address 2150 East Orange Grove Road would set it to 2150 E. Orange Grove Rd.
+Got Desert Christian Elementary School for grades K-5 in dist Private run by Char Beecher
+Primary category is 32205
+ID is 124363
+
+Got Desert Christian High School for grades 9-12 in dist Private run by Allen Nielsen
+Primary category is 32205
+ID is 124364
+
+Got Desert Christian Middle School for grades 6-8 in dist Private run by Dennis O'Reilly
+Primary category is 32205
+Desert Christian Middle School is already in the database, not adding
+ID is 117075
+
+We had address 7525 East Speedway Boulevard would set it to 7525 E. Speedway
+Got Dove Christian School for grades K-12 in dist Private run by Harold Semrock
+Primary category is 32205
+Dove Christian School is already in the database, not adding
+ID is 108523
+
+We had address 166 East Roger Road would set it to 166 E. Roger Road
+Got Enchanted Desert School and Playgarden for grades PreK-K in dist Private run by Margery Bates   Kimberlyn McGreal
+Primary category is 32205
+ID is 124365
+
+Got Enchanted Desert School and Playgarden for grades 1-6 in dist Private run by Margery Bates   Kimberlyn McGreal
+Primary category is 32205
+Enchanted Desert School and Playgarden is already in the database, not adding
+ID is 124365
+
+We had address 3238 E. 1st St. would set it to 3349 E. Presido Rd.
+Got Faith Community Academy for grades PreS-6 in dist Private run by Royce Nelsestuen
+Primary category is 32205
+ID is 124366
+
+Got Faith Lutheran School for grades PreK-6 in dist Private run by Angie Espenson
+Primary category is 32205
+Faith Lutheran School is already in the database, not adding
+ID is 107337
+
+We had address 3925 East 5th Street would set it to 3925 E. 5th St.
+Got Fenster School for grades  9-12 in dist Private run by Don Saffer
+Primary category is 32205
+ID is 124367
+
+Got First Southern Christian School for grades PreK-6 in dist Private run by David English
+Primary category is 32205
+First Southern Christian School is already in the database, not adding
+ID is 105491
+
+We had address 445 East Speedway Boulevard would set it to 445 E. Speedway Blvd.
+Got Fountain of Life Lutheran School for grades PreK-8 in dist Private run by John Schultz
+Primary category is 32205
+ID is 124368
+
+Got Green Fields Country Day School for grades 1-12 in dist Private run by Rick Belding
+Primary category is 32205
+Green Fields Country Day School is already in the database, not adding
+ID is 112394
+
+We had address 6000 North Camino De La Tierra would set it to 6000 N. Camino De La Tierra
+Got Immaculate Heart Academy for grades PreK-8 in dist Private run by Dan Ethridge
+Primary category is 32205
+Immaculate Heart Academy is already in the database, not adding
+ID is 116262
+
+We had address 410 East Magee Road would set it to 410 E. Magee Rd.
+Got Immaculate Heart High School for grades  9-12 in dist Private run by Dan Ethridge
+Primary category is 32205
+Immaculate Heart High School is already in the database, not adding
+ID is 111311
+
+We had address 625 East Magee Road would set it to 625 E. Magee Rd.
+Got Ironwood Hills School for grades  1-12 in dist Private run by John Morgan
+Primary category is 32205
+ID is 124369
+
+Got Kino School for grades  PreK-12 in dist Private run by "David Anderson
+Primary category is 32205
+Kino School is already in the database, not adding
+ID is 106972
+
+We had address 6625 North 1st Avenue would set it to 6625 N. First Ave.
+Got Our Mother of Sorrows School for grades  PreK-8 in dist Private run by Robert Yarnell
+Primary category is 32205
+ID is 124370
+
+Got Palo Verde Christian School for grades  K-8 in dist Private run by Pamela Barr
+Primary category is 32205
+Palo Verde Christian School is already in the database, not adding
+ID is 104382
+
+We had address 2151 North Palo Verde Boulevard would set it to 2151 N. Palo Verde Blvd
+Got PIMA Academy for grades K-9 in dist Private run by Christina Ouillette
+Primary category is 32205
+PIMA Academy is already in the database, not adding
+ID is 101280
+
+We had address 8050 East Tanque Verde Road would set it to 8050 E Tanque Verde Rd
+Got Pusch Ridge Christian Academy for grades  6-12 in dist Private run by Eric Abrams
+Primary category is 32205
+Pusch Ridge Christian Academy is already in the database, not adding
+ID is 109938
+
+We had address 9500 North Oracle Road would set it to 9500 N. Oracle Rd.
+Got Redeemer Evangelical Lutheran School for grades PreK-8 in dist Private run by Jared Rathje
+Primary category is 32205
+ID is 124371
+
+Got River of Life Christian School for grades  K-12 in dist Private run by Denise Garcia
+Primary category is 32205
+ID is 124372
+
+Got Salpointe Catholic High School for grades  9-12 in dist Private run by Jeffrey Mounts
+Primary category is 32205
+ID is 124373
+
+Got San Miguel Catholic High School for grades 9 in dist Private run by Br. Nick Gonzalez
+Primary category is 32205
+ID is 124374
+
+Got San Xavier Mission School for grades  K-8 in dist Private run by Sr. Jackie Koenig
+Primary category is 32205
+ID is 124375
+
+Got Santa Cruz Catholic School for grades  PreK-8 in dist Private run by Sr. Leonette Kochan
+Primary category is 32205
+Santa Cruz Catholic School is already in the database, not adding
+ID is 105880
+
+We had address 29 West 22nd Street would set it to 29 W.22nd St.
+Got Satori School for grades PreS-1 in dist Private run by Phyllis Gold
+Primary category is 32205
+Satori School is already in the database, not adding
+ID is 124204
+
+We had address 3727 N. First Ave. would set it to 3801 N. First Ave.
+Got SS. Peter and Paul Catholic School for grades  K-8 in dist Private run by Sr. Ann Patrick Adams
+Primary category is 32205
+ID is 124376
+
+Got St. Ambrose Catholic Elementary for grades  PreK-8 in dist Private run by Leslie Shultz-Crist
+Primary category is 32205
+ID is 124377
+
+Got St. Augustine Catholic High School for grades 9-10 in dist Private run by Tyler Bangert
+Primary category is 32205
+ID is 124378
+
+Got St. Cyril School for grades  K-8 in dist Private run by Ann Zeches
+Primary category is 32205
+ID is 124379
+
+Got St. Elizabeth Ann Seton for grades PreK-4 in dist Private run by Suzanne Shadonix
+Primary category is 32205
+ID is 124380
+
+Got St. Gregory College Preparatory School for grades  6-12 in dist Private run by Bryn Roberts
+Primary category is 32205
+ID is 124381
+
+Got St. John the Evangelist Catholic School for grades  PreK-8 in dist Private run by Lourdes Amaro
+Primary category is 32205
+ID is 124382
+
+Got St. Joseph School for grades  K-8 in dist Private run by Ellen Kwader-Murphy
+Primary category is 32205
+ID is 124383
+
+Got St. Michael's Parish Day School for grades  K-8 in dist Private run by Patrick Brown
+Primary category is 32205
+ID is 124384
+
+Got St. Odila School for grades PreK-K in dist Private run by Teresa Bier
+Primary category is 32205
+ID is 124385
+
+Got Sun and Shield Christian Academy for grades  K-12 in dist Private run by Amber Morris
+Primary category is 32205
+ID is 124386
+
+Got The Beginning School for grades PreK-3 in dist Private run by Betsy Sales
+Primary category is 32205
+ID is 124387
+
+Got The Learning Lab for grades  7-12 in dist Private run by Mary Johnson
+Primary category is 32205
+ID is 124388
+
+Got Tucson Hebrew Academy for grades  1-8 in dist Private run by Bathea James
+Primary category is 32205
+Tucson Hebrew Academy is already in the database, not adding
+ID is 114727
+
+We had address 3888 East River Road would set it to 3888 E. River Rd.
+Got Tuller School for grades PreK-8 in dist Private run by Nannette Akins-van Mun
+Primary category is 32205
+Tuller School is already in the database, not adding
+ID is 116818
+
+We had address 5870 East 14th Street would set it to 5870 E. 14th St.
+Got Turning Point School for grades  1-8 in dist Private run by Nancy Von Wald
+Primary category is 32205
+Turning Point School is already in the database, not adding
+ID is 102475
+
+We had address 200 East Yavapai Road would set it to 200 E. Yavapai Rd.
+Got Arizona Virtual Academy for grades K-8 in dist Charter run by 
+Primary category is 32209
+Arizona Virtual Academy is already in the database, not adding
+ID is 113543
+
+We had address 1840 East Benson Highway would set it to 
+Got Chancellor Arizona Connections Academy for grades K-8 in dist Charter run by 
+Primary category is 32209
+ID is 124389
+
+Got Humanities and Sciences Academy Arizona for grades 9-12 in dist Charter run by 
+Primary category is 32209
+ID is 124390
+
+Got Kids at Hope Online Academy for grades 9-12 in dist Charter run by 
+Primary category is 32209
+ID is 124391
+
+Got Pinnacle Virtual High School for grades 9-12 in dist Charter run by 
+Primary category is 32209
+ID is 124392
+
+Got Primavera-Online High School for grades 9-12 in dist Charter run by 
+Primary category is 32209
+ID is 124393
+
+Got Sequoia Choice Arizona Distance Learning School for grades K-12 in dist Charter run by 
+Primary category is 32209
+ID is 124394
+
+Got Arizona State School for the Deaf and Blind for grades K-Age 22 in dist Arizona State School for the Deaf and Blind run by 
+Primary category is 32202
+ID is 124395
+

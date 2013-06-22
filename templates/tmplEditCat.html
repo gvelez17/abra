@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>Manage Category [|CATNAME|]</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+<small><A HREF="[% browse %]">Browse</A> * Edit * Search * Preferences</small>
+<br>
+<FORM ACTION="[|THISCGI|]" method=POST>
+<input type=hidden name="ACTION" value="EditCat">
+<input type=hidden name="NEXTPAGE" value="Edit">
+<input type=hidden name="_CATID" value=[|CATID|]>
+
+Name: <input name="NAME" value="[|CATNAME|]" size=40>
+<p>
+Security Level: <input name="SECURITY_LEVEL" VALUE="[|SECURITY_LEVEL|] size=5>
+<p>
+Display Ordinal Number: <input name="DISPLAY_ORDER" VALUE="[|DISPLAY_ORDER|] size=5>
+<p>
+Parent Category <SELECT name="cid"> 
+<OPTION value=[|CATID|] selected> [|CATPATH|] 
+~CATLIST~ <OPTION VALUE=[|ID|]> [|ID|]:[|SUBCATPATH|]
+</SELECT>
+<p>
+
+<input type=submit value="save changes">
+</FORM>
+
+</BODY>
+</HTML>
+

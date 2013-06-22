@@ -1,0 +1,23 @@
+12/14/06 :  add edit_cat to AbUtils.pm
+	DID: created tmplEditCat.html 
+-------------------------
+update viewprefs.level to match catcode
+
+send template to user to fill in and return (for updating blogs, etc)
+
+search capability
+
+test: send emails with long relatedcontent
+
+domail.pl : for long content maybe make direct TYPE: in item instead of relatedcontent
+
+trigger...modify file on change to data (add to AbUtils.pm, call from domail.pl & ab.pl)
+
+TESTING
+
+ab.pl : print link to relatedcontent if exists
+	print link to related table types if exist
+	 - should see WINGS under iw/cust
+
+DONE
+10/10/03 domail.pl: if no title & just one cat, take subject line

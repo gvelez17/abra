@@ -1,0 +1,41 @@
+<HTML>
+<BODY>
+<PRE>
+<?
+
+$connection = mysql_connect("localhost","rcats","meoow");
+$db = mysql_select_db("rcats");
+$id = $_GET["id"];
+if (! $id ) {
+	$id = $_GET["ID"];
+}
+$table = $_GET["table"];
+if (! $table) {
+	$table = $_GET["TABLE"];
+}
+$fields = $_GET["fields"];
+if (! $fields) {
+	$fields = $_GET["FIELDS"];
+} 
+if (! $fields) {
+	$fields = 'content,type';
+}
+$q = "SELECT $fields from $table where ID = $id";
+print "<!-- query is $q -->\n";
+$s = 'http://abra.info/test.html';
+$sth = mysql_query($q, $connection);
+while ($row = mysql_fetch_row($sth)) {
+	$content = $row[0];
+	$type = $row[1];
+	if (($type == 'text')||($type == '')) {
+		$content = preg_replace("/(https?:\/\/[^\s]+)/","<A HREF='$1'>$1</A>",$content);	
+	}
+	print($content.'<hr>');
+}
+
+mysql_close($connection);
+
+?>
+</PRE>
+</BODY>
+</HTML>

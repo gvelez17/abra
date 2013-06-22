@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<TITLE>Browse category [|CATNAME|] </TITLE>
+<script type="text/javascript" src="http://abra.info/js/prototype.js"></script>
+<script type="text/javascript" src="http://abra.info/js/abra.js"></script>
+
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<small><A HREF="[|THISCGI|]?_CATID=[|CATID|]&NEXTPAGE=Browse">Browse</A> 
+ * <A HREF="[|THISCGI|]?_CATID=[|CATID|]&NEXTPAGE=Edit">Edit</A> 
+ * <A HREF="[|BLOGCGI|]?_CATID=[|CATID|]">Blog</A>
+ * Search 
+ * Preferences
+[|?SHOW_LOGIN?:"<br>"|][|?SHOW_LOGIN?:LOGINLINK|]
+ * [|ACCOUNTLINK|]
+</small>
+<br>
+<form action="[|THISCGI|]" method=post>
+<input type=hidden name="_CATID" value="[|CATID|]">
+<input type=hidden name="_USERPREF" value="[|USERPREF|]">
+
+Find <INPUT name=query size=15> in 
+<SELECT name=searchcat>
+<OPTION value=[|CATID|]> This Category ([|CATNAME|])
+<OPTION VALUE=0> All categories
+<!-- TODO: later, add Userpref-searchcats here -->
+</Select> <input type=submit value="Go">
+
+<p>
+Current category: <b>[|CATPATH|]</b> shortcut:<input name="addcathandle" size=10 value="[|CATHANDLE|]">
+<br>
+Code is [|CATCODE|]
+<!-- TODO now: add link to name -->
+<br>
+Subcategories:
+<TABLE border=1 width="100%">
+~SUBCATS~ [|FMT_BEGIN|][|?SHOW_DELETE?:DEL_CAT|] <A HREF="[|THISCGI|]?_CATID=[|ID|]&_USERPREF=[|USERPREF|]">[|SUBCATCODE|]- [|NAME|]</A> [|VALUE|] [|FMT_END|]
+</TABLE>
+<!-- SUBCATCODE can be used above -->
+<table>
+~CATRELATIONS~ [|FMT_BEGIN|][|RELATION|]:<A HREF="[|LINK|]">[|NAME|]</A>[|FMT_END|]
+</table>
+This category is <SELECT name="relatecat">
+~RELATIONS~<OPTION>[|NAME|]
+</SELECT><INPUT NAME="relatecatto">
+<br>
+Add subcategory: <INPUT name="newsubcat" size=20>
+Apply types: <select multiple name="cattypes">
+~ABTYPES~<OPTION>[|TABLENAME|]
+</select>
+<br>
+<hr>
+[|?ITEMNAME?:"Current item:"|] <b>[|ITEMNAME|]</b> [|ITEMVALUE|] 
+<br>
+~ITEMRELATIONS~ [|FMT_BEGIN|][|RELATION|]:<A HREF="[|LINK|]">[|NAME|]</A> [|TYPE:relatedcontent:text|][|FMT_END|]
+<p>
+Items in this category:<br>
+~CATITEMS~ [|ITEMCODE|]<small>[|EFFECTIVE_DATE|]</small> <A HREF='[|THISCGI|]?_ITEMID=[|ID|]'>+</A><A HREF='[|THISCGI|]?_ITEMID=[|ID|]&NEXTPAGE=EditItem'>E</A> [|?SHOW_DELETE?:DEL_ITEM|] [|?LINK?:"<A HREF='"|][|LINK|][|?LINK?:"'>"|]<b>[|NAME|]</b>[|?LINK?:"</A>"|][|?SHORT_CONTENT?:" : "|][|SHORT_CONTENT|] - [|META_DESCRIPTION|]<small>[|RELATED_LINKS|] [|TABLE_LINKS|] <i><A HREF='[|THISCGI|]?_ITEMID=[|ID|]&NEXTPAGE=AddText'>Add Note</A></i> <i><A HREF='[|THISCGI|]?_ITEMID=[|ID|]&NEXTPAGE=AddRelatedItem'>Add Related Item</A></i></small><br> 
+
+<br>
+<br>New item</b>
+Name/title: <INPUT name="newitem" size=20>
+<br>
+Short content: <INPUT name="SHORT_CONTENT" size=60>
+<br>  
+URL: <INPUT name="URL" size=40> or <A HREF="#text">text</A>
+<br>
+Description (optional): 
+<TEXTAREA name="TYPE:metadata:description"></TEXTAREA>
+Shorthand/handle: <input name="newitemhandle" size=16>
+<br>
+Associated Keywords (optional):
+<INPUT name="TYPE:metadata:keywords" size=50>
+<br>
+Or, add item by handle: <INPUT NAME="itemhandle" size=16>
+<A HREF="[|THISCGI|]?NEXTPAGE=LookupHandles" TARGET="_lookup">Lookup Handles</A>
+<br>
+<INPUT TYPE=HIDDEN NAME=ACTION VALUE=''>
+<INPUT TYPE=HIDDEN NAME=NEXTPAGE VALUE=[|NEXTPAGE|]>
+<input type="submit">
+<input type="submit" value="Turn Admin Features Off" onClick="this.form._USERPREF.value=0">
+<input type="submit" value="Turn Admin Features On" onClick="this.form._USERPREF.value=255">
+<p>
+Effective Date (optional): <input name="EFFECTIVE_DATE" size=20> yyyy/mm/dd
+<p>
+<A NAME="text">Text or HTML content:</A> (optional)
+<br>
+<TEXTAREA name="TYPE:content:content" rows=10 cols=60>
+</textarea>
+</FORM>
+
+</BODY>
+</HTML>
+
+

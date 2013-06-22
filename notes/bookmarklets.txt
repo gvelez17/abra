@@ -1,0 +1,147 @@
+t!  I'm going on vacation as it happens tomorrow morning for a week, so some delay on my end, but absolutely I think this is very promising area.
+
+One caveat - I am not a researcher per se, I have a private business and at some point I would probably want to use this type of app on ad-funded sites to gather content.  Of course no problem that the code would be open source, but I wanted to just put this out right off, that I would have a commercial application for it.  I'm also copying Jim Kern who might be a co-collaborator.
+
+
+
+
+
+
+
+
+On Thursday 26 July 2007 04:53, nick.kings@bt.com wrote:
+> Tom, Golda,
+> 
+> I'd like to listen in on any further discussions (and see if I can contribute).
+> 
+> Regards,
+> Nick
+> 
+> 
+> Nicholas J. Kings (Nick)
+> Senior Researcher
+> Next Generation Web Research, BT Group Chief Technology Office 
+>  
+>  
+>  
+> 
+> > -----Original Message-----
+> > From: semantic-web-request@w3.org 
+> > [mailto:semantic-web-request@w3.org] On Behalf Of T.Heath
+> > Sent: 25 July 2007 17:49
+> > To: Golda Velez; SW-forum
+> > Subject: RE: application using bookmarklets?
+> > 
+> > 
+> > Hi Golda,
+> > 
+> > Yes, this is really nice idea that has gained some traction 
+> > in the Web2.0 world with sites like StumbleUpon and Lijit. It 
+> > would be *very* interesting to see a Semantic Web reworking 
+> > of the concept.
+> > 
+> > As Chris points out, http://revyu.com/ has many of the 
+> > required components in place already. We have a bookmarklet 
+> > that people can use to review resources on the Web (or things 
+> > described by resources on the Web - the nature of the 
+> > relationship between resource and web page is defined at review-time).
+> > 
+> > We don't allow arbitrary annotations other than reviews (text 
+> > and numerical rating) and keyword tags, but in the first 
+> > instance that might be sufficient. All this information is 
+> > available via the SPARQL endpoint, and the trust-based 
+> > features are close to being ready. 
+> > 
+> > So, it would be pretty easy to implement a bookmarklet or 
+> > browser plugin that checked Revyu.com for any reviews of the 
+> > currently viewed Web resource (or things related to that 
+> > page) and showed this to the user. If you're interesting in 
+> > investigating this further please do get in touch; we'd be 
+> > very happy to work with you in getting this implemented.
+> > 
+> > Drop me an email off-list and we can talk some more :)
+> > 
+> > Tom.
+> > 
+> > > -----Original Message-----
+> > > From: semantic-web-request@w3.org
+> > > [mailto:semantic-web-request@w3.org] On Behalf Of Chris Bizer
+> > > Sent: 22 July 2007 11:02
+> > > To: Golda Velez; 'SW-forum'
+> > > Subject: Re: application using bookmarklets?
+> > > 
+> > > 
+> > > 
+> > > Hi Golda,
+> > > 
+> > > Tom Heath is working into this direction with http://revyu.com/, a 
+> > > site where people can rate anything that they can name.
+> > > 
+> > > He doesn't have the kind of bookmarklet you are talking about right 
+> > > now. But as he has a SPARQL endpoint, it would be no big deal to 
+> > > implement it.
+> > > 
+> > > Cheers
+> > > 
+> > > Chris
+> > > 
+> > > 
+> > > --
+> > > Chris Bizer
+> > > Freie Universität Berlin
+> > > +49 30 838 54057
+> > > chris@bizer.de
+> > > www.bizer.de
+> > > ----- Original Message -----
+> > > From: "Golda Velez" <w3@webglimpse.org>
+> > > To: "'SW-forum'" <semantic-web@w3.org>
+> > > Sent: Sunday, July 22, 2007 8:37 AM
+> > > Subject: application using bookmarklets?
+> > > 
+> > > 
+> > > >
+> > > > Hi all
+> > > >
+> > > > On another subject entirely...
+> > > >
+> > > > Is anyone doing (or interested in doing) a application that lets 
+> > > > 'anyone say anything about anything' and offer a bookmarklet that 
+> > > > lets
+> > > people surf
+> > > > around
+> > > > seeing what people said?
+> > > >
+> > > > The back end seems to me like it would be a good test app 
+> > for some 
+> > > > semweb technologies, mainly storing lots of simple RDF data
+> > > + keeping
+> > > > trust web data
+> > > > for the users.   In particular writing a user interface to choose 
+> > > > namespace
+> > > > for assertions and communicate possibilities to 
+> > not-very-technical 
+> > > > users would be a good exercise, I think.
+> > > >
+> > > > Is this kind of thing done somewhere already?
+> > > >
+> > > > Thanks
+> > > >
+> > > > --Golda
+> > > >
+> > > > 
+> > > 
+> > > 
+> > > 
+> > 
+> > 
+> 
+
+-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Golda Velez	520-440-1420		http://goldavelez.com
+what I do: 	Tucson Superblog	http://btucson.com
+		Search software		http://webglimpse.net
+		Web hosting		http://iwhome.com
+
+"Help organize the world - index your own corner of the web!"
+

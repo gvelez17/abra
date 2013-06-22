@@ -1,0 +1,707 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: rcats
+-- ------------------------------------------------------
+-- Server version	5.0.45
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ab_access_permissions`
+--
+
+DROP TABLE IF EXISTS `ab_access_permissions`;
+CREATE TABLE `ab_access_permissions` (
+  `id` bigint(15) default NULL,
+  `cid` bigint(15) default NULL,
+  `userid` int(11) default NULL,
+  `access_level` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_adshare`
+--
+
+DROP TABLE IF EXISTS `ab_adshare`;
+CREATE TABLE `ab_adshare` (
+  `google_client_id` varchar(64) default NULL,
+  `is_donation` char(1) default NULL,
+  `code_snippet` blob,
+  `email` varchar(128) default NULL,
+  `user_id` int(11) default NULL,
+  UNIQUE KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_adshare_orgs`
+--
+
+DROP TABLE IF EXISTS `ab_adshare_orgs`;
+CREATE TABLE `ab_adshare_orgs` (
+  `id` int(11) default NULL,
+  `google_client_id` varchar(64) default NULL,
+  `title` varchar(128) default NULL,
+  `registered_by` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_biz_org`
+--
+
+DROP TABLE IF EXISTS `ab_biz_org`;
+CREATE TABLE `ab_biz_org` (
+  `id` bigint(15) default NULL,
+  `addr` varchar(255) default NULL,
+  `zip` varchar(15) default NULL,
+  `phone` varchar(15) default NULL,
+  `email` varchar(50) default NULL,
+  `city` varchar(25) default NULL,
+  `zip4` varchar(10) default NULL,
+  UNIQUE KEY `id` (`id`),
+  KEY `ab_biz_org_index` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_cat_types`
+--
+
+DROP TABLE IF EXISTS `ab_cat_types`;
+CREATE TABLE `ab_cat_types` (
+  `cid` bigint(15) default NULL,
+  `tablename` varchar(32) default NULL,
+  `catcode` varchar(16) default NULL,
+  KEY `catcode_index` (`catcode`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_features`
+--
+
+DROP TABLE IF EXISTS `ab_features`;
+CREATE TABLE `ab_features` (
+  `item_id` bigint(15) unsigned default NULL,
+  `catcode` varchar(16) default NULL,
+  `approved` char(1) default NULL,
+  `expires` date default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_group_users`
+--
+
+DROP TABLE IF EXISTS `ab_group_users`;
+CREATE TABLE `ab_group_users` (
+  `gid` int(11) NOT NULL default '0',
+  `uid` int(11) default NULL,
+  PRIMARY KEY  (`gid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_groups`
+--
+
+DROP TABLE IF EXISTS `ab_groups`;
+CREATE TABLE `ab_groups` (
+  `gid` int(11) NOT NULL default '0',
+  `group_name` varchar(32) default NULL,
+  `descrip` tinyblob,
+  PRIMARY KEY  (`gid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_images`
+--
+
+DROP TABLE IF EXISTS `ab_images`;
+CREATE TABLE `ab_images` (
+  `item_id` bigint(15) default NULL,
+  `ENTERED` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `effective_date` date default NULL,
+  `caption` varchar(255) default NULL,
+  `credits` varchar(255) default NULL,
+  `owner` bigint(15) default NULL,
+  `security_level` int(11) default NULL,
+  `uid` bigint(15) NOT NULL auto_increment,
+  `ext` char(5) default NULL,
+  `imgcode` varchar(16) default NULL,
+  `interest` int(11) default NULL,
+  PRIMARY KEY  (`uid`)
+) ENGINE=MyISAM AUTO_INCREMENT=172 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_item_types`
+--
+
+DROP TABLE IF EXISTS `ab_item_types`;
+CREATE TABLE `ab_item_types` (
+  `id` bigint(15) default NULL,
+  `tablename` varchar(32) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_location`
+--
+
+DROP TABLE IF EXISTS `ab_location`;
+CREATE TABLE `ab_location` (
+  `latitude` double default NULL,
+  `longitude` double default NULL,
+  `msa` char(5) default NULL,
+  `FIPS` char(5) default NULL,
+  `areacode` char(3) default NULL,
+  `id` bigint(15) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_pending_edits`
+--
+
+DROP TABLE IF EXISTS `ab_pending_edits`;
+CREATE TABLE `ab_pending_edits` (
+  `item_id` bigint(15) default NULL,
+  `new_cid` bigint(15) default NULL,
+  `new_name` varchar(255) default NULL,
+  `new_itemcode` varchar(16) default NULL,
+  `new_owner` bigint(15) default NULL,
+  `new_effective_date` date default NULL,
+  `new_url` varchar(255) default NULL,
+  `new_content` text,
+  `new_security_level` int(11) default NULL,
+  `new_addr` varchar(255) default NULL,
+  `new_zip` varchar(15) default NULL,
+  `new_phone` varchar(15) default NULL,
+  `new_email` varchar(50) default NULL,
+  `new_city` varchar(25) default NULL,
+  `new_zip4` varchar(10) default NULL,
+  `more_edit_types` varchar(100) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_school`
+--
+
+DROP TABLE IF EXISTS `ab_school`;
+CREATE TABLE `ab_school` (
+  `id` bigint(15) default NULL,
+  `school_type` char(1) default NULL,
+  `district` varchar(128) default NULL,
+  `from_grade` int(11) default NULL,
+  `to_grade` int(11) default NULL,
+  `administrator` varchar(128) default NULL,
+  `grades` varchar(24) default NULL,
+  `degrees` varchar(24) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_user_friends`
+--
+
+DROP TABLE IF EXISTS `ab_user_friends`;
+CREATE TABLE `ab_user_friends` (
+  `userid` int(11) default NULL,
+  `friend_id` int(11) default NULL,
+  `access_level` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ab_users_cats`
+--
+
+DROP TABLE IF EXISTS `ab_users_cats`;
+CREATE TABLE `ab_users_cats` (
+  `id` bigint(15) default NULL,
+  `user_id` int(11) default NULL,
+  `cathome` bigint(15) default NULL,
+  `catlast` bigint(15) default NULL,
+  `public_handle` varchar(32) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `biz_arizona`
+--
+
+DROP TABLE IF EXISTS `biz_arizona`;
+CREATE TABLE `biz_arizona` (
+  `bizID` int(10) NOT NULL default '0',
+  `bizCat` varchar(255) default NULL,
+  `bizCatSub` varchar(255) default NULL,
+  `bizName` varchar(255) default NULL,
+  `bizAddr` varchar(255) default NULL,
+  `bizCity` varchar(255) default NULL,
+  `bizState` varchar(255) default NULL,
+  `bizZip` varchar(255) default NULL,
+  `bizPhone` varchar(255) default NULL,
+  `bizFax` varchar(255) default NULL,
+  `bizEmail` varchar(255) default NULL,
+  `bizURL` varchar(255) default NULL,
+  `locAreaCode` char(3) default NULL,
+  `locFIPS` varchar(5) default NULL,
+  `locTimeZone` varchar(6) default NULL,
+  `locDST` char(1) default NULL,
+  `locLat` varchar(10) default NULL,
+  `locLong` varchar(10) default NULL,
+  `locMSA` varchar(5) default NULL,
+  `locPMSA` varchar(5) default NULL,
+  `locCounty` varchar(30) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `bizdir_users`
+--
+
+DROP TABLE IF EXISTS `bizdir_users`;
+CREATE TABLE `bizdir_users` (
+  `name` char(60) default NULL,
+  `address` char(60) default NULL,
+  `city` char(40) default NULL,
+  `state` char(30) default NULL,
+  `zip` char(15) default NULL,
+  `phone` char(15) default NULL,
+  `ext` char(5) default NULL,
+  `fax` char(15) default NULL,
+  `email` char(45) default NULL,
+  `why` char(255) default NULL,
+  `username` char(20) default NULL,
+  `password` char(20) default NULL,
+  `status` char(1) default NULL,
+  `admin` char(1) default NULL,
+  `expires` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `content`
+--
+
+DROP TABLE IF EXISTS `content`;
+CREATE TABLE `content` (
+  `id` bigint(15) NOT NULL default '0',
+  `content` blob,
+  `type` varchar(16) default NULL,
+  `acl` varchar(4) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `index_1` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `coordinators`
+--
+
+DROP TABLE IF EXISTS `coordinators`;
+CREATE TABLE `coordinators` (
+  `name` varchar(64) default NULL,
+  `email` varchar(64) default NULL,
+  `phone` varchar(32) default NULL,
+  `altphone` varchar(32) default NULL,
+  `state` char(2) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `countries`
+--
+
+DROP TABLE IF EXISTS `countries`;
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL auto_increment,
+  `iso` char(2) NOT NULL default '',
+  `name` varchar(100) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1000000 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `edwardsblog`
+--
+
+DROP TABLE IF EXISTS `edwardsblog`;
+CREATE TABLE `edwardsblog` (
+  `who` varchar(16) default NULL,
+  `location` varchar(64) default NULL,
+  `didit` blob,
+  `whoandwhy` blob,
+  `email` varchar(64) default NULL,
+  `id` bigint(15) default NULL,
+  `ENTERED` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `file`
+--
+
+DROP TABLE IF EXISTS `file`;
+CREATE TABLE `file` (
+  `id` bigint(15) default NULL,
+  `template` varchar(128) default NULL,
+  `target` varchar(128) default NULL,
+  `rules` varchar(16) default NULL,
+  `acl` varchar(4) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `handles`
+--
+
+DROP TABLE IF EXISTS `handles`;
+CREATE TABLE `handles` (
+  `id` bigint(20) default NULL,
+  `userid` bigint(20) default NULL,
+  `handle` char(32) default NULL,
+  `type` char(1) default NULL,
+  `within_cat` bigint(15) default NULL,
+  `catid` bigint(15) default NULL,
+  KEY `handle` (`handle`,`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `longcontent`
+--
+
+DROP TABLE IF EXISTS `longcontent`;
+CREATE TABLE `longcontent` (
+  `id` bigint(15) unsigned default NULL,
+  `content` mediumblob,
+  `acl` varchar(4) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `news`
+--
+
+DROP TABLE IF EXISTS `news`;
+CREATE TABLE `news` (
+  `id` bigint(16) NOT NULL auto_increment,
+  `name` varchar(64) default NULL,
+  `editor` varchar(64) default NULL,
+  `letters_email` varchar(64) default NULL,
+  `address` varchar(128) default NULL,
+  `city` varchar(32) default NULL,
+  `zip` varchar(15) default NULL,
+  `news_email` varchar(64) default NULL,
+  `phone` varchar(32) default NULL,
+  `fax` varchar(32) default NULL,
+  `state` char(2) default NULL,
+  `focus` varchar(32) default NULL,
+  `extra` varchar(64) default NULL,
+  `url` varchar(128) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=696 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `person`
+--
+
+DROP TABLE IF EXISTS `person`;
+CREATE TABLE `person` (
+  `id` bigint(15) unsigned NOT NULL default '0',
+  `propername` varchar(64) default NULL,
+  `email` varchar(64) default NULL,
+  `phone` varchar(16) default NULL,
+  `cellphone` varchar(16) default NULL,
+  `fax` varchar(16) default NULL,
+  `address1` varchar(128) default NULL,
+  `address2` varchar(128) default NULL,
+  `city` varchar(64) default NULL,
+  `state` varchar(64) default NULL,
+  `zip` varchar(16) default NULL,
+  `acl` varchar(4) default NULL,
+  KEY `index_1` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `rcatdb_categories`
+--
+
+DROP TABLE IF EXISTS `rcatdb_categories`;
+CREATE TABLE `rcatdb_categories` (
+  `ID` bigint(15) unsigned NOT NULL auto_increment,
+  `CID` bigint(15) unsigned NOT NULL default '0',
+  `NAME` varchar(255) NOT NULL default '',
+  `REL_URL` varchar(255) default NULL,
+  `catcode` varchar(16) character set latin1 collate latin1_bin default NULL,
+  `lastsubcode` int(11) default NULL,
+  `owner` bigint(20) default NULL,
+  `ENTERED` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `types` varchar(100) default NULL,
+  `security_level` int(11) default NULL,
+  `display_order` int(4) default NULL,
+  `external_uri` varchar(255) default NULL,
+  PRIMARY KEY  (`ID`),
+  KEY `index_1` (`CID`),
+  KEY `index_2` (`NAME`(4)),
+  KEY `catcode` (`catcode`),
+  KEY `external_uri` (`external_uri`)
+) ENGINE=MyISAM AUTO_INCREMENT=76677 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `rcatdb_items`
+--
+
+DROP TABLE IF EXISTS `rcatdb_items`;
+CREATE TABLE `rcatdb_items` (
+  `ID` bigint(15) unsigned NOT NULL auto_increment,
+  `CID` bigint(15) unsigned NOT NULL default '0',
+  `NAME` varchar(255) NOT NULL default '',
+  `VALUE` varchar(255) character set latin1 collate latin1_bin NOT NULL default '',
+  `QUALIFIER` varchar(100) character set latin1 collate latin1_bin default NULL,
+  `itemcode` varchar(16) character set latin1 collate latin1_bin default NULL,
+  `owner` bigint(15) default NULL,
+  `acl` varchar(4) default NULL,
+  `ENTERED` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `effective_date` date default NULL,
+  `URL` varchar(255) default NULL,
+  `short_content` text,
+  `TYPES` varchar(100) default NULL,
+  `security_level` int(11) default NULL,
+  `rank` int(1) default NULL,
+  `hide_from_front` char(1) default NULL,
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `ID_2` (`ID`),
+  KEY `index_1` (`CID`),
+  KEY `index_2` (`NAME`(4)),
+  KEY `index_3` (`VALUE`(3)),
+  KEY `itemcode` (`itemcode`),
+  KEY `ID` (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=154232 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `rcatdb_rcats`
+--
+
+DROP TABLE IF EXISTS `rcatdb_rcats`;
+CREATE TABLE `rcatdb_rcats` (
+  `UID` bigint(15) unsigned NOT NULL auto_increment,
+  `ID` bigint(15) unsigned NOT NULL default '0',
+  `RELATION` varchar(20) character set latin1 collate latin1_bin NOT NULL default '',
+  `CAT_DEST` bigint(15) unsigned NOT NULL default '0',
+  `ITEM_DEST` bigint(15) unsigned NOT NULL default '0',
+  `QUALIFIER` varchar(100) character set latin1 collate latin1_bin default NULL,
+  `ENTERED` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`UID`),
+  KEY `index_1` (`ID`),
+  KEY `index_2` (`RELATION`(10))
+) ENGINE=MyISAM AUTO_INCREMENT=73095 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `rcatdb_ritems`
+--
+
+DROP TABLE IF EXISTS `rcatdb_ritems`;
+CREATE TABLE `rcatdb_ritems` (
+  `UID` bigint(15) unsigned NOT NULL auto_increment,
+  `ID` bigint(15) unsigned NOT NULL default '0',
+  `RELATION` varchar(20) character set latin1 collate latin1_bin NOT NULL default '',
+  `CAT_DEST` bigint(15) unsigned NOT NULL default '0',
+  `ITEM_DEST` bigint(15) unsigned NOT NULL default '0',
+  `QUALIFIER` varchar(100) character set latin1 collate latin1_bin default NULL,
+  `ENTERED` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`UID`),
+  KEY `index_1` (`ID`),
+  KEY `index_2` (`RELATION`(10)),
+  KEY `index_3` (`CAT_DEST`),
+  KEY `index_4` (`RELATION`,`CAT_DEST`)
+) ENGINE=MyISAM AUTO_INCREMENT=437226 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `relatedcontent`
+--
+
+DROP TABLE IF EXISTS `relatedcontent`;
+CREATE TABLE `relatedcontent` (
+  `uid` bigint(15) default NULL,
+  `text` blob,
+  `acl` varchar(4) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `resources`
+--
+
+DROP TABLE IF EXISTS `resources`;
+CREATE TABLE `resources` (
+  `catid` int(11) NOT NULL default '0',
+  `rtype` varchar(100) default NULL,
+  `resource` varchar(1024) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `structure`
+--
+
+DROP TABLE IF EXISTS `structure`;
+CREATE TABLE `structure` (
+  `catid` int(11) NOT NULL default '0',
+  `topic` varchar(1024) NOT NULL,
+  `title` varchar(1024) default NULL,
+  `description` blob,
+  `lastupdate` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `catcode` varchar(16) default NULL,
+  `lastsubcode` int(11) default NULL,
+  PRIMARY KEY  (`catid`),
+  KEY `title_index` (`title`(1000)),
+  KEY `id_index` (`catid`),
+  KEY `catcode_index` (`catcode`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `students4edwards`
+--
+
+DROP TABLE IF EXISTS `students4edwards`;
+CREATE TABLE `students4edwards` (
+  `name` varchar(40) default NULL,
+  `first_names` varchar(40) default NULL,
+  `last_name` varchar(40) default NULL,
+  `email` varchar(64) default NULL,
+  `phone` varchar(40) default NULL,
+  `city` varchar(40) default NULL,
+  `state` char(2) default NULL,
+  `school` varchar(64) default NULL,
+  `title` varchar(64) default NULL,
+  `about` blob,
+  `endorse` blob,
+  `id` bigint(15) default NULL,
+  `url` varchar(64) default NULL,
+  `address_line1` varchar(60) default NULL,
+  `address_line2` varchar(60) default NULL,
+  `zip_code` varchar(15) default NULL,
+  `LD` varchar(10) default NULL,
+  `win_site` char(1) default NULL,
+  `listserv` char(1) default NULL,
+  `volunteer` char(1) default NULL,
+  `unidos` char(1) default NULL,
+  `african_americans` char(1) default NULL,
+  `status` char(1) default NULL,
+  `ENTERED` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `group1` varchar(16) default NULL,
+  `former_candidate` tinyint(2) default NULL,
+  `origdate` date default NULL,
+  `DONTSENDMAIL` char(1) default NULL,
+  `OKTOSENDMAIL` char(1) default NULL,
+  FULLTEXT KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `temp_data`
+--
+
+DROP TABLE IF EXISTS `temp_data`;
+CREATE TABLE `temp_data` (
+  `id` int(11) default NULL,
+  `person_name` varchar(100) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `login` varchar(25) NOT NULL default '',
+  `pw` varchar(32) NOT NULL default '',
+  `real_name` varchar(32) NOT NULL default '',
+  `extra_info` varchar(100) NOT NULL default '',
+  `tmp_mail` varchar(50) NOT NULL default '',
+  `access_level` tinyint(4) NOT NULL default '0',
+  `active` enum('y','n') NOT NULL default 'n',
+  `email` varchar(64) default NULL,
+  `return_url` varchar(100) default NULL,
+  `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `user` (`login`),
+  UNIQUE KEY `login` (`login`)
+) ENGINE=MyISAM AUTO_INCREMENT=10703 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `users_profile`
+--
+
+DROP TABLE IF EXISTS `users_profile`;
+CREATE TABLE `users_profile` (
+  `id` int(11) NOT NULL auto_increment,
+  `users_id` int(11) NOT NULL default '0',
+  `language` char(2) NOT NULL default '',
+  `address` varchar(50) NOT NULL default '',
+  `postcode` varchar(15) NOT NULL default '',
+  `city` varchar(50) NOT NULL default '',
+  `state` char(2) default NULL,
+  `province` varchar(50) default NULL,
+  `country` char(2) NOT NULL default '',
+  `phone` varchar(50) NOT NULL default '',
+  `fax` varchar(50) NOT NULL default '',
+  `homepage` varchar(100) NOT NULL default '',
+  `notes` text NOT NULL,
+  `user_1` varchar(100) NOT NULL default '',
+  `user_2` varchar(100) NOT NULL default '',
+  `user_3` varchar(100) NOT NULL default '',
+  `user_4` varchar(100) NOT NULL default '',
+  `last_change` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `users_id` (`users_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `viewprefs`
+--
+
+DROP TABLE IF EXISTS `viewprefs`;
+CREATE TABLE `viewprefs` (
+  `cid` bigint(20) default NULL,
+  `id` bigint(20) default NULL,
+  `userid` bigint(20) default NULL,
+  `viewid` bigint(10) default NULL,
+  `pagetype` varchar(32) default NULL,
+  `catcode` varchar(16) character set latin1 collate latin1_bin default NULL,
+  `level` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `views`
+--
+
+DROP TABLE IF EXISTS `views`;
+CREATE TABLE `views` (
+  `uid` bigint(10) default NULL,
+  `data_source` char(64) default NULL,
+  `method` char(64) default NULL,
+  `template_file` char(128) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `volunteers`
+--
+
+DROP TABLE IF EXISTS `volunteers`;
+CREATE TABLE `volunteers` (
+  `volid` bigint(16) NOT NULL auto_increment,
+  `stu4ed` bigint(16) default NULL,
+  `email` varchar(128) default NULL,
+  `okfor` int(4) default NULL,
+  `total` bigint(16) default NULL,
+  `vouchfor` varchar(128) default NULL,
+  `notes` varchar(128) default NULL,
+  `password` varchar(16) default NULL,
+  `name` varchar(32) default NULL,
+  `LAST_REQUEST` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `num_assigned` bigint(16) default NULL,
+  PRIMARY KEY  (`volid`)
+) ENGINE=MyISAM AUTO_INCREMENT=318 DEFAULT CHARSET=latin1;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2008-06-20  9:17:40

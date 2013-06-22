@@ -1,0 +1,104 @@
+<!-- Webglimpse Version 2.17.0 Revision $Id: webglimpse.cgi,v 1.71 2006/11/21 08:13:09 golda Exp $ -->
+<!-- Glimpse command: /usr/local/bin/glimpse -U -W -j -y   -L 500:100   -i -w  -H /usr/local/wgtuc/archives/3  'earlylearning' | -->
+<!-- Glimpse command 1 : /usr/local/bin/glimpse -U -W -j -y   -L 500:100   -i -w  -H /usr/local/wgtuc/archives/1  'earlylearning' | -->
+<HTML><head>
+
+
+
+<title>bTucson Search Results</title>
+
+
+
+ <link href="/2col.css" rel="styleSheet" type="text/css">
+
+               <style type="text/css">
+
+               <!--
+
+               body,td,div,a {font-family:arial,sans-serif; font-size:10pt; }
+
+               a:link {color:#000080}
+
+               div.results {border-top:thin ridge #008000; padding-top: .3em; }
+
+               -->
+
+               </style>
+
+
+
+</head>
+
+<body bgcolor="#ffffff">
+
+<H3>bTucson.com Search Results</H3>
+
+
+
+| <A HREF="/Tucson/Housing/">Housing</A>
+
+| <A HREF="/schools.html">Schools</A>
+
+| <A HREF="/gov/">Politics & Government</A>
+
+| <A HREF="/Tucson/Business%20Directory/">Business Directory</A>
+
+| <A HREF="/Tucson/Restaurant%20Guide/">Restaurant Guide</A>
+
+|
+
+<br>
+
+| <A HREF="/rec.php">Parks & Recreation</A>
+
+| <A HREF="/community/">Community Info</A>
+
+| <A HREF="/news.php">News & Media</A>
+
+| <A HREF="/econ.html">Economy</A>
+
+| <A HREF="/Tucson/Health,%20Fitness%20and%20Medical/">Lifestyle</A>
+
+|
+
+<br>
+
+<form method=get ACTION="http://webglimpse.net/cgibin/webglimpse.cgi">
+
+Search
+
+<input type=hidden value=7 name="ID">
+
+<input type=HIDDEN name=limit value="500:100">
+
+<input type=HIDDEN name=cache value="yes">
+
+<input name=query size=15> this site and all the pages we link to.
+
+</form>
+
+<hr>
+
+		
+		
+		<font size="-1">Looking for <b>earlylearning</b> in entire archive - Found 0 matches in 0 files 
+		<br>Showing results 0 - 0</font><div class=results></div>   <FORM ACTION="/cgibin/webglimpse.cgi" METHOD=GET>
+	<INPUT TYPE=HIDDEN NAME="ID" VALUE="7">
+       New Query: <INPUT NAME="query" VALUE="">
+
+	<!-- Keep options from original search -->
+	<INPUT TYPE=HIDDEN NAME=case VALUE="" ><INPUT TYPE=HIDDEN NAME=whole VALUE="" ><INPUT TYPE=HIDDEN NAME=lines VALUE="" ><INPUT TYPE=HIDDEN NAME=errors VALUE="" ><INPUT TYPE=HIDDEN NAME=age VALUE="" ><INPUT TYPE=HIDDEN NAME=maxfiles VALUE="25" ><INPUT TYPE=HIDDEN NAME=maxlines VALUE="20" ><INPUT TYPE=HIDDEN NAME=maxchars VALUE="3000" ><INPUT TYPE=HIDDEN NAME=filter VALUE="" ><INPUT TYPE=HIDDEN NAME=cache VALUE="yes" ><INPUT TYPE=HIDDEN NAME=ids VALUE="3,1">
+
+       <INPUT TYPE=SUBMIT VALUE="Search">
+
+<!-- # TODO: keep original ranking option -->
+	Rank by:
+	<SELECT name="rankby">
+	<OPTION VALUE="DEFAULT">Combined score
+	<OPTION VALUE="AGE">Most recent first
+	<OPTION VALUE="LINKPOP">Link Popularity
+	<OPTION VALUE="TITLE_AND_META">Title and Meta matches
+	</SELECT>
+
+    </FORM>
+</BODY></HTML>

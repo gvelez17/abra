@@ -1,0 +1,26 @@
+<?
+      include("abra.php");
+      abra_connect();
+?>
+<FORM action="http://abra.info/cgi/orgform.pl" method=post>
+
+<input name="_cat" type=hidden value="voteregjobs">  <!-- Don't change this -->
+<input name="_type" type=hidden value="person"> <!-- or this -->
+<input name="_reply" type=hidden value="showjobs.html">
+<input name="_title" type=hidden value="title">
+<input name="_relateto:MANAGES" type=hidden value="|jobid|">
+<b>Report Job |title| to</b>
+<?
+// should show list of known persons in category votregjobs here
+?>
+<p>
+Name: <input size=40 name=propername>
+<p>
+Email: <input size=40 name="email">
+<p>
+Phone: <input size=20 name="phone"> &nbsp;&nbsp; Cell phone: <input size=20 name="cellphone"><br>
+<p>
+<input type=submit>
+</form>
+</BODY>
+</HTML>

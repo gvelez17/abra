@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+ <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+ <title>Cascading Popup Menus: Help!</title>
+
+<style type="text/css">
+<!--
+
+BODY { font: 10pt/12pt sans-serif }
+P  { margin-left: 10pt }
+H1 { font: bold 20pt sans-serif; color: #009999; text-align: center }
+H2 { font: bold 16pt sans-serif; color: #009999; text-align: center }
+H4 { font: bold 12pt sans-serif; color: #003366; margin-top: 30pt }
+
+-->
+</style>
+</head>
+
+<body>
+
+<p>&nbsp;</p>
+<h1>Cascading Popup Menus: Help!</h1>
+
+<p>If you're stuck, this is the place to start. There are several resources here:</p>
+<ul>
+ <li><a href="#faq">Frequently Asked Questions</a></li>
+ <li><a href="#knownissues">Known Issues / Bugs</a></li>
+ <li><a href="#versionhistory">Version History</a></li>
+</ul>
+<p>If you're stuck with menu syntax (i.e., "How do I create a blue item twice as long as normal?"),
+try the <a href="pop_assist.html">Syntax Assistant</a> helper application.
+Finally, if nothing helps, you can post or read questions in the system of
+<a href="http://www.twinhelix.com/cgi-bin/forum.pl">forums</a> on my site.</p>
+
+<br /><a name="faq"></a>
+<h2>Frequently Asked Questions:</h2>
+
+<p><a href="#errors">I'm getting errors when I load my menus. Help!</a></p>
+<p><a href="#formdisp">Select boxes / Java / Flash / IFRAMEs etc. always show above the menus!</a></p>
+<p><a href="#positioning">The positioning's all wrong when I resize the page or use a different
+  resolution.<br />Can I put the menu in a table cell or other HTML element?</a></p>
+<p><a href="#smclick">Can I have a 'sm:' item that does something when clicked as well?</a></p>
+<p><a href="#twoframes">Can one item load files in 2 frames at once?</a></p>
+<p><a href="#autosize">Can items auto-size based on the text within them?</a></p>
+<p><a href="#jsfiles">I want a different menu on each page. Do I have to use .JS files?</a></p>
+<p><a href="#pathnames">My URLs or pathnames don't work as I expect.</a></p>
+<p><a href="#frtarget">How do I target another frame, like &lt;a href="..." target="main"&gt;...?</a></p>
+<p><a href="#nestframes">Can I load framesets within framesets using this script?</a></p>
+<p><a href="#images">Can I have images in the menus...?</a></p>
+<p><a href="#orientation">How do I make the menus vertical?</a></p>
+<p><a href="#delaycreate">Can I delay menu creation?</a></p>
+<p><a href="#scrollmenus">Can I scroll menus larger than the window height?</a></p>
+<p><a href="#separators">Can you have separators between items?</a></p>
+<p><a href="#linktrig">Can I trigger menus from individual links in the page?</a></p>
+<p><a href="#pageind">Can I make the current page item a different colour?</a></p>
+<p><a href="#speedup">I'm a speed freak. How can I make the script faster?</a></p>
+<p><a href="#stuck">I'm still stuck!</a></p>
+
+<a name="errors"></a>
+<h4>I'm getting errors when I load my menus. Help!</h4>
+<p>1) This happens to everyone sometime -- a missed quote mark somewhere can stuff up an entire script.
+Be sure to count very carefully the number of parameters to the menu construction functions,
+especially if you've upgraded your version -- read the 'Syntaxes' section carefully, often I add
+ItemStyle parameters for new features.</p>
+<p>2) Try a different browser! This is the best advice I can give you for syntax errors.
+MSIE has terrible JavaScript error reporting. I recommend Opera 7 or higher for spotting syntax
+errors as it will show you all functions that have been called to generate the error; you can find its
+JS Console under the browser "Window" menu.
+Netscape or Mozilla browsers also have a good JavaScript console, type 'javascript:' without quotes in
+the location bar to get it.</p>
+<p>3) Ensure your menunames don't contain spaces or funny characters, both in the startMenu() and
+addItem() commands -- this is not supported, just use letters, numbers and underscores.
+If in doubt, start again from the example code, adding menus one by one.</p>
+
+<a name="formdisp"></a>
+<h4>Select boxes / Java / Flash / IFRAMEs etc. always show above the menus!</h4>
+<p>HTML elements always display below windows widgets like select boxes and
+IFrames etc, at least in browser versions prior to 6 (NS4 is especially bad) on most platforms.
+If you're interested <a href="http://www.webreference.com/dhtml/diner/seethru/"
+ target="_blank">WebReference</a> has a writeup on this topic with a longer explanation.</p>
+<p>So what can be done about it? I advise careful layout to ensure forms and menus don't overlap.
+If this is not an option, I have included a script extension in the POP_EXTRAS file
+that will automatically detect select box positions and hide them as the menus cover them, look
+that up and try it perhaps.</p>
+<p>Alternatively, you can add a WMODE="TRANSPARENT" attribute to your Flash movie. This doesn't
+work in older browsers, but will allow menus to cover the movie without further modifications.</p>
+
+<a name="positioning"></a>
+<h4>} The positioning's all wrong when I resize the page or use a different resolution<br />
+} Can I put the menu in a table cell or other HTML element?</h4>
+<p>You can't "put" the menu in any tag -- remember that the script must always be just inside
+the BODY tag of the page to work.
+And by default the menus are aligned to the left/top edge of the window.
+However, you can hover your menus over a table cell, or position them based on percentages of
+window width (so they're centred in the page, and will remain centred on resize).
+Read the <a href="pop_syntax.html#advpos">Advanced Positioning</a> comments in the syntax notes,
+you can put a hidden anchor tag in a table cell, and tell your menu to position itself relative
+to that.</p>
+
+<a name="smclick"></a>
+<h4>Can I have a 'sm:' item that does something when clicked as well?</h4>
+<p>Yes. You need a regular 'sm:' item to popout the menu, with an onclick handler to
+navigate to a file like this:</p>
+<p>addItem('Text', 'menuName', 'sm:').onclick='window.location.href="file.html"';</p>
+<p>If you're using a frameset, remember to set frameName.location.href instead.</p>
+
+<a name="twoframes"></a>
+<h4>Can one item load files in 2 frames at once?</h4>
+<p>Use a JavaScript command like this:</p>
+<p>addItem('Text', 'frame1.location.href="file1.html"; frame2.location.href="file2.html"', 'js:');</p>
+
+<a name="autosize"></a>
+<h4>Can items auto-size based on the text within them?</h4>
+<p>Sadly, item sizes have to be specified in pixels with this version, due to the usage of CSS
+borders in the script.
+NS4 does very weird things with the padding values of borders, so to cut a long story short, the
+script needs to have pixel dimensions to compensate for its behaviour. Your can set individual
+item sizes like this:</p>
+<p>addItem('Lots of text', 'menuName', 'sm:', null, 100);</p>
+<p>to create an item that is 100px high (vertical menus) or wide (horizontal menus).</p>
+<p>Currently, I recommend you look at the "FreeStyle Menu" script available on my website, which is
+more freeform in nature and well suited to creating menus based on database output or similar (as
+menus are DIVs in the page).
+For future versions of this script I am considering replacing CSS border support with a JavaScript
+border creation routine, I'll have to see how it works out.</p>
+
+<a name="jsfiles"></a>
+<h4>I want a different menu on each page. Do I have to use .JS files?</h4>
+<p>You can include your script data inline quite easily.
+Just make sure that everything stays in the same order: core script, data, the events.
+Paste the content of the menu data file into a regular &lt;SCRIPT&gt; tag on your page,
+inbetween the other two, and you can customise your menus for each page like that.</p>
+
+<a name="pathnames"></a>
+<h4>My URLs or pathnames don't work as I expect.</h4>
+<p>This happens when you're using relative links, e.g. 'folder/file.html'.
+Remember, all links are relative to the currently loaded HTML document, whether they're
+links to files, images, or anything.
+This can be a pain when you're navigating around subfolders, so the best solution is to
+make all URLs absolute (i.e. from the root of the server) like '/folder/file.html', even
+though this won't work offline, it works well online.</p>
+<p>Alternatively, try this:</p>
+<p>var basePath = 'http://www.example.com/folder/';<br />
+addItem('Text', basePath+'subfolder/file.html', '');</p>
+<p>Create a JS variable with a pathname in it, and add it to all of your items.
+You can set basePath to 'c:/folder/' or similar when testing offline.</p>
+
+<a name="frtarget"></a>
+<h4>How do I target another frame, like &lt;a href="..." target="main"&gt;...?</h4>
+<p>The syntax is: addItem('Help', 'help.html', 'parent.main');</p>
+<p>The 'parent.main' tells the script where to find your target frame or window -- it's called
+'main', and it resides in the immediate parent of the current page -- your frameset file.
+Change 'main' to whatever you've called your target frame (e.g. 'parent.content').</p>
+<p>You may have troubles with this if you're embedding one frameset file into another
+frameset file. In this case, try 'top.framesetName.main' or some variant thereof to
+specify the JavaScript path between frames. If this still doesn't work, you will have to try
+some JavaScript tutorials to learn the JS window syntax, as it can get too complicated to
+explain here.</p>
+
+<a name="nestframes"></a>
+<h4>Can I load framesets within framesets using this script?</h4>
+<p>Yes, with a little tweaking. Open up the commented "events" file, follow the instructions
+listed under the "nested frame support" comment, then replace the original pop_events file with
+your modified version. This will direct the script to create all 'root' menus in the frame you
+specify for your first 'root' menu, and all other menus in any frame in which you include the
+"events" file -- so don't include the "events" file in each frame, only the frames in which you
+want menus to display.</p>
+<p>Then, you need to alter the startMenu() commands to tell the script where your menus can be
+found. Let's say that you normally display menus in the frame named "content", but sometimes you
+want to load another frameset inside "content" that contains a frame named "nested", where the
+menus will display. You need to change every instance of 'content' in your menu position and
+parent frame name strings to this: '(content.nested?content.nested:content)' which will tell the
+script to look for menus in both frames.</p>
+
+<a name="images"></a>
+<h4>Can I have images in the menus...?</h4>
+<p>Definitely. Set an image tag &lt;img src="..."&gt; as part of the item text,
+or for a cool effect, as the popout indicator (better be a small image thought).
+Test in NS4, you'll probably have to include BORDER="0" on it as NS4 uses link tags for items.
+If you want to highlight them, try 'SWAP:&lt;img src="file.gif" border="0"&gt;^&lt;img
+ src="file2.gif" border="0"&gt;' as your item text, to swap it on mouseover.</p>
+<p>Alternatively, you can use background images for items.
+Simply replace the background colour in the ItemStyle with an image filename, e.g.
+ItemStyle(....'/images/file1.gif', '/images/file2.gif'....);
+You may wish to use an image preload script to prefetch the hover image, reducing delays.</p>
+
+<a name="orientation"></a>
+<h4>How do I make the menus vertical?</h4>
+<p>Change the 'true' and 'false' parameters near the start of each menu, 'true' means vertical,
+'false' is horizontal.
+Then change the default 'length' of items in the ItemStyle you're using.
+You'll also want to change the Left and Top offsets of your menus, to make submenus pop out to
+the side. Make the left offset of submenus larger (roughly the width of your menu) and reduce the
+top offset.</p>
+
+<a name="delaycreate"></a>
+<h4>Can I delay menu creation?</h4>
+<p>Certainly. Insert this after your menu data to delay showing menus until page load:</p>
+<p>var showRoot = pMenu.menu.root[0].oncreate;<br />
+pMenu.menu.root[0].oncreate = null;</p>
+<p>// Later on, when we want to show the menu, run these commands:<br />
+&nbsp;pMenu.menu.root[0].oncreate = showRoot;<br />
+&nbsp;pMenu.menu.root[0].oncreate();</p>
+
+<a name="scrollmenus"></a>
+<h4>Can I scroll menus larger than the window height?</h4>
+<p>See the POP_EXTRAS file, there's a demo function in there that allows you to do this.</p>
+
+<a name="separators"></a>
+<h4>Can you have separators between items?</h4>
+<p>The demo theme for this script uses CSS borders for each item, so you can play around with them
+if you want.
+Alternatively, consider removing the borders in the ItemStyles, and creating a new ItemStyle named
+"separator" that has a "length" of 1px or 2px, with the same over and out background colours.
+Then insert it into your menus for a separator-bar effect like this:</p>
+<p>
+addItem('Text', 'file.html', '');<br />
+addItem('', '', '', separator);<br />
+addItem('Text', 'file2.html', '');
+</p>
+
+<a name="linktrig"></a>
+<h4>Can I trigger popups from individual links in the page?</h4>
+<p>Yes, you can. You still need a 'root' menu that points at all the submenus, but remove all the
+text in it and position it at something like -100,-100 so it shows offscreen.
+Then, use this syntax for the links on the page:</p>
+<p>&lt;a name="blah" id="blah" href="#"
+ onmouseover="pMenu.over('root', 1)" onmouseout="pMenu.out('root', 1)"&gt;</p>
+<p>This mimics a mouse event on the first item in the root menu, and will show the menu that item
+is supposed to pop out. Then set your menu to appear relative to the link:</p>
+<p>startMenu('mBlah', true, 'page.elmPos("blah").x + 20', 'page.elmPos("blah").y + 20', 100,
+ hBar);</p>
+
+<a name="pageind"></a>
+<h4>Can I make the current page item a different colour?</h4>
+<p>With a bit of tweaking, yes you can. Insert this into your data file, above your menu data:</p>
+<p>PopupMenu.prototype.checkItem = function(text, url, type) {<br />
+&nbsp;if (url != location.pathname) this.addItem(text, url, type, subM);<br />
+&nbsp;else this.addItem(text, url, type, button);<br />
+}
+</p>
+<p>This assumes that 'subM' and 'button' are two ItemStyles you've created, with
+differing background colours, to highlight the item that represents the current page.
+Use checkItem() in place of addItem() like this: checkItem('Text', '/folder/file.html', '');</p>
+<p>Note that it is important that you try this online, and start all your filenames with a slash.
+If in doubt try putting alert(location.pathname) somewhere in the script to show you the current
+value of that property, to compare against your filenames.</p>
+
+<a name="speedup"></a>
+<h4>I'm a speed freak. How can I make the script faster?</h4>
+<p>Nice question :). The script is pretty quick as is, but you can get some small boosts in speed
+by losing extra code. That means remove the animation, border and shadow code from the data file,
+all you need in there are the ItemStyle/startMenu/addItem lines as everything else is optional.</p>
+<p>If you've only got one menu object in a single frame, you can trim the Events script file down
+to the bare essentials:</p>
+<p>if (!isNS4) pMenu.update(true);<br />
+else {<br />
+&nbsp;onload=function() { pMenu.update() }<br />
+&nbsp;document.captureEvents(Event.CLICK);<br />
+&nbsp;document.onclick=function() { with(pMenu) if (overI) click(overM, overI) }<br />
+}</p>
+<p>Bear in mind that this is the REAL essentials, you won't get fancy repositioning or scrolling
+going on with this. You may want to include the NS4 onresize bugfix from the original events file,
+as with this setup NS4 will lose its menus when you resize the window.</p>
+<p>Alternatively, if you have lots of menus on your page and creating them all causes a noticeable
+delay, look in the commented "core" script in the over() function. There are two lines you can
+uncomment that enable "dynamic menu creation" support, in which the script only creates "root" menus
+on page load, and others when you point at them. Instructions are in the source; this won't work in
+Opera 5/6, and I wouldn't rely on it for cross-frame menus, but it'll give you a massive speedup.
+You'll also have to edit the commented "events" script (again, instructions are in the source),
+and then replace the original core and events scripts with your altered copies.</p>
+
+
+<a name="stuck"></a>
+<h4>I'm still stuck!</h4>
+<p>OK, now it's time for a Google search.
+Seriously, try it, just chuck in a few keywords for whatever's got you climbing up the walls.
+Someone else has probably been just as stuck at some point in time.
+There's also a good chance that the other person has posted to the forums on my site if Google
+fails to reveal the solution...</p>
+<p>Otherwise, try using using the "Syntax Assistant" helper script, as it has a few internal checks
+to stop some common mistakes. Finally, try posting to the forums on my site.</p>
+
+
+
+<br /><a name="knownissues"></a>
+<h2>Known Issues / Bugs:</h2>
+
+<h4>General</h4>
+
+<p>This script should run in Opera 5 and 6, with 'run' being the operative word.
+Their HTML/CSS support is pretty good, but their JavaScript/DHTML engine is <i>extremely</i>
+limited compared to more full-featured browsers like IE, NS6+, and Opera 7+.
+The menus should show, but don't expect animation/dynamic updates or text/border/opacity changes.
+Opera 5 also seems to ignore ItemStyle padding, but Opera 6 is OK.
+Transparent background colours also seem to be an issue, background image changing is unsupported
+by Opera 5, and the menu hide timeout is lengthened in both browsers for an unknown reason.
+If you think pre-v7 Opera users might frequent your site, be sure to test your menus thoroughly!</p>
+
+<p>Early versions of Netscape 6 have a few nasty bugs that can rear their head sometimes.
+If the contents of your items are bigger than the items themselves, occasionally it doesn't hide
+menus properly and sections remain onscreen after mouseout.
+So make sure your items are large enough for anything that they will contain!
+This also happens occasionally with transparent background colours, your mileage may vary.
+As always, test thoroughly!</p>
+
+<h4>Netscape 4</h4>
+
+<p>The menus appear on page load completion in NS4, rather that with the page as in the other
+browsers. This is by design, as otherwise NS4 is quite buggy, see the POP_EVENTS_COMMENTED file
+and the update() function of the core commented script for more info.</p>
+
+<p>By default, NS4 and Opera 5/6 hide menus on window resize.
+So I have included code to reload the page when these browsers resize, so menus will reappear.
+NS4 will also lose its menus when users change the document font size.</p>
+
+<p>Text style changes may induce a little flicker in Netscape 4 as the layer contents have to be
+rewritten -- other browsers are OK for this as they allow manipulation of classes through the DOM.
+Also, the cursor changes from a hand to a pointer over the menus in NS4.
+This isn't a bug as such, you can still click anywhere to activate them.
+You just can't specify stylesheet cursors in NS4.</p>
+
+<p>If NS4 is crashing, I recommend disabling text/border changes by inserting this into your script
+data file (either the POP_DATA file or the frameset) beneath your startMenu and addItem lines:</p>
+<p>pMenu.noRW = (isNS4 ? true : false);</p>
+<p>That will disable text/border/content changing, as that seems to cause the crashes randomly with
+some page layouts and platforms, especially NS4/Linux.</p>
+
+
+
+<br /><a name="versionhistory"></a>
+<h2>Version History:</h2>
+
+<ul>
+ <li>v5.2:
+  <ul>
+   <li>Massive changes in script organisation -- now split into several files, the object
+    constructor is at the top of the core file, and functions are added to its prototype.</li>
+   <li>Rewrote the events script -- now each time you declare a PopupMenu() object the script
+    adds it to a list, and cycles through this list to activate menus, so multiple menus are
+    easier, and it now handles both single-frame/cross-frame usage.</li>
+   <li>HTMLified the documentation, and included FAQ and Syntax Helper utility with script.</li>
+   <li>Added "fading background colour" capability to the script.</li>
+   <li>Added changing item text and popout indicator on mouseover (for images swaps etc).</li>
+   <li>Added ability to position menus over named anchors in the page.</li>
+   <li>Items now contain A HREF tags linking to files, for better tabbed browser compatibility
+    and allowing opening files in new windows.</li>
+   <li>Added some menu extensions including an automatic selectbox/IFRAME/etc position detecting
+    and hiding function, a long menu scrolling function, multi-column menus and keypress
+    navigation. See the "pop_extras.js" file for more.</li>
+   <li>You can now have several 'root' class menus in one menu object if you want.</li>
+   <li>Made the startMenu and addItem commands return references to objects for tweaking, and
+    each item now has mouse event handlers for easy extension e.g. 'sm:' clicking.</li>
+   <li>"Show on click" setting is now an option on the startMenu() command, and has been
+    modified so that once you click a menu, mouseovers will also show menus (like Windows).</li>
+   <li>Added "Hide menus on document click" option.</li>
+   <li>Changed the internal menu show/hide function arrangement a little.</li>
+   <li>Changed the menu z-index/stacking order so submenus will always show over parent menus
+    regardless of the order in the script data.</li>
+   <li>Reduced occurance of menus reappearing after navigation in framesets.</li>
+   <li>Fixed portions of translucent dropshadow being occasionally visible through item
+    background when animation is disabled in early NS6 versions (I tested Mozilla 0.90).</li>
+   <li>Fixed 'CSSmode' detection under Opera 7 and IE5/Mac with a strict DOCTYPE, and also in
+    framesets with a mixture of DOCTYPEs. Items are now correctly sized.</li>
+   <li>Tweaked NS6+ CSS cursor handling, should now show 'pointer' cursors properly for 'sm:'
+    and unlinked items.</li>
+   <li>Translucent items now work in Safari 1.1+ and hopefully more browsers in the future.</li>
+   <li>Loads of other minor tweaks.</li>
+  </ul>
+ </li>
+ <li>v5.1:
+  <ul>
+   <li>Menu positioning routine upgraded. Now, it's much faster (only repositions visible
+    menus as needed) and can reposition layers of relative menus on scroll.</li>
+   <li>Relatively positioned menus now always show within window borders.</li>
+   <li>You can now specify mouse cursors to use in the ItemStyles (2 extra parameters).</li>
+   <li>Example shiny new alpha fading animation for IE5.5+ on Windows, commented in the
+    animation function, and a DXImageTransform filters example too. The animation is now
+    disabled by default in Mozilla versions prior to 1.0 (such as NS6).</li>
+   <li>Item positions and dimensions are now calculated by the addItem() command instead of
+    the update function.</li>
+   <li>Added 'extraHTML' property to menu data tree, allowing you to insert arbitrary HTML
+    strings into the menu container layers.</li>
+   <li>Combining the above two points, I've included demo functions to extend the menu with
+    semitranslucent dropshadows and whole-menu borders, and reposition/curve menu items.</li>
+   <li>Rewrote parts of crossframe code, now doesn't show JS errors when documents are loaded
+    outside the menu, and should support more flexible nested framesets/windows.</li>
+   <li>You can specify custom 'oncreate' events for menus to customise appearance further.</li>
+   <li>Added ability to show submenus on click rather than on mouseover if desired.</li>
+   <li>Some tweaks to the cross-browser code section, including a detection of strict doctypes
+    and/or strict CSS1 compliance to improve IE6/NS6 compatibility.</li>
+   <li>Fixed bug in Opera 5/6 with IE emulation mode turned off.</li>
+   <li>Fixed function-in-function in NS4.05, and also tweaked popClick() function for very new
+    Mozilla betas/NS7 pre-release -- now it's passed parameters instead of using overM/I.</li>
+   <li>Random internal tweaks and polish ups, a whole load of comment reorganising, and changed
+    the default colour scheme to make it bearable :).</li>
+  </ul>
+ </li>
+ <li>v5.0:
+  <ul>
+   <li>Added multiple menu creation modes for better browser compatibility, the script now works
+    in Opera! Not all features are available there, but the menu should show.</li>
+   <li>Moved the menu script to the BODY of the page as browsers that use Fast mode call
+    document.write() to create their menus.</li>
+   <li>Menu animation! Example clipping effect has been added to the 'Optional Code' section,
+    with a corresponding architectural change, now the menu calls show and hide functions that
+    you override with special functions like these.</li>
+   <li>Recorded dimensions and visibility of menus as part of the menu object.</li>
+   <li>Rewrote part of the over() routine to handle animating menus more reliably that don't
+    show/hide instantaneously, also reducing unneccessary hide calls so large menus should be
+    more responsive.</li>
+   <li>Built in some more internal error-checking so non-existant menu names should not stop the
+    display of the root menu, to make debugging typos easier.</li>
+   <li>Completely reorganised the documentation/example, more modular and easier to follow now...
+    hopefully...</li>
+   <li>Rewrote the cross-frame .JS file for clarity and to support new creation modes.</li>
+   <li>Rewrote events section, hopefully less confusing.</li>
+   <li>Also tweaked NS4 resize bug handler.</li>
+   <li>v5.01 Maintenance Release: Changed sample animation code to remove JS error in
+    cross-frames usage and set Z-Indices to raise showing layers above hiding ones.</li>
+  </ul>
+ </li>
+ <li>v4.1:
+  <ul>
+   <li>Gave into temptation and added alpha filtering routines ;). Now your menus can be
+    semi-transparent under IE/Windows or NS6.</li>
+   <li>Added ability to override any options of the ItemStyles for individual items.</li>
+   <li>Added my page object to easily detect document properties and slim down subframe/event
+    capturing code.</li>
+   <li>Set cursor to hand/pointer only for items with actions. Blank items and 'sm:' items now
+    have a regular arrow when moused over in IE4+/NS6, others have the 'hand' cursor.</li>
+   <li>Fixed small, non-fatal JS error that happened in cross-frame scripts with pages not
+    fully loaded sometimes.</li>
+   <li>The usual tweaks to the example, comments, and cross-browser code.</li>
+   <li>v4.11 maintenance release: Fixed scrolling with window without frameset code enabled
+    in Netscape. D'oh!</li>
+  </ul>
+ </li>
+ <li>v4.0:
+  <ul>
+   <li>Added freeform cross-frame support! Now you can specify a parent window (or layer) in
+    which each menu is to be created with the startMenu() call.</li>
+   <li>Clarified usage of positioning formulae. Now, whenever you specify a number as a position
+    of a menu it is offset from its parent, otherwise it is positioned absolutely on the page for
+    formulae/strings -- for example, menus in other frames need absolute positioning.</li>
+   <li>Added 'Fast Create' mode for large menus. Now you can optionally create only the root
+    menu initially, and other menus are created only when shown -- can speed load times.</li>
+   <li>Added ability to change border classes on mouseover to ItemStyles.</li>
+   <li>Made NS4 call the over event when you mouseover the text within menus. Should help
+    people trying to assign status messages using menu events.</li>
+   <li>Changed the 'events' introduced in v3.1. Instead of assigning events to each item, you
+    now assign one handler function to the entire menu, which gets called for every item.</li>
+   <li>Added option to disable menu hiding once shown, for permanently visible menus.</li>
+   <li>Loads and loads of other tweaks, and updates to the comments.</li>
+  </ul>
+ </li>
+ <li>v3.1:
+  <ul>
+   <li>Changed the way clicks are detected on menu items. Now, it uses document.onclick
+    globally rather than per item, which seemed to have the occasional problem in NS4 under
+    Windows 2000.</li>
+   <li>Added support for changable background images as well as colours for items.</li>
+   <li>Added support for optional, customisable menu delays for both showing and hiding.
+    That means you can stop rapid mouseovers showing menus, if you want.</li>
+   <li>Added an example 'scroll-with-window' extension to the menu.</li>
+   <li>Added 'events' for each item. Now, you can specify a Javascript function when an item
+    moused over/out, or clicked. Useful for adding click events to 'sm:' items...?</li>
+   <li>Changed the cross-browser code to support my new layer functions that can work across
+    frames...</li>
+   <li>Made borderless items 1px larger, removing border overlap spacing.</li>
+  </ul>
+ </li>
+ <li>v3.0:
+  <ul>
+   <li>Where do I start...? OK, the whole script is now object-orientated. That means you can
+    have several independent menus on one page using the one set of functions.</li>
+   <li>Totally rewrote the menu data structure, now using smaller constructor functions.</li>
+   <li>Menus are now named, not numbered, for that personal touch :).</li>
+   <li>Added the new ItemStyles feature for assigning colours and styles, and easier upgrades
+    in future -- colours etc. are now defined outside the menu item creation section as JS
+    objects and passed to the menu constructors, like CSS classes.</li>
+   <li>Added support for a much-requested feature: text styles change on mouseover.</li>
+   <li>Menu creation is now fully dynamic. You can recreate menus anytime after changing
+    properties, for example adding or removing menus on the fly without reloading.</li>
+   <li>Included my new Layer API to make this script smaller when combined with other scripts
+    like the scroller, as they can share useful functions like moving/colouring etc.</li>
+   <li>Transparent background colours for items are now supported.</li>
+   <li>Combined several functions into one 'popOver' function, including the new lightup routine
+    that can change text styles and lessens flicker as items are highlighted.</li>
+   <li>Support for JavaScript formulae as menu positions -- for example, to centre the menu.</li>
+   <li>You can now position the popout indicator how you want, aligned to either edge of an item.</li>
+   <li>Loads and loads of other changes and tweaks.</li>
+  </ul>
+ </li>
+ <li>v2.3:
+  <ul>
+   <li>Rewrote the hierarchy tree calculator function as NS4.05 and earlier threw an error
+    when they encountered a return within a while(1) loop.</li>
+   <li>Changed the way the construction functions parse input, reducing file size further.</li>
+   <li>Tweaked the example and comments slightly, as per usual...</li>
+   <li>v2.31 maintenance release: Fix for NS4/Mac related to the optional centring function causing
+    page reloads.</li>
+  </ul>
+ </li>
+ <li>v2.2:
+  <ul>
+   <li>Fixed a sneaky bug in some versions of NS4 when it refused to evaluate a link to
+    'javascript:' and instead set it as the page location. Some things you think the NS
+    development team would realise before releasing their browsers...</li>
+   <li>Cosmetic fixes: altered padding slightly in NS4, added z-indices of 1000 in all
+    browsers, and stopped NS6 displaying menus slightly larger than intended.</li>
+   <li>Also defined width of items in IE/NS6, that means including &lt;center&gt; tags
+    in your item text should work again.</li>
+   <li>A simple feature I should have included before: menus don't have to be sequentially
+    numbered now.</li>
+   <li>The usual minor tweaks in the comments and functions, no menu[] array changes.</li>
+  </ul>
+ </li>
+ <li>v2.1:
+  <ul>
+   <li>Made IE5 use the DHTML object model rather than the DOM to improve IE5/Mac
+    compatibility slightly.</li>
+   <li>Speed increase by ditching tables in favour of nested divs/layers in IE/NS6.</li>
+   <li>You can now specify how much padding you want between item borders and text.</li>
+   <li>All links are now JavaScript-based, and you can target any frame or JS function.</li>
+   <li>You can now click anywhere on the menu items to activate them!</li>
+   <li>Included an example function to centre the menus, due to popular demand :).</li>
+   <li>Captured onLoad and onResize in the script, now no parameters to the BODY tag need
+    to be specified. You can still specify them there if you want, though.</li>
+   <li>Added another example item constructor to allow you to create multicoloured items in
+    a menu. See the 'Reopen' menu above for an example.</li>
+   <li>Specified dimensions for items in IE, hopefully prevents IE4 from displaying
+    scrollbars where it shouldn't.</li>
+   <li>Loads of other small updates to code, comments, readme etc.</li>
+  </ul>
+ </li>
+ <li>v2.0:
+  <ul>
+   <li>Basically recoded the menu creation routine from the ground up. Now menus are created
+    dynamically after the document loads, improving NS4 compatibility.</li>
+   <li>Added support for creating horizontal menus automatically and removed the 'custom
+    root menu' feature. Now any menu can be horizontal (not just the root).</li>
+   <li>Recoded sections using W3C DOM methods to access elements, for NS6 compliance.</li>
+   <li>Added a NS4 window resize handler to reload the page when window resized
+    horizontally, as NS4 has major problems with DHTML and resizing.</li>
+   <li>Menu references are now built into the menu array e.g. menu[0][0].ref, so ID's are
+    no longer necessary.</li>
+   <li>Frame targets added to the menu array separately, since so many people seem to be
+    using them. So tweaking the URL for additional attributes is no longer necessary.</li>
+   <li>Popout indicators can now be specified for each menu individually.</li>
+   <li>Borders are now specified via stylesheet classes you can add to the menu array.</li>
+   <li>Tweaked many small things, e.g. root menu items that don't target menus now dim
+    instantaneously when you mouseout.</li>
+  </ul>
+ </li>
+ <li>v1.1:
+  <ul>
+   <li>Added support for stylesheets for each individual menu.</li>
+   <li>Split the item height to table height and spacing, more reliable that way</li>
+   <li>Fixed bug in IE4 when menus weren't stretched properly. The fix was to change a zero
+     to a three halfway through the code :).</li>
+   <li>Updated comments and extended example slightly.</li>
+   <li>Tidied up internal operation a little bit, should display faster now.</li>
+  </ul>
+ </li>
+ <li>v1.0:
+  <ul><li>Initial public release.</li></ul>
+ </li>
+</ul>
+
+</body>
+</html>

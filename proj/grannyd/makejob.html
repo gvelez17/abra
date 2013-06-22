@@ -1,0 +1,87 @@
+<?
+      include("abra.php");
+      abra_connect();
+?>
+<FORM action="http://abra.info/cgi/orgform.pl" method=post>
+
+<input name="_cat" type=hidden value="voteregjobs">  <!-- Don't change this -->
+<input name="_type" type=hidden value="jobs"> <!-- or this -->
+<input name="_reply" type=hidden value="http://grannyd.com">
+<input name="_title" type=hidden value="title">
+<b>Enter Voter Registration Job</b>
+<p>
+Job Title: <input size=30 name=title>
+<p>
+Description:<br>
+<textarea rows=4 cols=50 name="jwhat">
+</textarea>
+<p>
+Number of volunteers needed: 
+<input size=5 name="num_needed">
+<p>
+Location: <br>
+<textarea rows=3 cols=50 name="jwhere">
+</textarea>
+<p>
+City: <input size=30 name=city>
+<p>
+State:<select name="state"><option Value="">Select
+<option Value=AK>AK
+<option Value=AL>AL
+<option Value=AR>AR
+<option Value=AZ>AZ
+<option Value=CA>CA
+<option Value=CO>CO
+<option Value=CT>CT
+<option Value=DC>DC
+<option Value=DE>DE
+<option Value=FL>FL
+<option Value=GA>GA
+<option Value=HI>HI
+<option Value=IA>IA
+<option Value=ID>ID
+<option Value=IL>IL
+<option Value=IN>IN
+<option Value=KS>KS
+<option Value=KY>KY
+<option Value=LA>LA
+<option Value=MA>MA
+<option Value=MD>MD
+<option Value=ME>ME
+<option Value=MI>MI
+<option Value=MN>MN
+<option Value=MO>MO
+<option Value=MS>MS
+<option Value=MT>MT
+<option Value=NC>NC 
+<option Value=ND>ND
+<option Value=NE>NE
+<option Value=NH>NH
+<option Value=NJ>NJ
+<option Value=NM>NM
+<option Value=NV>NV
+<option Value=NY>NY
+<option Value=OH>OH
+<option Value=OK>OK
+<option Value=OR>OR
+<option Value=PA>PA
+<option Value=RI>RI
+<option Value=SC>SC
+<option Value=SD>SD
+<option Value=TN>TN
+<option Value=TX>TX
+<option Value=UT>UT
+<option Value=VA>VA
+<option Value=VT>VT
+<option Value=WA>WA
+<option Value=WI>WI
+<option Value=WV>WV
+<option Value=WY>WY
+</select> 
+<p>
+Date and time(s): <input size=40 name="jwhen">
+<p>
+<input type=submit>
+</form>
+</BODY>
+</HTML>

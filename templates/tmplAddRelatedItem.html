@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>Add Item Related to existing </TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+<small><A HREF="[% browse %]">Browse</A> * Edit * Search * Preferences</small>
+<br>
+<FORM ACTION="[|THISCGI|]" method=POST>
+<input type=hidden name="ACTION" value="EditItem">
+<input type=hidden name="NEXTPAGE" value="Edit">
+<input type=hidden name="_CATID" value=[|CATID|]>
+
+<br>New item related to #[|ITEMID|]</b>
+<input type=hidden name=relateitemtoid value=[|ITEMID|]>
+<input type=hidden name=relation value='RELATED'>
+
+Name/title: <INPUT name="newitem" size=20>
+<br>
+Short content: <INPUT name="SHORT_CONTENT" size=60>
+<br>
+URL: <INPUT name="URL" size=40> or <A HREF="#text">text</A>
+<br>
+Description (optional):
+<TEXTAREA name="TYPE:metadata:description"></TEXTAREA>
+Shorthand/handle: <input name="newitemhandle" size=16>
+<br>
+Associated Keywords (optional):
+<INPUT name="TYPE:metadata:keywords" size=50>
+<br>
+Or, add item by handle: <INPUT NAME="itemhandle" size=16>
+<A HREF="[|THISCGI|]?NEXTPAGE=LookupHandles" TARGET="_lookup">Lookup Handles</A>
+<br>
+<INPUT TYPE=HIDDEN NAME=ACTION VALUE=''>
+<INPUT TYPE=HIDDEN NAME=NEXTPAGE VALUE=[|NEXTPAGE|]>
+<input type="submit">
+<input type="submit" value="Turn Admin Features Off" onClick="this.form._USERPREF.value=0">
+<input type="submit" value="Turn Admin Features On" onClick="this.form._USERPREF.value=255">
+<p>
+Effective Date (optional): <input name="EFFECTIVE_DATE" size=20> yyyy/mm/dd
+<p>
+<A NAME="text">Text or HTML content:</A> (optional)
+<br>
+<TEXTAREA name="TYPE:content:content" rows=10 cols=60>
+</textarea>
+</FORM>
+
+
+Name: <input name="NAME" value="[|ITEMNAME|]" size=40>
+<p>
+URL: <input name="URL" value="[|URL|]" size=100>
+<p>
+Short content: <input name="SHORT_CONTENT" value="[|SHORT_CONTENT|]" size=100>
+<p>
+Effective Date: <input name="EFFECTIVE_DATE" VALUE="[|EFFECTIVE_DATE|]" size=15>
+<p>
+Description: <textarea name="TYPE:metadata:description" rows=3 cols=40>
+[% TYPE:metadata:description %]
+</textarea>
+<p>
+Category <SELECT name="cid"> 
+<OPTION value=[|CATID|] selected> [|CATPATH|] 
+~CATLIST~ <OPTION VALUE=[|ID|]> [|ID|]:[|SUBCATPATH|]
+</SELECT>
+<p>
+Content:<br>
+<TEXTAREA name="TYPE:content:content" rows=10 cols=60>
+[% TYPE:content:content %]
+</TEXTAREA>
+
+<input type=submit value="save changes">
+</FORM>
+
+</BODY>
+</HTML>
+

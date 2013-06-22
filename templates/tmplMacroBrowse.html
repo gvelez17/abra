@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<TITLE>Browse category [|CATNAME|] </TITLE>
+<!-- Macro definitions
+
+# Macros are subsutitue before CommandWeb run on the form
+
+(|LinkedText:NAME:LINK|) = [|?LINK?:"<A HREF='"|][|LINK|][|?LINK?:"'>"|][|NAME|][|?LINK?:"</A>"|]
+-->
+
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<small><A HREF="[|THISCGI|]?_CATID=|CATID|&NEXTPAGE=Browse">Browse</A> * Edit * Search * Preferences</small>
+<br>
+<form action="[|THISCGI|]" method=get>
+<input type=hidden name="_CATID" value="[|CATID|]">
+<input type=hidden name="_USERPREF" value="[|USERPREF|]">
+
+Find <INPUT name=query size=15> in 
+<SELECT name=searchcat>
+<OPTION value=[|CATID|]> This Category ([|CATNAME|])
+<OPTION VALUE=0> All categories
+<!-- TODO: later, add Userpref-searchcats here -->
+</Select> <input type=submit value="Go">
+
+<p>
+Current category: <b>[|CATPATH|]</b> shortcut:<input name="addcathandle" size=10 value="[|CATHANDLE|]">
+
+<!-- TODO now: add link to name -->
+<br>
+Subcategories:
+<TABLE border=1 width="100%">
+~SUBCATS~ [|FMT_BEGIN||?SHOW_DELETE?:DEL_CAT|] <A HREF="[|THISCGI|]?_CATID=[|ID|]&_USERPREF=[|USERPREF|]">[|NAME|]</A>:[|VALUE|][|FMT_END|]
+</TABLE>
+<table>
+~CATRELATIONS~ [|FMT_BEGIN|][|RELATION|]:(|Linkedtext:[|LINK|],[|NAME|]|)[|FMT_END|]
+</table>
+This category is <SELECT name="relatecat">
+~RELATIONS~<OPTION>[|NAME|]
+</SELECT><INPUT NAME="relatecatto">
+<br>
+Add subcategory: <INPUT name="newsubcat" size=20>
+Apply types: <select multiple name="cattypes">
+<OPTION>metadata
+<option>person
+<option>content
+</select>
+<hr>
+?ITEMNAME? Current item: <b>[|ITEMNAME|]</b> [|ITEMVALUE|] 
+<br>
+~ITEMRELATIONS~ [|FMT_BEGIN|][|RELATION|]:<A HREF="[|LINK|]">[|NAME|]</A>[|FMT_END|]
+<p>
+Items in this category:
+~CATITEMS~ [|?SHOW_DELETE?:DEL_ITEM|] [|?LINK?:"<A HREF='"|][|LINK|][|?LINK?:"'>"|][|NAME|][|?LINK?:"</A>"|][|?PLAINVALUE?:" : "|][|PLAINVALUE|] - [|META_DESCRIPTION|]<small>[|RELATED_LINKS|] <i><A HREF='[|THISLINK|]&_ITEMID&NEXTPAGE="AddText"'>Add Note</A></i></small><br>
+
+<br>
+New item: <INPUT name="newitem" size=20>  URL: <INPUT name="newitemval" size=40>
+<br>
+Description (optional): 
+<TEXTAREA name="TYPE:metadata:description"></TEXTAREA>
+Shorthand/handle: <input name="newitemhandle" size=16>
+<br>
+Associated Keywords (optional):
+<INPUT name="TYPE:metadata:keywords" size=50>
+<br>
+Or, add item by handle: <INPUT NAME="itemhandle" size=16>
+<A HREF="[|THISCGI|]?NEXTPAGE=LookupHandles" TARGET="_lookup">Lookup Handles</A>
+<br>
+<INPUT TYPE=HIDDEN NAME=ACTION VALUE=''>
+<INPUT TYPE=HIDDEN NAME=NEXTPAGE VALUE=''>
+<input type="submit">
+<input type="submit" value="Turn Admin Features Off" onClick="this.form._USERPREF.value=0">
+<input type="submit" value="Turn Admin Features On" onClick="this.form._USERPREF.value=255">
+</FORM>
+
+</BODY>
+</HTML>
+
+

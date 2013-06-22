@@ -1,0 +1,7 @@
+AuthUserFile /home/sites/abra/conf/.htpasswd
+AuthName "ABRA Username, or 'guest'"
+AuthType Basic
+<Limit GET>
+	require valid-user
+</Limit>
+

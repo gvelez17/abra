@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>Manage Item [|ITEMNAME|] </TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+<small><A HREF="[% browse %]">Browse</A> * Edit * Search * Preferences</small>
+<br>
+<FORM ACTION="[|THISCGI|]" method=POST>
+<input type=hidden name="ACTION" value="EditItem">
+<input type=hidden name="NEXTPAGE" value="Edit">
+<input type=hidden name="_ITEMID" value=[|ITEMID|]>
+<input type=hidden name="_CATID" value=[|CATID|]>
+
+Name: <input name="ITEMNAME" value="[|ITEMNAME|]" size=40>
+<p>
+Value/URL: <input name="ITEMVALUE" value="[|ITEMVALUE|]" size=100>
+<p>
+Description: <textarea name="TYPE:metadata:description" rows=3 cols=40>
+[% TYPE:metadata:description %]
+</textarea>
+<p>
+Category <SELECT name="catid"> 
+<OPTION value=[|CATID|] selected> [|CATPATH|] 
+~CATLIST~ <OPTION VALUE=[|ID|]> [|ID|]:[|SUBCATPATH|]
+</SELECT>
+<p>
+Content:<br>
+<TEXTAREA name="TYPE:content:content" rows=10 cols=60>
+[% TYPE:content:content %]
+</TEXTAREA>
+
+<input type=submit value="save changes">
+</FORM>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,8 @@
+<abra handle="newsclips" limit=4 startfrom=1>
+	
+	<newsclips.link><newsclips.title>
+	
+	<!-- xml style tags here??? -->
+	
+	
+</abra>

@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+ <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+ <title>Cascading Popup Menus: Single Frame Demonstration</title>
+
+
+<!--
+*** STYLESHEET ***
+The .CSS file must be included in the HEAD of pages that display menus.
+It controls the text and border appearance via the ItemStyles you create.
+-->
+
+ <link rel="stylesheet" type="text/css" href="pop_style.css" />
+
+
+</head>
+
+
+<!-- The margins aren't really necessary here, it's just for this example layout. -->
+<body marginwidth="0" marginheight="0" style="margin: 0;
+ font: 10pt/12pt sans-serif; background-color: #FFFFFF">
+
+
+<!--
+*** SCRIPT ***
+The script files must be included in order (core functions, your menu(s), then events), and
+the EVENTS file at least must be right inside the BODY tag, *NOT* placed inside tables/forms/etc!
+-->
+
+<!-- CASCADING POPUP MENUS v5.2 by Angus Turnbull http://www.twinhelix.com -->
+<script type="text/javascript" language="JavaScript1.2" src="pop_core.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="pop_data.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="pop_events.js"></script>
+
+
+
+
+<!--
+That's it! The rest of this page is just text, and this DIV forms a blue background for the menu.
+-->
+
+<div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 17px;
+ clip: rect(0px, 100%, 17px, 0px); background-color: #336699; layer-background-color: #336699;
+ font-size: 1px">&nbsp;</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<div style="text-align: center">
+ <h1 style="font-size: 20pt">Cascading Popup Menus v5.2 RC4</h1>
+ by Angus Turnbull -
+ <!-- This is an example of an anchor tag over which the menus can hover. -->
+ <a id="home" name="home" href="http://www.twinhelix.com">http://www.twinhelix.com</a>.
+ Updated: 25 June 2006.
+ <hr />
+ <p>[
+  <a href="#conditions">License Agreement</a> |
+  <a href="#features">Features</a> |
+  <a href="#usage">Usage Instructions &amp; Help</a> |
+  <a href="#changelog">Changelog</a>
+ ]</p>
+</div>
+
+<!-- Try using the Object Browser script from my site; type "pMenu" into the Go To box. -->
+<!-- <iframe src="objbrowser.html" width="90%" height="400"></iframe> -->
+
+
+<div style="padding: 10pt">
+
+<p>This script creates and manages a system of multilevel popup menus on a page.
+Be sure to check my site for compatibility information and updates!</p>
+
+<div style="border: 2px solid red; background: #FFF0F0; padding: 0pt 10pt 0pt 10pt">
+<h4>Script License Agreement</h4>
+<p>You may use this script only if you agree that:</p>
+<ol>
+ <li>You must EITHER:
+  <ol style="list-style-type: lower-alpha">
+   <li><strong>Donating Users:</strong> This script is "donation-ware". If you can
+    <strong><a href="http://www.twinhelix.com/donate/">make a donation</a></strong> to support
+    this script, it may be used on a website without a crediting link.
+    Please consider making a donation! I have spent a lot of time developing, debugging and
+    documenting scripts, and any support is welcome.
+    <a href="http://www.twinhelix.com/donate/">More info...</a></li>
+   <li><strong>Free Users:</strong> All websites using this script for free must contain somewhere
+    a <strong>visible crediting link</strong> to TwinHelix Designs, e.g.
+    '<a href="http://www.twinhelix.com">DHTML / JavaScript Tree by TwinHelix Designs</a>'.</li>
+  </ol>
+ </li>
+ <li>You must leave the "Script Name/Author/URL" comment in the source of the script file.</li>
+ <li>This script is provided on an "AS-IS" basis, without any warranties, and you use it entirely
+  at your own risk.</li>
+ <li>This script may not be redistributed, sold, rented, leased or sublicensed to third parties
+  without my prior consent.</li>
+</ol>
+<p>If you have another use for the script (for example, within a web application) or wish to
+ arrange alternate licensing terms, please
+ <a href="http://www.twinhelix.com/contact/">contact me</a> for more information.</p>
+</div>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2"><!--
+
+// Here's my demo code for tweaking and shifting the menu. Enjoy :).
+
+// This illustrates changing the contents of the menu.
+// This DOES NOT WORK in Opera version 6 and earlier!
+function changeMenu() { with (pMenu)
+{
+ // If your modifications are quite extensive, probably hide the menu before commencing
+ // them, as the script relies on the menu array in realtime to handle highlighting etc.
+ //over('', 0);
+ //menu.root[0].lyr.vis('hidden');
+
+ // Create a whole new menu...
+ startMenu('mNewMenu', true, 0, 22, 130, subM);
+ addItem('<b>TwinHelix Designs:</b><br>Extreme DHTML.<br>Small Code.<br>Click to Visit...',
+  'window.open("http://www.twinhelix.com")', 'js:', subM, 70);
+
+ // Rebuild the existing root menu to change the text, and pop this out.
+ startMenu('root', false, 10, 0, 17, hBar);
+ addItem('&nbsp; Rebuilt &gt; &gt;', '#', '', hBar, 80);
+ addItem('&nbsp; First', 'mFile', 'sm:', hBar, 50);
+ addItem('&nbsp; Second', 'mEdit', 'sm:', hBar, 60);
+ addItem('&nbsp; Third', 'mHelp', 'sm:', hBar, 50);
+ addItem('&nbsp; Dynamism...', 'mNewMenu', 'sm:', hBar, 80);
+
+ // Change a couple of items in the "File" menu, without rebuilding it.
+ // Get my "JS Object Browser" script to view the menu data while the script's running,
+ // to see what objects are available internally.
+ menu.mFile[1].text = 'New...';
+ menu.mFile[4].text = 'Logoff<br />Menus...';
+ menu.mFile[4].overText = 'See you<br/>later!';
+
+ // Call the update function to implement our changes dynamically.
+ // You can call update(false, 'menuName'); to update just one menu (faster).
+ update();
+}}
+
+
+// This is just the moving command called when you click the feature list.
+// Toggle the X value of the root menu (in the data arrays) and call the position function.
+function moveRoot()
+{
+ // offX and offY are the offsets of the menu from its parent item.
+ with (pMenu.menu.root[0]) offX = (offX<100) ? 100 : 10;
+ pMenu.position('root');
+}
+
+//--></script>
+
+
+
+
+
+<p>&nbsp;</p>
+
+<h4><a name="features">Features:</a></h4>
+<ul>
+ <li><b>Small code</b> -- core script compacts down to only 12kb plus menu definitions and
+  setup/extras, so your visitors won't be kept waiting.</li>
+ <li><b>Object-orientated</b> script for portability and <b>multiple menus</b> if needed.</li>
+ <li>Easy <b>constructor functions</b> setup the menu data structure.</li>
+ <li><b>Speedy menu creation</b> in most browsers shows your menu before the page loads.</li>
+ <li><b>Freeform cross-frame support</b> built in.</li>
+ <li>Each menu can be <b>horizontal or vertical</b>.</li>
+ <li><b>Optional centring/scrolling with window</b> or any alignment needed --
+  menus can be easily positioned by calculating JavaScript expressions, for instance
+  relative to page links or window dimensions.</li>
+ <li>Otherwise, <b>relative positioning</b> means that you can
+  <a href="javascript:moveRoot()">move the root menu</a>, and all others will follow.</li>
+ <li><b>Dynamic menu update</b> mode allows menus to be <a href="javascript:changeMenu()">changed
+  after loading</a>.</li>
+ <li>Nearly unlimited <b>hierarchial menus</b> (popouts) -- as many levels as needed.</li>
+ <li>Menus <b>don't have to overlap each other</b> thanks to adjustable popup show and
+  hide timeouts.</li>
+ <li>Popouts can show <b>on mouseover or on click</b>, set on a per-menu basis.</li>
+ <li>Automatically shows only <b>one hierarchy at a time</b> (like Windows' menus).</li>
+ <li>Items automatically <b>highlight through hierarchy</b> back to root menu.</li>
+ <li>Customisable <b>ItemStyle classes</b> allow you to pass each menu and/or item a
+  uniform appearance by altering colours, text styles, dimensions, popout indicators,
+  CSS borders etc. using a powerful class system.</li>
+ <li>Supports <b>hoverable background colours and images</b> throughout hierarchy.</li>
+ <li>Background colours may <b>fade between over and out</b> states.</li>
+ <li>Supports <b>hoverable alpha filtering</b> for translucent items in IE/Win and NS6.</li>
+ <li>Item <b>content can change on hover</b> to any HTML string.</li>
+ <li>Arbitrary HTML can be added to menus, like example <b>dropshadows and menu borders</b>.</li>
+ <li>Supports <b>frame targets and JavaScript commands</b> in items.</li>
+ <li>You can <b>click anywhere</b> on items to activate them.</li>
+ <li>Customisable <b>events applied to items</b> -- onmouseover, onmouseout and onclick, to
+  extend the script with your own code.</li>
+ <li>Customisable <b>show and hide animations</b>, for example this clipping animation.</li>
+ <li>Much more inside...</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4><a name="usage">Usage Instructions:</a></h4>
+<p>First, make sure you've read and understood the "Script License Agreement" above.
+If you can make a donation to support this script, that would be great.
+Anyway, the <a href="pop_syntax.html">pop_syntax.html</a> file contains all the information
+needed to start working with the script, so load that up and start tweaking.</p>
+
+<p>If you're stuck, see <a href="pop_help.html">pop_help.html</a>, which contains a list
+of Frequently Asked Questions and Known Issues.</p>
+
+<p><i>Good luck! -- Angus</i></p>
+
+<p>&nbsp;</p>
+
+<h4><a name="changelog">v5.2 Changelog:</a></h4>
+
+<ul>
+ <li>Massive changes in script organisation -- now split into several files, the object
+  constructor is at the top of the core file, and functions are added to its prototype.</li>
+ <li>Rewrote the events script -- now each time you declare a PopupMenu() object the script
+  adds it to a list, and cycles through this list to activate menus, so multiple menus are
+  easier, and it now handles both single-frame/cross-frame usage.</li>
+ <li>HTMLified the documentation, and included FAQ and Syntax Helper utility with script.</li>
+ <li>Added "fading background colour" capability to the script.</li>
+ <li>Added changing item text and popout indicator on mouseover (for images swaps etc).</li>
+ <li>Added ability to position menus over named anchors in the page.</li>
+ <li>Items now contain A HREF tags linking to files, for better tabbed browser compatibility
+  and allowing opening files in new windows.</li>
+ <li>Added some menu extensions including an automatic selectbox/IFRAME/etc position detecting
+  and hiding function, a long menu scrolling function, multi-column menus and keypress
+  navigation. See the "pop_extras.js" file for more.</li>
+ <li>You can now have several 'root' class menus in one menu object if you want.</li>
+ <li>Made the startMenu and addItem commands return references to objects for tweaking, and
+  each item now has mouse event handlers for easy extension e.g. 'sm:' clicking.</li>
+ <li>"Show on click" setting is now an option on the startMenu() command, and has been
+  modified so that once you click a menu, mouseovers will also show menus (like Windows).</li>
+ <li>Added "Hide menus on document click" option.</li>
+ <li>Changed the internal menu show/hide function arrangement a little.</li>
+ <li>Changed the menu z-index/stacking order so submenus will always show over parent menus
+  regardless of the order in the script data.</li>
+ <li>Reduced occurance of menus reappearing after navigation in framesets.</li>
+ <li>Fixed portions of translucent dropshadow being occasionally visible through item
+  background when animation is disabled in early NS6 versions (I tested Mozilla 0.90).</li>
+ <li>Fixed 'CSSmode' detection under Opera 7 and IE5/Mac with a strict DOCTYPE, and also in
+  framesets with a mixture of DOCTYPEs. Items are now correctly sized.</li>
+ <li>Tweaked NS6+ CSS cursor handling, should now show 'pointer' cursors properly for 'sm:'
+  and unlinked items.</li>
+ <li>Translucent items now work in Safari 1.1+ and hopefully more browsers in the future.</li>
+ <li>Loads of other minor tweaks.</li>
+</ul>
+
+<p>See <a href="pop_help.html">pop_help.html</a> for a full version history.</p>
+
+</div>
+
+</body>
+</html>
+
