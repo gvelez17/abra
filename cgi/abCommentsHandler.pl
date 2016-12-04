@@ -45,7 +45,7 @@ $DEFAULT_CAT = 66728;  # to be classified
 $DBNAME = 'rcats';
 $DBUSER = 'rcats';
 $DBPASS = 'meoow';
-$THISCGI = "http://abra.info/cgi/ab.pl";
+$THISCGI = "http://abra.btucson.com/cgi/ab.pl";
 $ADMINUSER = 1;
 $ALT_ADMIN_USER = 7886;   # Tracy
 $JASON_ADMIN_USER = 10925;
@@ -137,7 +137,7 @@ my $href;
 print "<TITLE>Comments and notes about $obj_url</TITLE>\n";
 print "</HEAD>";
 print "<BODY BGCOLOR='#ffffff'>";
-print '<small><A HREF="http://abra.info/">Share notes at abra.info</A>';
+print '<small><A HREF="http://abra.btucson.com/">Share notes at abra.btucson.com</A>';
 
 # if not in db we need to put it there
 if (! $about_id) {

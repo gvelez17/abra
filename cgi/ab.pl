@@ -22,7 +22,7 @@ use PHP::Session;
 #	$DBNAME = 'rpub';
 #	$DBUSER = 'groots';
 #	$DBPASS = 'sqwert';
-#	$THISCGI = "http://qs.abra.info/cgi/org.pl";
+#	$THISCGI = "http://abra.btucson.com/cgi/org.pl";
 
 #} else {
 	$DBNAME = 'rcats';
@@ -42,7 +42,7 @@ if (($ENV{'SERVER_NAME'} =~ /myrecipesearcher.com/i) || ($ENV{'SERVER_NAME'} =~ 
 	
 }
 
-$debug = 0;
+$debug = 1;
 
 if ($debug) {
 	print "Content-type: text/html\n\n";
@@ -66,9 +66,9 @@ my $cgi_lite = new CGI::Lite;
 my $cookies = $cgi_lite->parse_cookies;
 
 my $USER_VAR = 'user';
-my $LOGINURL = 'http://abra.info/php/access_user/login.php';
-my $REGISTERURL = 'http://abra.info/php/access_user/register.php';
-my $ACCOUNTURL = 'http://abra.info/classes/access_user/example.php';
+my $LOGINURL = 'http://abra.btucson.com/php/access_user/login.php';
+my $REGISTERURL = 'http://abra.btucson.com/php/access_user/register.php';
+my $ACCOUNTURL = 'http://abra.btucson.com/classes/access_user/example.php';
 
 my $LOGIN_SNIPPET = '/w/abra/templates/login.html';
 

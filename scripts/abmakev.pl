@@ -97,7 +97,7 @@ $MIN_FRONTPAGE_INTEREST = 20;  # only show good images on the front page
 	$DBNAME = 'rcats';
 	$DBUSER = 'rcats';
 	$DBPASS = 'meoow';
-	$THISCGI = "http://abra.info/cgi/ab.pl";
+	$THISCGI = "http://abra.btucson.com/cgi/ab.pl";
 	$ADMINUSER = 1;
 $debug = 0;
 

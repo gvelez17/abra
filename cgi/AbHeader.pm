@@ -21,9 +21,9 @@ my @RELVARS = qw ($DEFAULT_TEXT_RELATION $DEFAULT_RELATION %RELATIONS);
 
 $ABHOME = '/home/abra';
 $ABTEMPLATE_DIR = '/home/abra/templates';
-$THISCGI = "http://abra.info/cgi/ab.pl";
-$BLOGCGI = "http://abra.info/cgi/blogview.pl";
-$DISPLAY_URL = "http://abra.info/php/display.php";
+$THISCGI = "http://abra.btucson.com/cgi/ab.pl";
+$BLOGCGI = "http://abra.btucson.com/cgi/blogview.pl";
+$DISPLAY_URL = "http://abra.btucson.com/php/display.php";
 $DISPLAYPHP = '/php/display.php';  #Generic display table script
 $DBNAME = 'rcats';
 $DBUSER = 'rcats';

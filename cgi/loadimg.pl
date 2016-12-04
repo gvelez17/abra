@@ -127,7 +127,7 @@ if (! $username) {
 	} else {
 		#$debug || print("Content-type: text/html\n\n");
 		print("Content-type: text/html\n\n");
-		print "Sorry, you must be logged in to perform posts.  Please press the back arrow to return to the page you were at and look for  the 'login' link, or use this <A HREF='http://abra.info/php/access_user/login.php'>generic login</A> page\n";
+		print "Sorry, you must be logged in to perform posts.  Please press the back arrow to return to the page you were at and look for  the 'login' link, or use this <A HREF='http://abra.btucson.com/php/access_user/login.php'>generic login</A> page\n";
 		exit;
 	}
 }	

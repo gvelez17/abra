@@ -13,7 +13,8 @@ BEGIN {
        use AbUtils;
        use AbMacros;
        use RCategories;
-       use Mysql;
+#       use Mysql;
+       use DBI;
        use CGI qw(:cgi-lib);
        use CommandWeb;
 	use CGI::Lite;

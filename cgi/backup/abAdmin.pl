@@ -26,7 +26,7 @@ use PHP::Session;
 #       $DBNAME = 'rpub';
 #       $DBUSER = 'groots';
 #       $DBPASS = 'sqwert';
-#       $THISCGI = "http://qs.abra.info/cgi/org.pl";
+#       $THISCGI = "http://qs.abra.btucson.com/cgi/org.pl";
 #} else {
         $DBNAME = 'rcats';
         $DBUSER = 'rcats';
@@ -83,7 +83,7 @@ if ($userid == $ALT_ADMIN_USER){
 }
 
 # more hacks for other categories
-if ($ENV{'SERVER_NAME'} =~ /abra.info/) {
+if ($ENV{'SERVER_NAME'} =~ /abra.btucson.com/) {
 	$DEFAULT_CAT = 66727;
 } elsif (($ENV{'SERVER_NAME'} =~ /bcookin.com/) || ($ENV{'SERVER_NAME'} =~ /myrecipesearch/)) {
 	$DEFAULT_CAT = 76680;

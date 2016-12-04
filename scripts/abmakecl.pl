@@ -52,7 +52,7 @@ use Abra;
 	$DBNAME = 'rcats';
 	$DBUSER = 'rcats';
 	$DBPASS = 'meoow';
-	$THISCGI = "http://abra.info/cgi/ab.pl";
+	$THISCGI = "http://abra.btucson.com/cgi/ab.pl";
 	$ADMINUSER = 1;
 $debug = 1;
 

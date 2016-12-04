@@ -20,7 +20,7 @@ if (isset($_GET['action']) && $_GET['action'] == "log_out") {
 <h2><?php echo "Hello ".$_SESSION['user']." !"; ?></h2>
 <p>You are currently logged in.</p>
 <p>&nbsp;</p>
-<p><A HREF="http://abra.info/cgi/ab.pl">My Categories</A></p>
+<p><A HREF="http://abra.btucson.com/cgi/ab.pl">My Categories</A></p>
 <!-- Notice! you have to change this links here, if the files are not in the same folder -->
 <p><a href="./update_user.php">Update user account</a></p>
 <p><a href="./update_user_profile.php">Update user PROFILE</a></p>

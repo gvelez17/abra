@@ -23,12 +23,12 @@ use PHP::Session;
 #	$DBNAME = 'rpub';
 #	$DBUSER = 'groots';
 #	$DBPASS = 'sqwert';
-#	$THISCGI = "http://qs.abra.info/cgi/org.pl";
+#	$THISCGI = "http://qs.abra.btucson.com/cgi/org.pl";
 #} else {
 	$DBNAME = 'rcats';
 	$DBUSER = 'rcats';
 	$DBPASS = 'meoow';
-	$THISCGI = "http://abra.info/cgi/ab.pl";
+	$THISCGI = "http://abra.btucson.com/cgi/ab.pl";
 	$ADMINUSER = 1;
 
 #}
@@ -94,9 +94,9 @@ my $cgi_lite = new CGI::Lite;
 my $cookies = $cgi_lite->parse_cookies;
 
 my $USER_VAR = 'user';
-my $LOGINURL = 'http://abra.info/php/access_user/login.php';
-my $REGISTERURL = 'http://abra.info/php/access_user/register.php';
-my $ACCOUNTURL = 'http://abra.info/classes/access_user/example.php';
+my $LOGINURL = 'http://abra.btucson.com/php/access_user/login.php';
+my $REGISTERURL = 'http://abra.btucson.com/php/access_user/register.php';
+my $ACCOUNTURL = 'http://abra.btucson.com/classes/access_user/example.php';
 
 
 print "Content-type: text/html\n\n";

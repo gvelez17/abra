@@ -21,7 +21,7 @@ BEGIN {
         $DBNAME = 'rcats';
         $DBUSER = 'rcats';
         $DBPASS = 'meoow';
-        $THISCGI = "http://abra.info/cgi/ab.pl";
+        $THISCGI = "http://abra.btucson.com/cgi/ab.pl";
         $ADMINUSER = 1;
       $TEMPLATE_DIR = '/home/sites/iwtucson/itempages';
         $DEFAULT_TEMPLATE_FILE = 'tmplBrowseItem.html';

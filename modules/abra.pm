@@ -35,8 +35,8 @@
 # Run 'perldoc abra.pm' for more info.
 #
 # Author: Golda Velez
-# Contact: gvelez@abra.info
-# Home of this module: http://abra.info/modules/
+# Contact: gvelez@abra.btucson.com
+# Home of this module: http://abra.btucson.com/modules/
 # License: PPL licensed - see http://webglimpse.net/dev/ppl.txt for details
 # Copyright Internet WorkShop, Golda Velez 2003 all rights reserved
 #

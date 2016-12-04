@@ -26,12 +26,12 @@ use PHP::Session;
 #	$DBNAME = 'rpub';
 #	$DBUSER = 'groots';
 #	$DBPASS = 'sqwert';
-#	$THISCGI = "http://qs.abra.info/cgi/org.pl";
+#	$THISCGI = "http://qs.abra.btucson.com/cgi/org.pl";
 #} else {
 	$DBNAME = 'rcats';
 	$DBUSER = 'rcats';
 	$DBPASS = 'meoow';
-	$THISCGI = "http://abra.info/cgi/ab.pl";
+	$THISCGI = "http://abra.btucson.com/cgi/ab.pl";
 	$ADMINUSER = 1;
 
 #}

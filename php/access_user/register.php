@@ -87,6 +87,6 @@ An email will be sent to you to confirm your registration.  As soon as you confi
 <p>&nbsp;</p>
 <!-- Notice! you have to change this links here, if the files are not in the same folder -->
 <p><a href="<?php echo $new_member->login_page; ?>">Login</a></p>
-<i>If you experience any problems with the registration process please <A HREF="http://iwhome.com/iwork/dform2.html">Contact us here</A></i>
+<i>If you experience any problems with the registration process please <A HREF="http://goldavelez.org/iwork/iwork/dform2.html">Contact us here</A></i>
 </body>
 </html>

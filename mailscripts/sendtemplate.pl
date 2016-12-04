@@ -28,12 +28,12 @@ if ($0 =~ /org/) {
 	$DBNAME = 'rpub';
 	$DBUSER = 'groots';
 	$DBPASS = 'sqwert';
-	$THISCGI = "http://qs.abra.info/cgi/org.pl";
+	$THISCGI = "http://qs.abra.btucson.com/cgi/org.pl";
 } else {
 	$DBNAME = 'rcats';
 	$DBUSER = 'rcats';
 	$DBPASS = 'meoow';
-	$THISCGI = "http://qs.abra.info/cgi/ab.pl";
+	$THISCGI = "http://qs.abra.btucson.com/cgi/ab.pl";
 }
 
 $INSTRUCTIONS = " For each category to be updated, reply to this message and \n".
@@ -87,7 +87,7 @@ print "Found user $userid\n";
 my $SENDMAIL = "/usr/lib/sendmail -t";
 my $lastErr = '';
 open(MAIL, "| $SENDMAIL") || die("Cannot open pipe to $SENDMAIL\n");
-print MAIL "From: abra\@abra.info\n";
+print MAIL "From: abra\@abra.btucson.com\n";
 print MAIL "To: $email\n";
 print MAIL "Subject: abra update\n"; 
 print MAIL "\n";

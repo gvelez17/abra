@@ -24,7 +24,7 @@ define("ADMIN_PAGE", APPLICATION_PATH."admin_user.php");
 // your path must be related to the site root.
  
 // change this constants to the right mail settings
-define("WEBMASTER_MAIL", "access_admin@abra.info"); 
+define("WEBMASTER_MAIL", "access_admin@abra.btucson.com"); 
 define("WEBMASTER_NAME", "The webmaster"); 
 define("ADMIN_MAIL", "gvelez17@gmail.com"); 
 define("ADMIN_NAME", "The site admin"); 

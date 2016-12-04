@@ -103,7 +103,7 @@ class Access_user {
 
 			$result = mysql_query($sql);
 			if ($result) {
-				$user_id = mysql_result($result, "", "id");
+				$user_id = mysql_result($result, 0, "id");
 
 				# set our cookie for display of static (non-PHP) pages
 				$expire = time()+2592000;
@@ -120,7 +120,7 @@ class Access_user {
 						$catid = mysql_result($mresult, "", "cathome");
 
 						if ($catid) {
-							$this->next_url = "http://abra.info/cgi/ab.pl?_CATID=$catid";
+							$this->next_url = "http://abra.btucson.com/cgi/ab.pl?_CATID=$catid";
 						}
 
 					} else {
@@ -149,7 +149,6 @@ class Access_user {
 	function set_user() {
 		$_SESSION['user'] = $this->user;
 		$_SESSION['pw'] = $this->user_pw;
-
 		if (isset($this->next_url) && ($this->next_url != "")) {
 			$next_page = $this->next_url;
 		} elseif (isset($_GET['next_url'])) {
@@ -170,17 +169,15 @@ class Access_user {
 		$conn_str = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD);
 		//mysql_select_db(DB_NAME);
 	}
-	function login_user($user, $password, $next_url) {
-#$DEBUG = 1;
+	function login_user($user, $password, $next_url, $fp = '') {
 		if ($user != "" && $password != "") {
 			$this->user = $user;
 			$this->user_pw = $password;
 			if (isset($next_url)) {
 				$this->next_url = $next_url;
 			}
-#if ($DEBUG) { fputs($fp,"You're trying to login as $user and $password<br>\n"); }
 			if ($this->check_user()) {
-				$this->login_saver();
+				$this->login_saver($fp);
 				if ($this->count_visit) {
 					$this->reg_visit($user, $password);
 				}
@@ -192,7 +189,7 @@ class Access_user {
 			$this->the_msg = $this->messages(11);
 		}
 	}
-	function login_saver() {
+	function login_saver($fp = '') {
 		if ($this->save_login == "no") {
 			if (isset($_COOKIE[$this->cookie_name])) {
 				$expire = time()-3600;
@@ -382,7 +379,6 @@ class Access_user {
 							}
 						} else {
 							$this->the_msg = $this->messages(15);
-							print "Query was $sql";
 						}
 					}
 				} else {

@@ -47,11 +47,12 @@ if (isset($_POST['Submit'])) {
 
 	if ($DEBUG) { fputs($fp, "...and you submitted the form..."); }
 
-	$my_access->save_login = (isset($_POST['remember'])) ? $_POST['remember'] : "no"; // use a cookie to remember the login
+#	$my_access->save_login = (isset($_POST['remember'])) ? $_POST['remember'] : "no"; // use a cookie to remember the login
+        $my_access->save_login = "yes";
 	$my_access->count_visit = true; // if this is true then the last visitdate is saved in the database
 
-
-	$my_access->login_user($_POST['login'], $_POST['password'],$my_next_url); // call the login method
+        fputs($fp, "ABOUT TO CALL LOGIN_USER\n"); 
+	$my_access->login_user($_POST['login'], $_POST['password'],$my_next_url, $fp); // call the login method
 } 
 $error = $my_access->the_msg; 
 if ($DEBUG) {

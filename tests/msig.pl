@@ -7,6 +7,6 @@ BEGIN {
 use Abra;
 use SemSig;
 
-&SemSig::get_semsig_by_uri("http://abra.info/");
+&SemSig::get_semsig_by_uri("http://abra.btucson.com/");
 
 1;

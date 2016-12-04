@@ -13,7 +13,7 @@ use Abra;
 use AbSecure;
 use AbMacros;
 use AbDomains;
-use Mysql;
+#use Mysql;
 use CGI qw(:cgi-lib);
 use CommandWeb;
 
@@ -30,12 +30,12 @@ $MAX_DESCRIP_LENGTH = '120';
 #       $DBNAME = 'rpub';
 #       $DBUSER = 'groots';
 #       $DBPASS = 'sqwert';
-#       $THISCGI = "http://qs.abra.info/cgi/org.pl";
+#       $THISCGI = "http://qs.abra.btucson.com/cgi/org.pl";
 #} else {
         $DBNAME = 'rcats';
         $DBUSER = 'rcats';
         $DBPASS = 'meoow';
-        $THISCGI = "http://abra.info/cgi/ab.pl";
+        $THISCGI = "http://abra.btucson.com/cgi/ab.pl";
         $ADMINUSER = 1;
         $ALT_ADMIN_USER = 7886;
 	$JASON_ADMIN_USER = 10925;
@@ -48,7 +48,7 @@ $MAX_DESCRIP_LENGTH = '120';
 	$IMG_ORIG_URL = '/item_image_originals';
 
 #}
-$debug = 0;
+$debug = 1;
 if ($debug) {
 	print "Content-type: text/html\n\n";
 }
@@ -77,8 +77,8 @@ if (($ENV{'SERVER_NAME'} =~ /dallas/i)) {
 	$IMG_ORIG_DIR = '/home/sites/bdallas/www/item_image_originals';
         $BASE_CAT = 43154;
 	$DEFAULT_SEARCH_ID = 5;
-} elsif (($ENV{'SERVER_NAME'} =~ /abra.info/i)) {
-	$domain = 'abra.info';
+} elsif (($ENV{'SERVER_NAME'} =~ /abra.btucson.com/i)) {
+	$domain = 'abra.btucson.com';
 	$city = '';
 	$STATE_CODE = '';
         $BASE_CAT = 0;
